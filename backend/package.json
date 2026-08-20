@@ -1,4 +1,10 @@
 {
+  "name": "vk-digital-hub-backend",
+  "private": true,
+  "scripts": {
+    "start": "node --env-file=.env src/server.js",
+    "test:smoke": "node --env-file=.env -e \"const app=require('./src/server'); const request=require('http').request; const server=app.listen(0,()=>{const port=server.address().port; const body=JSON.stringify({businessName:'Test Salon',phone:'123'}); const req=request({port,path:'/api/leads',method:'POST',headers:{'Content-Type':'application/json','Content-Length':Buffer.byteLength(body)}},res=>{let data='';res.on('data',chunk=>data+=chunk);res.on('end',()=>{console.log(res.statusCode,data);server.close();process.exit(res.statusCode===400?0:1);});});req.on('error',()=>process.exit(1));req.write(body);req.end();});\""
+  },
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
