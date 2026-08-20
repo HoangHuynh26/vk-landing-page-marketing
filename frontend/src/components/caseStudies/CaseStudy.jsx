@@ -43,10 +43,14 @@ function CaseStudyCard({ study }) {
 export default function CaseStudy({ study, studies }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const carouselStudies = studies || (study ? [ ] : []);
+  const carouselStudies = studies || (study ? [study] : []);
 
   useEffect(() => {
-    if (isPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (
+      carouselStudies.length <= 1 ||
+      isPaused ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
       return undefined;
     }
 
@@ -56,6 +60,10 @@ export default function CaseStudy({ study, studies }) {
 
     return () => window.clearInterval(timer);
   }, [carouselStudies.length, isPaused]);
+
+  if (carouselStudies.length === 0) {
+    return null;
+  }
 
   if (carouselStudies.length <= 1) {
     return <CaseStudyCard study={carouselStudies[0]} />;

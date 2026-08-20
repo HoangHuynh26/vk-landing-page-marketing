@@ -33,7 +33,7 @@ export default function FAQPage() {
         </Suspense>
         <img
           className="faq-visual"
-          src="/logo192.png"
+          src="/logo.png"
           alt="VK Digital Hub"
           width="192"
           height="192"
@@ -41,9 +41,9 @@ export default function FAQPage() {
         />
       </section>
       <section className="page-cta">
-        <div className="page-shell">
+        <div className="page-shell" style={{padding:"20px 0px 80px 0px"}}>
           <div>
-            <p className="eyebrow">{t("pages.faq.prompt")}</p>
+            <p style={{fontSize:"16px", fontFamily: "SF Pro"}} className="eyebrow">{t("pages.faq.prompt")}</p>
             <h2>{t("pages.faq.cta")}</h2>
           </div>
           <GlowButton />

@@ -255,6 +255,7 @@ export const translations = {
       close: "Thu nhỏ cửa sổ chat",
       support: "Hỗ trợ nhanh",
       placeholder: "Bạn muốn hỏi điều gì?",
+      emptyQuestion: "Vui lòng nhập câu hỏi trước khi gửi.",
       send: "Gửi câu hỏi",
       welcome: "Chào bạn! Em có thể hỗ trợ gì cho anh/chị?",
       inactivity:
@@ -660,6 +661,7 @@ export const translations = {
       close: "Minimize chat window",
       support: "Quick support",
       placeholder: "What would you like to ask?",
+      emptyQuestion: "Please enter a question before sending.",
       send: "Send question",
       welcome: "Hi! How can I help you today?",
       inactivity:

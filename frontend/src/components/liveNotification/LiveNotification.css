@@ -98,9 +98,20 @@
 }
 @media (max-width: 760px) {
   .live-notification {
-    left: 16px;
-    bottom: 16px;
-    width: min(360px, calc(100% - 32px));
+    left: 12px;
+    bottom: 12px;
+    gap: 8px;
+    width: min(250px, calc(100% - 24px));
+    padding: 9px 10px;
+    border-radius: 7px;
+  }
+  .live-notification p {
+    margin-top: 2px;
+    font-size: 10px;
+    line-height: 1.3;
+  }
+  .live-notification button {
+    font-size: 16px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

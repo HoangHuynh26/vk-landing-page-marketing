@@ -3,7 +3,7 @@ import { useLanguage } from "../../i18n/LanguageContext";
 
 export default function GlowButton({
   children,
-  href = "#lead-form",
+  href = "/#lead-form",
   className = "",
 }) {
   const { t } = useLanguage();

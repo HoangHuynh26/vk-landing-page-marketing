@@ -10,6 +10,7 @@ export default function Chatbot() {
   const [open, setOpen] = useState(false);
   const [promptVisible, setPromptVisible] = useState(false);
   const [question, setQuestion] = useState("");
+  const [inputError, setInputError] = useState("");
   const [messages, setMessages] = useState([]);
   const [replyIds, setReplyIds] = useState(null);
   const [followUps, setFollowUps] = useState([]);
@@ -80,7 +81,12 @@ export default function Chatbot() {
   function sendMessage(event) {
     event.preventDefault();
     const text = question.trim();
-    if (!text) return;
+    if (!text) {
+      setInputError(t("chatbot.emptyQuestion"));
+      inputRef.current?.focus();
+      return;
+    }
+    setInputError("");
     setMessages((current) => [
       ...current,
       { from: "user", text },
@@ -179,7 +185,10 @@ export default function Chatbot() {
               ref={inputRef}
               id="chat-question"
               value={question}
-              onChange={(event) => setQuestion(event.target.value)}
+              onChange={(event) => {
+                setQuestion(event.target.value);
+                if (inputError) setInputError("");
+              }}
               placeholder={t("chatbot.placeholder")}
               autoComplete="off"
             />
@@ -187,6 +196,11 @@ export default function Chatbot() {
               →
             </button>
           </form>
+          {inputError && (
+            <p className="chat-input-error" role="alert">
+              {inputError}
+            </p>
+          )}
         </section>
       )}
     </div>

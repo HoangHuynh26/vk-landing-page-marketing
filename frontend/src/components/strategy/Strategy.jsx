@@ -29,7 +29,7 @@ export default function Strategy() {
       <div className="page-shell strategy-layout">
         <div className="strategy-story-column">
           <div className="strategy-copy">
-            <p className="eyebrow dark-eyebrow">{t("strategy.eyebrow")}</p>
+            <p style={{fontFamily: "SF Pro", fontSize: "20px"}} className="eyebrow dark-eyebrow">{t("strategy.eyebrow")}</p>
             <h2 id="strategy-title">
               {t("strategy.title")}
               <br />

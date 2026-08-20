@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function LazyLoad({ children, className = "" }) {
+export default function LazyLoad({ children, className = "", force = false }) {
   const containerRef = useRef(null);
-  const [shouldRender, setShouldRender] = useState(false);
+  const [shouldRender, setShouldRender] = useState(force);
 
   useEffect(() => {
     const container = containerRef.current;

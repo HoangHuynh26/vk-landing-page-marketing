@@ -12,7 +12,7 @@ export default function About() {
   return (
     <main className="about-page">
       <section className="about-hero page-shell">
-        <p className="eyebrow dark-eyebrow">{page.eyebrow}</p>
+        <p style={{fontFamily: "SF Pro", fontSize: "20px"}} className="eyebrow dark-eyebrow">{page.eyebrow}</p>
         <h1>
           {page.title}
           <br />
@@ -23,14 +23,14 @@ export default function About() {
       </section>
       <section className="about-mission page-shell">
         <div>
-          <p className="eyebrow dark-eyebrow">{page.missionEyebrow}</p>
+          <p style={{fontFamily: "SF Pro", fontSize: "20px"}} className="eyebrow dark-eyebrow">{page.missionEyebrow}</p>
           <h2>{page.mission}</h2>
         </div>
         <p>{page.missionCopy}</p>
       </section>
       <section className="about-services">
         <div className="page-shell">
-          <p className="eyebrow">{page.servicesEyebrow}</p>
+          <p style={{fontFamily: "SF Pro", fontSize: "20px"}} className="eyebrow">{page.servicesEyebrow}</p>
           <h2>
             {page.servicesTitle}
             <br />
@@ -38,7 +38,7 @@ export default function About() {
           </h2>
           <img
             className="about-visual"
-            src="/logo512.png"
+            src="/logo.png"
             alt="VK Digital Hub"
             width="512"
             height="512"
@@ -47,7 +47,7 @@ export default function About() {
           <div className="service-grid">
             {page.services.map((service, index) => (
               <article key={service.title}>
-                <span>0{index + 1}</span>
+                <span style={{fontSize: "15px"}}>0{index + 1}</span>
                 <h3>{service.title}</h3>
                 <p>{service.copy}</p>
               </article>
@@ -69,7 +69,7 @@ export default function About() {
       </Suspense>
       <section className="about-cta">
         <div className="page-shell">
-          <p className="eyebrow">{page.ctaEyebrow}</p>
+          <p style={{fontFamily: "SF Pro", fontSize: "20px"}} className="eyebrow">{page.ctaEyebrow}</p>
           <h2>{page.cta}</h2>
           <GlowButton />
         </div>

@@ -1,4 +1,5 @@
 .lead-form {
+  scroll-margin-top: 116px;
   display: grid;
   grid-template-columns: 0.2fr 0.3fr 0.3fr 0.3fr;
   align-items: end;

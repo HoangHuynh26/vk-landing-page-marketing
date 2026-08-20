@@ -170,6 +170,11 @@
   font-size: 20px;
   cursor: pointer;
 }
+.chat-input-error {
+  margin: -8px 12px 10px;
+  color: #b42318;
+  font-size: 11px;
+}
 @keyframes chatbot-reveal {
   from {
     opacity: 0;
