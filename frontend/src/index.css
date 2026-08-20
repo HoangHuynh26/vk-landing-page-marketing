@@ -56,6 +56,11 @@ button {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
 }
+@media (max-width: 900px) {
+  .page-shell {
+    width: min(100% - 48px, 1120px);
+  }
+}
 .glow-btn:focus-visible,
 .menu-toggle:focus-visible,
 button:focus-visible,

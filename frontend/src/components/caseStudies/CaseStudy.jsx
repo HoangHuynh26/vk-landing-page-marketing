@@ -4,37 +4,43 @@ import "./CaseStudy.css";
 
 function CaseStudyCard({ study }) {
   const { t } = useLanguage();
+  const caseStudyContent = t("caseStudy");
+  const translatedStudy = t(`caseStudy.studies.${study.id}`);
+  const content =
+    translatedStudy && typeof translatedStudy === "object"
+      ? { ...caseStudyContent, ...translatedStudy }
+      : caseStudyContent;
   return (
     <article className={`case-study case-study--${study.id}`}>
       <div className="case-heading">
-        <p className="eyebrow dark-eyebrow">{t("caseStudy.eyebrow")}</p>
-        <h2>{t("caseStudy.title")}</h2>
+        <p style={{fontSize:"25px", fontFamily: "Inter Regular"}} className="eyebrow dark-eyebrow">{t("caseStudy.eyebrow")}</p>
+        <h2>{content.title}</h2>
       </div>
       <img
         className="case-study-image"
-        src="/logo512.png"
+        src="/logo.png"
         alt="VK Digital Hub"
-        width="512"
-        height="512"
+        width="100px"
+        height="100px"
         loading="lazy"
       />
       <div className="case-metrics">
         <div>
-          <span>{t("caseStudy.beforeLabel")}</span>
+          <span style={{fontSize:"15px"}}>{t("caseStudy.beforeLabel")}</span>
           <strong>{study.beforeValue}</strong>
-          <p>{t("caseStudy.before")}</p>
+          <p style={{fontSize:"20px"}}>{content.before}</p>
         </div>
         <div className="metric-arrow" aria-label={t("caseStudy.arrow")}>
           →
         </div>
         <div className="after-metric">
-          <span>{t("caseStudy.afterLabel")}</span>
+          <span style={{fontSize:"15px"}}>{t("caseStudy.afterLabel")}</span>
           <strong>{study.afterValue}</strong>
-          <p>{t("caseStudy.after")}</p>
+          <p style={{fontSize:"20px"}}>{content.after}</p>
         </div>
       </div>
       <blockquote>
-        “{t("caseStudy.testimonial")}"<cite>— {t("caseStudy.author")}</cite>
+        “{content.testimonial}”<cite style={{fontSize:"20px"}}>— {content.author}</cite>
       </blockquote>
     </article>
   );

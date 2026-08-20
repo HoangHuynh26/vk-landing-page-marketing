@@ -92,12 +92,12 @@
 }
 .steps-list {
   display: grid;
-  gap: 16px;
+  gap: 10px;
 }
 .step {
   display: block;
-  min-height: 110vh;
-  padding: 30vh 22px 18vh 0;
+  min-height: 72vh;
+  padding: 10px 22px 10vh 0;
   opacity: 0.42;
   transition: opacity 0.7s ease;
 }
@@ -141,8 +141,8 @@
 .strategy-visual-panel {
   position: relative;
   width: 100%;
-  min-height: min(700px, calc(100vh - 140px));
-  max-height: calc(100vh - 140px);
+  min-height: min(560px, calc(100vh - 160px));
+  max-height: calc(100vh - 160px);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 22px;
@@ -195,7 +195,7 @@
   }
   .step {
     min-height: 0;
-    padding: 64px 0;
+    padding: 42px 0;
     opacity: 1;
   }
   .step h3 {
@@ -216,6 +216,30 @@
   .strategy-proof-image-wrap { width: 76px; }
   .strategy-proof-image-two { left: 36px; }
   .strategy-proof-image-three { left: 72px; }
+}
+@media (min-width: 761px) {
+  .strategy-caption {
+    margin-top: 42px !important;
+    margin-bottom: 42px !important;
+  }
+  .strategy-proof-gallery {
+    width: min(520px, 70vw);
+    height: 190px;
+  }
+  .strategy-proof-image-wrap {
+    width: 150px;
+  }
+  .strategy-proof-image-one {
+    top: 26px;
+    left: 18px;
+  }
+  .strategy-proof-image-two {
+    left: calc(50% - 75px);
+  }
+  .strategy-proof-image-three {
+    top: 26px;
+    right: 18px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .step,

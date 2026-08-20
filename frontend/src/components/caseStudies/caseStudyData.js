@@ -14,4 +14,9 @@ export const caseStudies = [
     beforeValue: 12,
     afterValue: 41,
   },
+  {
+    id: "sydney-d",
+    beforeValue: 6,
+    afterValue: 29,
+  },
 ];

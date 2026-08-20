@@ -117,6 +117,12 @@ export const translations = {
       ],
     },
     caseStudy: {
+      studies: {
+        "perth-a": { title: "Tiệm Nails A tại Perth", before: "5 khách/tuần với quảng cáo chưa hiệu quả.", after: "25 khách/tuần, doanh thu tăng 200%.", testimonial: "Marketing đã trở thành khoản đầu tư sinh lời nhất.", author: "Chủ tiệm A" },
+        "melbourne-b": { title: "Tiệm Nails B tại Melbourne", before: "8 khách/tuần và chưa có chiến lược tăng trưởng ổn định.", after: "32 khách/tuần sau khi triển khai.", testimonial: "Bản kế hoạch giúp chúng tôi biết bước tiếp theo.", author: "Chủ tiệm B" },
+        "brisbane-c": { title: "Tiệm Nails C tại Brisbane", before: "12 khách/tuần với tăng trưởng chưa ổn định.", after: "41 khách/tuần với kết quả đo lường rõ ràng.", testimonial: "Chúng tôi nhìn thấy kết quả rõ ràng mỗi tuần.", author: "Chủ tiệm C" },
+        "sydney-d": { title: "Tiệm Nails D tại Sydney", before: "6 khách/tuần với khả năng tiếp cận địa phương thấp.", after: "29 khách/tuần nhờ chiến dịch địa phương phù hợp.", testimonial: "Thông điệp đúng đã thu hút đúng khách hàng.", author: "Chủ tiệm D" },
+      },
       eyebrow: "Dự án thực tế",
       title: "Tiệm Nails A tại Perth",
       beforeLabel: "Trước",
@@ -521,6 +527,12 @@ export const translations = {
       ],
     },
     caseStudy: {
+      studies: {
+        "perth-a": { title: "Nails Salon A in Perth", before: "5 clients/week with ineffective advertising.", after: "25 clients/week and revenue up 200%.", testimonial: "Marketing became our most profitable investment.", author: "Salon owner A" },
+        "melbourne-b": { title: "Nails Salon B in Melbourne", before: "8 clients/week without a reliable growth strategy.", after: "32 clients/week after launch.", testimonial: "The plan made our next steps clear.", author: "Salon owner B" },
+        "brisbane-c": { title: "Nails Salon C in Brisbane", before: "12 clients/week with inconsistent growth.", after: "41 clients/week with measurable results.", testimonial: "We can see the results clearly every week.", author: "Salon owner C" },
+        "sydney-d": { title: "Nails Salon D in Sydney", before: "6 clients/week with low local visibility.", after: "29 clients/week from targeted local campaigns.", testimonial: "The right message brought the right clients.", author: "Salon owner D" },
+      },
       eyebrow: "CASE STUDY",
       title: "Nails Salon A in Perth",
       beforeLabel: "BEFORE",

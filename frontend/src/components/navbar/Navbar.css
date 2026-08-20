@@ -45,7 +45,7 @@
   height: 42px;
   flex: 0 0 42px;
   border-radius: 12px;
-  object-fit: cover;
+  object-fit: fit;
 }
 .brand-mark {
   display: grid;
@@ -190,7 +190,7 @@
 .site-header.is-inner-page .menu-toggle {
   color: var(--dark);
 }
-@media (max-width: 760px) {
+@media (max-width: 860px) {
   .nav-shell {
     width: min(100% - 32px, 1120px);
   }

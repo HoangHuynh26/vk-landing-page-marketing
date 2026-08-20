@@ -70,3 +70,11 @@
     width: 100%;
   }
 }
+@media (min-width: 761px) and (max-width: 1024px) {
+  .lead-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lead-form button {
+    width: 100%;
+  }
+}

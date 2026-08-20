@@ -45,11 +45,11 @@
 }
 .case-study-image {
   display: block;
-  width: 100%;
-  max-width: 180px;
-  height: 120px;
+  width: 100px;
+  max-width: auto;
+  height: 100px;
   margin: 28px 0 0 auto;
-  object-fit: contain;
+  object-fit: fit;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.35);
 }

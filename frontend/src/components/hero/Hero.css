@@ -1,6 +1,7 @@
 .hero {
   position: relative;
-  min-height: 825px;
+  min-height: 100svh;
+  height: 100svh;
   display: grid;
   align-items: center;
   overflow: hidden;
@@ -15,6 +16,7 @@
   height: 100%;
 }
 .hero-video {
+  display: block;
   object-fit: cover;
   opacity: 0.42;
   border: 0;
@@ -25,6 +27,10 @@
 .hero-content {
   position: relative;
   z-index: 1;
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding-right: 20px;
+  padding-left: 20px;
   padding-top: 76px;
   text-align: center;
 }
@@ -43,7 +49,7 @@
   letter-spacing: 0.18em;
 }
 .hero h1 {
-  max-width: 980px;
+  max-width: 100%;
   margin: 0 auto;
   font-size: clamp(34px, 4.4vw, 56px);
   line-height: 1.1;
@@ -61,10 +67,10 @@
   color: black;
 }
 .hero-subcopy {
-  max-width: 760px;
+  max-width: 100%;
   margin: 28px auto 34px;
   color: black;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1.6;
 }
 .hero-actions {
@@ -75,12 +81,12 @@
 }
 .hero-actions .glow-btn {
   min-width: 410px;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .hero-actions > span {
   color: black;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.5;
 }
 .hero-caption {
@@ -114,7 +120,7 @@
   bottom: 28px;
   left: 50%;
   color: #e7bb68;
-  font-size: 24px;
+  font-size: 25px;
   animation: hero-drift 2s ease-in-out infinite;
 }
 @keyframes hero-drift {
@@ -124,15 +130,22 @@
 }
 @media (max-width: 760px) {
   .hero {
-    min-height: 780px;
+    min-height: 100svh;
+    height: 100svh;
   }
   .hero-content {
-    padding-top: 110px;
+    padding-top: 88px;
+    padding-right: 16px;
+    padding-left: 16px;
   }
   .hero h1 {
-    font-size: clamp(32px, 8vw, 46px);
+    max-width: 620px;
+    font-size: clamp(30px, 8vw, 46px);
   }
   .hero-subcopy {
+    max-width: 540px;
+    margin-top: 20px;
+    margin-bottom: 26px;
     font-size: 16px;
   }
   .hero-actions {
@@ -144,7 +157,37 @@
     min-width: 0;
   }
   .hero-caption {
-    bottom: 20px;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    justify-content: center;
+    max-width: none;
+    overflow: hidden;
     font-size: 11px;
+    white-space: normal;
+    text-align: center;
+  }
+  .scroll-cue {
+    display: none;
+  }
+}
+@media (min-width: 761px) and (max-width: 1024px) {
+  .hero {
+    min-height: 100svh;
+    height: 100svh;
+  }
+  .hero-content {
+    padding-top: 92px;
+  }
+  .hero h1 {
+    max-width: 780px;
+    font-size: clamp(36px, 5.5vw, 52px);
+  }
+  .hero-subcopy {
+    max-width: 650px;
+    font-size: 17px;
+  }
+  .hero-actions .glow-btn {
+    min-width: min(410px, 70vw);
   }
 }

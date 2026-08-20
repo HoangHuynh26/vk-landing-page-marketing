@@ -24,7 +24,7 @@ export default function Hero() {
       />
       <div className="hero-overlay" />
       <div className="page-shell hero-content">
-        <h1 id="hero-title">
+        <h1 id="hero-title" style={{widt:"100%"}}>
           {t("hero.title")} <em>{t("hero.emphasis")}</em>{" "}
           <span className="hero-guarantee">{t("hero.copy")}</span>
         </h1>
