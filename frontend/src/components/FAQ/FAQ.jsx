@@ -33,7 +33,7 @@ export default function FAQ({ items, compact = false }) {
               role="region"
               aria-hidden={!isOpen}
             >
-              <p>{item.answer}</p>
+              <p style={{fontSize:"17px"}}>{item.answer}</p>
             </div>
           </article>
         );

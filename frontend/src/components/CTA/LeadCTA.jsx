@@ -25,15 +25,13 @@ export default function LeadCTA() {
             )}
           </h1>
         </div>
-        <Suspense fallback={null}>
-          <FAQ />
-        </Suspense>
-        <p className="faq-ending">{t("faq.ending")}</p>
+        <FAQ />
+        <p style={{fontSize:"14px"}} className="faq-ending">{t("faq.ending")}</p>
         <GlowButton />
       </section>
       <section className="lead-cta" aria-labelledby="lead-title">
         <div className="page-shell">
-          <p className="eyebrow">{t("cta.eyebrow")}</p>
+          <p style={{fontSize:"20px", fontFamily:"SF Pro"}} className="eyebrow">{t("cta.eyebrow")}</p>
           <h2 id="lead-title">{t("cta.title")}</h2>
           <p>{t("cta.copy")}</p>
           <LeadForm />
