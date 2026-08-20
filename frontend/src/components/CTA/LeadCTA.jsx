@@ -25,7 +25,9 @@ export default function LeadCTA() {
             )}
           </h1>
         </div>
-        <FAQ />
+        <Suspense fallback={null}>
+          <FAQ />
+        </Suspense>
         <p style={{fontSize:"14px"}} className="faq-ending">{t("faq.ending")}</p>
         <GlowButton />
       </section>
