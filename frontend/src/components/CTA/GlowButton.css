@@ -1,0 +1,56 @@
+.glow-btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  overflow: hidden;
+  border-radius: 999px;
+  color: white;
+  background: var(--primary-dark);
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+  box-shadow: 0 12px 24px rgba(15, 118, 110, 0.25);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.glow-btn::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -120%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0 72%,
+    var(--gold) 78%,
+    var(--accent) 82%,
+    transparent 88%
+  );
+  animation: glow-button-beam 3.5s linear infinite;
+}
+.glow-btn::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 2px;
+  border-radius: inherit;
+  background: var(--primary-dark);
+}
+.glow-btn span {
+  position: relative;
+}
+.glow-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 30px rgba(15, 118, 110, 0.35),
+    0 0 0 4px rgba(201, 151, 78, 0.16);
+}
+@keyframes glow-button-beam {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,111 @@
+.live-notification {
+  position: fixed;
+  z-index: 15;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: min(360px, calc(100% - 32px));
+  padding: 15px;
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 253, 249, 0.96);
+  box-shadow: 0 14px 34px rgba(23, 34, 31, 0.18);
+  animation: notification-reveal 0.35s ease both;
+}
+.live-notification {
+  position: fixed;
+  z-index: 15;
+  left: 24px;
+  bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: min(360px, calc(100% - 32px));
+  padding: 15px;
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 253, 249, 0.96);
+  box-shadow: 0 14px 34px rgba(23, 34, 31, 0.18);
+  transform: translateX(calc(-100% - 24px));
+}
+.live-notification-entering,
+.live-notification-visible {
+  transform: translateX(0);
+}
+.live-notification-entering {
+  animation: notification-enter 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.live-notification-exiting {
+  animation: notification-exit 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19) both;
+}
+.live-dot {
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: #2f855a;
+  box-shadow: 0 0 0 5px rgba(47, 133, 90, 0.13);
+}
+.live-notification strong {
+  font-size: 12px;
+}
+.live-notification p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.4;
+}
+.live-notification button {
+  margin-left: auto;
+  border: 0;
+  color: var(--muted);
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+@keyframes notification-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes notification-enter {
+  from {
+    opacity: 0;
+    transform: translateX(calc(-100% - 24px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes notification-exit {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(calc(-100% - 24px));
+  }
+}
+@media (max-width: 760px) {
+  .live-notification {
+    left: 16px;
+    bottom: 16px;
+    width: min(360px, calc(100% - 32px));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .live-notification-entering,
+  .live-notification-exiting {
+    animation-duration: 0.01ms;
+  }
+}

@@ -1,0 +1,15 @@
+.home-page > .pain-solution {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+.home-page > .case-study-section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+@media (max-width: 760px) {
+  .home-page > .pain-solution,
+  .home-page > .case-study-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}

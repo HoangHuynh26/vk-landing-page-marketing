@@ -1,0 +1,126 @@
+.pain-solution {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+.dark-eyebrow {
+  color: var(--primary);
+}
+.pain-solution h2 {
+  margin: 0;
+  color: var(--dark);
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.08;
+}
+.pain-solution h2 em {
+  color: var(--primary);
+  font-style: normal;
+}
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 44px;
+}
+.pain-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --mx: 50%;
+  --my: 50%;
+  --reveal-delay: calc(var(--card-index, 0) * 140ms);
+  position: relative;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(23, 34, 31, 0.1);
+  border-radius: 8px;
+  background:
+    radial-gradient(
+      circle at var(--mx) var(--my),
+      rgba(201, 151, 78, 0.14),
+      transparent 34%
+    ),
+    var(--surface);
+  box-shadow: 0 14px 28px rgba(23, 34, 31, 0.06);
+  opacity: 0;
+  transform: translate3d(0, 70px, 0);
+  will-change: opacity, transform;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+}
+.pain-card.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: var(--reveal-delay);
+}
+.pain-card.is-revealed:hover {
+  transition-delay: 0ms;
+}
+.pain-card:hover {
+  transform: translateY(-7px) rotateX(var(--rx)) rotateY(var(--ry));
+  box-shadow: 0 22px 38px rgba(23, 34, 31, 0.14);
+}
+.card-number {
+  color: var(--gold);
+  font-size: 20px;
+  font-weight: 800;
+}
+.pain-card h3 {
+  margin: 22px 0 12px;
+  font-size: 22px;
+}
+.pain-card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.pain-text {
+  min-height: 72px;
+}
+.pain-card div {
+  margin-top: 22px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(23, 34, 31, 0.08);
+}
+.pain-card b {
+  color: var(--accent);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.pain-card div p {
+  margin-bottom: 0;
+}
+@media (max-width: 760px) {
+  .pain-solution {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .pain-grid {
+    grid-template-columns: 1fr;
+  }
+  .pain-card:hover {
+    transform: translateY(-5px);
+  }
+}
+@media (pointer: coarse) {
+  .pain-card {
+    --rx: 0deg;
+    --ry: 0deg;
+  }
+  .pain-card:hover {
+    transform: translateY(-4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pain-card,
+  .pain-card.is-revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+  .pain-card:hover {
+    transform: none;
+  }
+}

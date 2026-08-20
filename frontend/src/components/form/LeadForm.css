@@ -1,0 +1,71 @@
+.lead-form {
+  display: grid;
+  grid-template-columns: 0.2fr 0.3fr 0.3fr 0.3fr;
+  align-items: end;
+  gap: 12px;
+}
+.lead-form label {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  font-weight: 700;
+}
+.lead-form input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+  color: white;
+  background: rgba(255, 255, 255, 0.09);
+  font: inherit;
+  outline: none;
+}
+.lead-form input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 151, 78, 0.18);
+}
+.lead-form button {
+  min-height: 50px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--dark);
+  background: var(--gold);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+.lead-form button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: #e3b968;
+}
+.lead-form button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+.form-message {
+  grid-column: 1 / -1;
+  margin: 2px 0 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+}
+.form-message-validation,
+.form-message-failure {
+  color: #ffb19a;
+}
+.form-message-success {
+  color: #a7ddb7;
+}
+@media (max-width: 760px) {
+  .lead-form {
+    grid-template-columns: 1fr;
+  }
+  .lead-form button {
+    width: 100%;
+  }
+}
