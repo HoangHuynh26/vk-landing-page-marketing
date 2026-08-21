@@ -4,9 +4,26 @@ import "./Hero.css";
 import { useState } from "react";
 import { useLanguage } from "../../i18n/LanguageContext";
 
+const INITIAL_BUFFER_SECONDS = 10;
+
+export function hasInitialVideoBuffer(video) {
+  if (!video?.buffered?.length) {
+    return false;
+  }
+
+  return video.buffered.end(video.buffered.length - 1) >= INITIAL_BUFFER_SECONDS;
+}
+
 export default function Hero() {
   const { t } = useLanguage();
   const [isVideoLoading, setIsVideoLoading] = useState(true);
+
+  const handleVideoProgress = (event) => {
+    if (hasInitialVideoBuffer(event.currentTarget)) {
+      setIsVideoLoading(false);
+    }
+  };
+
   return (
     <section className="hero" aria-labelledby="hero-title">
       {isVideoLoading && <Loading />}
@@ -19,7 +36,7 @@ export default function Hero() {
         playsInline
         preload="auto"
         aria-hidden="true"
-        onCanPlay={() => setIsVideoLoading(false)}
+        onProgress={handleVideoProgress}
         onError={() => setIsVideoLoading(false)}
       />
       <div className="hero-overlay" />
