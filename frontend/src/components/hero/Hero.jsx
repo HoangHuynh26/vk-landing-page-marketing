@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useLanguage } from "../../i18n/LanguageContext";
 
 export function isVideoReady(video) {
+  return Boolean(video && video.readyState >= 3);
 }
 
 export default function Hero() {
@@ -16,14 +17,18 @@ export default function Hero() {
       {isVideoLoading && <Loading />}
       <video
         className="hero-video"
-        src="/background.webm"
+        src="/background.mp4"
         autoPlay
         muted
         loop
         playsInline
         preload="metadata"
         aria-hidden="true"
-        onCanPlay={() => setIsVideoLoading(false)}
+        onCanPlay={(event) => {
+          if (isVideoReady(event.currentTarget)) {
+            setIsVideoLoading(false);
+          }
+        }}
         onError={() => setIsVideoLoading(false)}
       />
       <div className="hero-overlay" />
