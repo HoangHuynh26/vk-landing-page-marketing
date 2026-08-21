@@ -6,7 +6,7 @@ import { useLanguage } from "../../i18n/LanguageContext";
 const initialForm = { businessName: "", email: "", phone: "" };
 
 export default function LeadForm() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
@@ -43,7 +43,7 @@ export default function LeadForm() {
     setStatus("submitting");
     setMessage("");
     try {
-      await submitLead({ businessName, email, phone });
+      await submitLead({ businessName, email, phone, language });
       setStatus("success");
       setMessage(t("form.success"));
       setForm(initialForm);
@@ -112,6 +112,22 @@ export default function LeadForm() {
         >
           {message}
         </p>
+      )}
+      {status === "success" && (
+        <div className="success-modal-backdrop" role="presentation">
+          <div
+            className="success-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="lead-success-title"
+          >
+            <h2 id="lead-success-title">✓</h2>
+            <p>{message}</p>
+            <button type="button" onClick={() => setStatus("idle")}>
+              OK
+            </button>
+          </div>
+        </div>
       )}
     </form>
   );

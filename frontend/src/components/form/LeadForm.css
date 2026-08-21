@@ -62,6 +62,37 @@
 .form-message-success {
   color: #a7ddb7;
 }
+.success-modal-backdrop {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(4, 20, 20, 0.72);
+}
+.success-modal {
+  width: min(100%, 420px);
+  padding: 32px 28px 28px;
+  border: 1px solid rgba(201, 151, 78, 0.4);
+  border-radius: 16px;
+  color: white;
+  background: var(--primary-dark);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+.success-modal h2 {
+  margin: 0;
+  color: #a7ddb7;
+  font-size: 40px;
+}
+.success-modal p {
+  margin: 14px 0 24px;
+  line-height: 1.5;
+}
+.success-modal button {
+  min-width: 100px;
+}
 @media (max-width: 760px) {
   .lead-form {
     grid-template-columns: 1fr;

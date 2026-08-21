@@ -1,5 +1,5 @@
 async function forwardLeadToMake(lead) {
-  const webhookUrl = process.env.MAKE_WEBHOOK_URL;
+  const webhookUrl = process.env.Webhook_URL;
   if (!webhookUrl) return { configured: false };
   const response = await fetch(webhookUrl, {
     method: "POST",

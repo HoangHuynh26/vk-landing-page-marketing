@@ -5,18 +5,32 @@ import { caseStudies } from "../../components/caseStudies/caseStudyData";
 import LiveNotification from "../../components/liveNotification/LiveNotification";
 import LazyLoad from "../../components/common/LazyLoad";
 import Statistics from "../../components/statistic/Statistics";
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import "./Home.css";
 
 const Strategy = lazy(() => import("../../components/strategy/Strategy"));
 const CaseStudy = lazy(() => import("../../components/caseStudies/CaseStudy"));
 const LeadCTA = lazy(() => import("../../components/CTA/LeadCTA"));
 
+export function getShouldOpenForm(hash) {
+  return hash === "#lead-form";
+}
+
 export default function Home() {
-  const shouldOpenForm = window.location.hash === "#lead-form";
+  const [shouldOpenForm, setShouldOpenForm] = useState(
+    getShouldOpenForm(window.location.hash),
+  );
 
   useEffect(() => {
-    if (window.location.hash !== "#lead-form") return;
+    const handleHashChange = () => {
+      setShouldOpenForm(getShouldOpenForm(window.location.hash));
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  useEffect(() => {
+    if (!shouldOpenForm) return;
 
     let attempts = 0;
     const timer = window.setInterval(() => {
@@ -32,7 +46,7 @@ export default function Home() {
     }, 50);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [shouldOpenForm]);
 
   return (
     <main className="home-page">

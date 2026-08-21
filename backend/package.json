@@ -8,6 +8,7 @@
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
-    "init": "^0.1.2"
+    "init": "^0.1.2",
+    "serverless-http": "^4.0.0"
   }
 }

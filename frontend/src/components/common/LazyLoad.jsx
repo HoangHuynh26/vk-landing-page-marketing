@@ -29,7 +29,7 @@ export default function LazyLoad({ children, className = "", force = false }) {
 
   return (
     <div ref={containerRef} className={className}>
-      {shouldRender ? children : <div className="lazy-section-placeholder" aria-hidden="true" />}
+      {force || shouldRender ? children : <div className="lazy-section-placeholder" aria-hidden="true" />}
     </div>
   );
 }

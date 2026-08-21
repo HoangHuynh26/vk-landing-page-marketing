@@ -1,6 +1,7 @@
 export async function submitLead(payload) {
+  const apiUrl = process.env.REACT_APP_API_URL || "";
   const response = await fetch(
-    `${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/leads`,
+    `${apiUrl}/api/leads`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
