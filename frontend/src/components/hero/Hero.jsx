@@ -4,39 +4,26 @@ import "./Hero.css";
 import { useState } from "react";
 import { useLanguage } from "../../i18n/LanguageContext";
 
-const INITIAL_BUFFER_SECONDS = 10;
-
-export function hasInitialVideoBuffer(video) {
-  if (!video?.buffered?.length) {
-    return false;
-  }
-
-  return video.buffered.end(video.buffered.length - 1) >= INITIAL_BUFFER_SECONDS;
+export function isVideoReady(video) {
 }
 
 export default function Hero() {
   const { t } = useLanguage();
   const [isVideoLoading, setIsVideoLoading] = useState(true);
 
-  const handleVideoProgress = (event) => {
-    if (hasInitialVideoBuffer(event.currentTarget)) {
-      setIsVideoLoading(false);
-    }
-  };
-
   return (
     <section className="hero" aria-labelledby="hero-title">
       {isVideoLoading && <Loading />}
       <video
         className="hero-video"
-        src="/background.mp4"
+        src="/background.webm"
         autoPlay
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         aria-hidden="true"
-        onProgress={handleVideoProgress}
+        onCanPlay={() => setIsVideoLoading(false)}
         onError={() => setIsVideoLoading(false)}
       />
       <div className="hero-overlay" />

@@ -1,27 +1,11 @@
-import { hasInitialVideoBuffer } from "./Hero";
+import { isVideoReady } from "./Hero";
 
-describe("hasInitialVideoBuffer", () => {
-  test("returns true once the first ten seconds are buffered", () => {
-    const video = {
-      buffered: {
-        length: 1,
-        end: () => 10,
-      },
-      currentTime: 0,
-    };
-
-    expect(hasInitialVideoBuffer(video)).toBe(true);
+describe("isVideoReady", () => {
+  test("returns true when the browser can begin playback", () => {
+    expect(isVideoReady({ readyState: 3 })).toBe(true);
   });
 
-  test("returns false when less than ten seconds are buffered", () => {
-    const video = {
-      buffered: {
-        length: 1,
-        end: () => 9.9,
-      },
-      currentTime: 0,
-    };
-
-    expect(hasInitialVideoBuffer(video)).toBe(false);
+  test("returns false before playback data is available", () => {
+    expect(isVideoReady({ readyState: 2, buffered: { length: 0 } })).toBe(false);
   });
 });
