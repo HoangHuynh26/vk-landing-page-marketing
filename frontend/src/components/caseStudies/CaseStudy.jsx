@@ -16,27 +16,19 @@ function CaseStudyCard({ study }) {
         <p style={{fontSize:"25px", fontFamily: "Inter Regular"}} className="eyebrow dark-eyebrow">{t("caseStudy.eyebrow")}</p>
         <h2>{content.title}</h2>
       </div>
-      <img
-        className="case-study-image"
-        src="/logo.png"
-        alt="VK Digital Hub"
-        width="100px"
-        height="100px"
-        loading="lazy"
-      />
       <div className="case-metrics">
         <div>
-          <span style={{fontSize:"15px"}}>{t("caseStudy.beforeLabel")}</span>
+          <span>{t("caseStudy.beforeLabel")}</span>
           <strong>{study.beforeValue}</strong>
-          <p style={{fontSize:"20px"}}>{content.before}</p>
+          <p>{content.before}</p>
         </div>
         <div className="metric-arrow" aria-label={t("caseStudy.arrow")}>
           →
         </div>
         <div className="after-metric">
-          <span style={{fontSize:"15px"}}>{t("caseStudy.afterLabel")}</span>
+          <span>{t("caseStudy.afterLabel")}</span>
           <strong>{study.afterValue}</strong>
-          <p style={{fontSize:"20px"}}>{content.after}</p>
+          <p>{content.after}</p>
         </div>
       </div>
       <blockquote>

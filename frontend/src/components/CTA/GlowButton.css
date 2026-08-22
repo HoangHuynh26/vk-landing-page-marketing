@@ -11,6 +11,7 @@
   color: white;
   background: var(--primary-dark);
   font-size: 13px;
+  font-family: var(--font-family);
   font-weight: 800;
   text-align: center;
   box-shadow: 0 12px 24px rgba(15, 118, 110, 0.25);

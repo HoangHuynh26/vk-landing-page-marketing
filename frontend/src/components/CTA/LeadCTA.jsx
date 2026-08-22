@@ -12,6 +12,7 @@ export default function LeadCTA() {
     <>
       <section
         className="faq-section page-shell"
+        id="faq"
         aria-labelledby="faq-home-title"
       >
         <div className="section-heading">
@@ -31,7 +32,7 @@ export default function LeadCTA() {
         <p style={{fontSize:"14px"}} className="faq-ending">{t("faq.ending")}</p>
         <GlowButton />
       </section>
-      <section className="lead-cta" aria-labelledby="lead-title">
+      <section className="lead-cta" id="lead-cta" aria-labelledby="lead-title">
         <div className="page-shell">
           <p style={{fontSize:"20px", fontFamily:"SF Pro"}} className="eyebrow">{t("cta.eyebrow")}</p>
           <h2 id="lead-title">{t("cta.title")}</h2>

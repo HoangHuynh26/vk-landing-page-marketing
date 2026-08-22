@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function LazyLoad({ children, className = "", force = false }) {
+export default function LazyLoad({
+  children,
+  className = "",
+  force = false,
+  id,
+}) {
   const containerRef = useRef(null);
   const [shouldRender, setShouldRender] = useState(force);
 
@@ -28,7 +33,7 @@ export default function LazyLoad({ children, className = "", force = false }) {
   }, []);
 
   return (
-    <div ref={containerRef} className={className}>
+    <div ref={containerRef} className={className} id={id}>
       {force || shouldRender ? children : <div className="lazy-section-placeholder" aria-hidden="true" />}
     </div>
   );

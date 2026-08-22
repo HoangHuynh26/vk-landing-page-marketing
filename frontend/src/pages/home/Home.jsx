@@ -13,7 +13,11 @@ const CaseStudy = lazy(() => import("../../components/caseStudies/CaseStudy"));
 const LeadCTA = lazy(() => import("../../components/CTA/LeadCTA"));
 
 export function getShouldOpenForm(hash) {
-  return hash === "#lead-form";
+  return hash === "#lead-form" || hash === "#faq";
+}
+
+export function getHashTarget(hash) {
+  return hash === "#faq" ? "faq" : "lead-form";
 }
 
 export default function Home() {
@@ -34,10 +38,10 @@ export default function Home() {
 
     let attempts = 0;
     const timer = window.setInterval(() => {
-      const form = document.getElementById("lead-form");
+      const target = document.getElementById(getHashTarget(window.location.hash));
       attempts += 1;
-      if (form) {
-        const top = form.getBoundingClientRect().top + window.scrollY - 96;
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.scrollY - 96;
         window.scrollTo({ top, behavior: "smooth" });
         window.clearInterval(timer);
       } else if (attempts >= 200) {
@@ -49,15 +53,17 @@ export default function Home() {
   }, [shouldOpenForm]);
 
   return (
-    <main className="home-page">
+    <main className="home-page" id="top">
       <Hero />
       <TrustBar />
       <Statistics />
       <PainSolution />
-      <Suspense fallback={null}>
+      <section id="strategy">
+        <Suspense fallback={null}>
         <Strategy />
-      </Suspense>
-      <LazyLoad className="case-study-section page-shell">
+        </Suspense>
+      </section>
+      <LazyLoad className="case-study-section page-shell" id="case-studies">
         <Suspense fallback={null}>
           <CaseStudy studies={caseStudies} />
         </Suspense>

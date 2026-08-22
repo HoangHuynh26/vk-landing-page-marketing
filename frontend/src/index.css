@@ -16,6 +16,9 @@
 .lazy-section-placeholder {
   min-height: 240px;
 }
+.case-study-section .lazy-section-placeholder {
+  min-height: 120px;
+}
 html {
   scroll-behavior: smooth;
 }

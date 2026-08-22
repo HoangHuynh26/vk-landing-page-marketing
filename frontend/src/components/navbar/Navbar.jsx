@@ -1,23 +1,20 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import GlowButton from "../CTA/GlowButton";
 import "./Navbar.css";
 import { useLanguage } from "../../i18n/LanguageContext";
 
 const links = [
-  ["nav.home", "/"],
-  ["nav.caseStudies", "/case-studies"],
-  ["nav.faq", "/faq"],
-  ["nav.about", "/about"],
+  ["nav.home", "#top"],
+  ["nav.caseStudies", "#case-studies"],
+  ["nav.faq", "#faq"],
+  ["nav.about", "#strategy"],
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(() => window.scrollY > 24);
-  const { pathname } = useLocation();
   const { language, setLanguage, t } = useLanguage();
   const nextLanguage = language === "vi" ? "en" : "vi";
-  const isInnerPage = pathname !== "/";
 
   useEffect(() => {
     document.body.classList.toggle("menu-open", open);
@@ -43,14 +40,12 @@ export default function Navbar() {
 
   return (
     <header
-      className={`site-header ${isScrolled ? "is-scrolled" : ""} ${
-        isInnerPage ? "is-inner-page" : ""
-      }`}
+      className={`site-header ${isScrolled ? "is-scrolled" : ""}`}
     >
       <nav className="nav-shell" aria-label="Main navigation">
         <a
           className="brand"
-          href="/"
+          href="#top"
           onClick={() => setOpen(false)}
           aria-label={t("nav.homeLabel")}
         >

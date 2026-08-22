@@ -18,8 +18,9 @@ export default function Strategy() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (visible) setActiveStep(Number(visible.target.dataset.step));
       },
-      { threshold: [0.25, 0.55, 0.8], rootMargin: "-20% 0px -35%" },
+      { threshold: [0.3, 0.6, 0.85], rootMargin: "-18% 0px -48%" },
     );
+
     stepRefs.current.forEach((step) => step && observer.observe(step));
     return () => observer.disconnect();
   }, [language, steps.length]);
@@ -29,11 +30,9 @@ export default function Strategy() {
       <div className="page-shell strategy-layout">
         <div className="strategy-story-column">
           <div className="strategy-copy">
-            <p style={{fontSize:"20px", fontFamily: "SF Pro"}} className="eyebrow dark-eyebrow">{t("strategy.eyebrow")}</p>
+            <p className="eyebrow dark-eyebrow">{t("strategy.eyebrow")}</p>
             <h2 id="strategy-title">
-              {t("strategy.title")}
-              <br />
-              <em>{t("strategy.emphasis")}</em>
+              {t("strategy.title")} <em>{t("strategy.emphasis")}</em>
             </h2>
           </div>
           <div className="steps-list">
@@ -46,9 +45,10 @@ export default function Strategy() {
                 }}
                 key={step.number}
               >
-                <span className="step-icon">{step.icon}</span>
-                <div>
-                  <h2>{step.number}</h2>
+                <div className="step-marker">
+                  <span>{step.number}</span>
+                </div>
+                <div className="step-content">
                   <h3>{step.title}</h3>
                   <p>{step.text}</p>
                   <img
@@ -66,6 +66,7 @@ export default function Strategy() {
         </div>
         <div className="strategy-visual-column">
           <div className="strategy-visual-panel" aria-live="polite">
+            <div className="strategy-visual-label">Your growth, in motion</div>
             {steps.map((step, index) => (
               <img
                 className={activeStep === index ? "is-active" : ""}
@@ -77,6 +78,11 @@ export default function Strategy() {
                 loading="lazy"
               />
             ))}
+            <div className="strategy-progress" aria-hidden="true">
+              {steps.map((step, index) => (
+                <span className={activeStep === index ? "is-active" : ""} key={step.number} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

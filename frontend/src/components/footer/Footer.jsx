@@ -3,10 +3,10 @@ import "./Footer.css";
 import { useLanguage } from "../../i18n/LanguageContext";
 
 const links = [
-  ["nav.home", "/"],
-  ["nav.caseStudies", "/case-studies"],
-  ["nav.faq", "/faq"],
-  ["nav.about", "/about"],
+  ["nav.home", "#top"],
+  ["nav.caseStudies", "#case-studies"],
+  ["nav.faq", "#faq"],
+  ["nav.about", "#strategy"],
 ];
 
 export default function Footer() {
@@ -16,7 +16,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="page-shell footer-grid">
         <div className="footer-brand">
-          <a className="brand" href="/" aria-label={t("nav.homeLabel")}>
+          <a className="brand" href="#top" aria-label={t("nav.homeLabel")}>
             <img
               className="brand-logo"
               src="/logo.png"
