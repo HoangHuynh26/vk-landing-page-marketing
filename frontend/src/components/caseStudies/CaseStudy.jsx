@@ -1,100 +1,103 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLanguage } from "../../i18n/LanguageContext";
 import "./CaseStudy.css";
 
-function CaseStudyCard({ study }) {
-  const { t } = useLanguage();
-  const caseStudyContent = t("caseStudy");
+function getStudyContent(t, study) {
+  const baseContent = t("caseStudy");
   const translatedStudy = t(`caseStudy.studies.${study.id}`);
-  const content =
-    translatedStudy && typeof translatedStudy === "object"
-      ? { ...caseStudyContent, ...translatedStudy }
-      : caseStudyContent;
+
+  return translatedStudy && typeof translatedStudy === "object"
+    ? { ...baseContent, ...translatedStudy }
+    : baseContent;
+}
+
+function StudyContent({ study, content }) {
+  const { t } = useLanguage();
+
   return (
-    <article className={`case-study case-study--${study.id}`}>
+    <>
       <div className="case-heading">
-        <p style={{fontSize:"25px", fontFamily: "SF Pro"}} className="eyebrow dark-eyebrow">{t("caseStudy.eyebrow")}</p>
         <h2>{content.title}</h2>
       </div>
-      <div className="case-metrics">
-        <div>
-          <span>{t("caseStudy.beforeLabel")}</span>
-          <strong>{study.beforeValue}</strong>
-          <p>{content.before}</p>
+
+      <div className="case-study-details">
+        <div className="case-metrics">
+          <div>
+            <span style={{fontSize: "20px"}}>{t("caseStudy.beforeLabel")}</span>
+            <strong>{study.beforeValue}</strong>
+            <p style={{fontSize: "20px"}}>{content.before}</p>
+          </div>
+          <div className="metric-arrow" aria-hidden="true">→</div>
+          <div className="after-metric">
+            <span style={{fontSize: "20px"}}>{t("caseStudy.afterLabel")}</span>
+            <strong>{study.afterValue}</strong>
+            <p style={{fontSize: "20px"}}>{content.after}</p>
+          </div>
         </div>
-        <div className="metric-arrow" aria-label={t("caseStudy.arrow")}>
-          →
-        </div>
-        <div className="after-metric">
-          <span>{t("caseStudy.afterLabel")}</span>
-          <strong>{study.afterValue}</strong>
-          <p>{content.after}</p>
-        </div>
+
+        <blockquote style={{fontSize: "20px"}}>
+          “{content.testimonial}”
+          <cite style={{fontSize: "20px"}}>— {content.author}</cite>
+        </blockquote>
       </div>
-      <blockquote>
-        “{content.testimonial}”<cite style={{fontSize:"20px"}}>— {content.author}</cite>
-      </blockquote>
-    </article>
+    </>
+  );
+}
+
+function CaseStudyCard({ study, content, image, isExpanded, onToggle }) {
+  const { t } = useLanguage();
+
+  return (
+    <button
+      type="button"
+      className={`case-study item case-study--${study.id}${isExpanded ? " is-expanded" : ""}`}
+      data-layout-id={study.id}
+      aria-expanded={isExpanded}
+      aria-controls={`case-study-content-${study.id}`}
+      aria-label={`${content.title}. ${t("caseStudy.openLabel") || "Expand case study"}`}
+      onClick={onToggle}
+    >
+      <div className="case-study-cover" aria-hidden="true">
+        <img src={image} alt="" loading="lazy" />
+      </div>
+      <div id={`case-study-content-${study.id}`} className="case-study-card-content">
+        <StudyContent study={study} content={content} />
+      </div>
+    </button>
   );
 }
 
 export default function CaseStudy({ study, studies }) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const carouselStudies = studies || (study ? [study] : []);
+  const { t } = useLanguage();
+  const [activeId, setActiveId] = useState(null);
+  const caseStudies = (studies || (study ? [study] : [])).slice(0, 4);
+  const studyImages = {
+    "perth-a": "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=85",
+    "melbourne-b": "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=1200&q=85",
+    "brisbane-c": "https://images.unsplash.com/photo-1619607146034-5a05296c8f9a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  };
 
-  useEffect(() => {
-    if (
-      carouselStudies.length <= 1 ||
-      isPaused ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      return undefined;
-    }
-
-    const timer = window.setInterval(() => {
-      setActiveIndex((index) => (index + 1) % carouselStudies.length);
-    }, 4000);
-
-    return () => window.clearInterval(timer);
-  }, [carouselStudies.length, isPaused]);
-
-  if (carouselStudies.length === 0) {
-    return null;
-  }
-
-  if (carouselStudies.length <= 1) {
-    return <CaseStudyCard study={carouselStudies[0]} />;
-  }
+  if (caseStudies.length === 0) return null;
 
   return (
     <section
-      className="case-study-carousel"
-      aria-label="Case studies"
-      aria-roledescription="carousel"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) {
-          setIsPaused(false);
-        }
-      }}
+      className="case-study-grid"
+      aria-label={t("caseStudy.ariaLabel") || "Case studies"}
     >
-      <div className="case-study-carousel-stage" aria-live="polite">
-        <CaseStudyCard
-          key={carouselStudies[activeIndex].id}
-          study={carouselStudies[activeIndex]}
-        />
-      </div>
-      <div className="case-study-carousel-controls">
-        <button type="button" onClick={() => setActiveIndex((index) => (index === 0 ? carouselStudies.length - 1 : index - 1))} aria-label="Previous case study">←</button>
-        <div className="case-study-dots" aria-label="Choose a case study">
-          {carouselStudies.map((item, index) => (
-            <button type="button" className={index === activeIndex ? "is-active" : ""} key={item.id} onClick={() => setActiveIndex(index)} aria-label={`Show case study ${index + 1}`} aria-current={index === activeIndex ? "true" : undefined} />
-          ))}
-        </div>
-        <button type="button" onClick={() => setActiveIndex((index) => (index + 1) % carouselStudies.length)} aria-label="Next case study">→</button>
+      <h2 className="case-study-grid-title">{t("caseStudy.eyebrow") || "Case Studies"}</h2>
+      <div className="case-study-grid-list">
+        {caseStudies.slice(0, 3).map((item) => (
+          <CaseStudyCard
+            key={item.id}
+            study={item}
+            content={getStudyContent(t, item)}
+            image={studyImages[item.id]}
+            isExpanded={activeId === item.id}
+            onToggle={() => setActiveId((currentId) => (
+              currentId === item.id ? null : item.id
+            ))}
+          />
+        ))}
       </div>
     </section>
   );

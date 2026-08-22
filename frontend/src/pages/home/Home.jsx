@@ -5,6 +5,7 @@ import { caseStudies } from "../../components/caseStudies/caseStudyData";
 import LiveNotification from "../../components/liveNotification/LiveNotification";
 import LazyLoad from "../../components/common/LazyLoad";
 import Statistics from "../../components/statistic/Statistics";
+import Testimonial from "../../components/testimonial/Testimonial";
 import { lazy, Suspense, useEffect, useState } from "react";
 import "./Home.css";
 
@@ -67,6 +68,9 @@ export default function Home() {
         <Suspense fallback={null}>
           <CaseStudy studies={caseStudies} />
         </Suspense>
+      </LazyLoad>
+      <LazyLoad className="testimonial-section" id="testimonials">
+        <Testimonial />
       </LazyLoad>
       <LazyLoad className="home-lead-cta-lazy" force={shouldOpenForm}>
         <Suspense fallback={null}>

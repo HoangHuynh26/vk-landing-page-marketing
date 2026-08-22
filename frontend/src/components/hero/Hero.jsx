@@ -13,7 +13,11 @@ export default function Hero() {
   const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   return (
-    <section className="hero" aria-labelledby="hero-title">
+    <section
+      className={`hero${isVideoLoading ? " is-loading" : " is-ready"}`}
+      aria-labelledby="hero-title"
+      aria-busy={isVideoLoading}
+    >
       {isVideoLoading && <Loading />}
       <video
         className="hero-video"
@@ -32,19 +36,21 @@ export default function Hero() {
         onError={() => setIsVideoLoading(false)}
       />
       <div className="hero-overlay" />
-      <div className="page-shell hero-content">
-        <h1 id="hero-title" style={{widt:"100%"}}>
-          {t("hero.title")} <br /><em>{t("hero.emphasis")}</em>{" "}
-          <span className="hero-guarantee">{t("hero.copy")}</span>
-        </h1>
-        <p className="hero-subcopy">{t("hero.subcopy")}</p>
-        <div className="hero-actions">
-          <GlowButton />
-          <span>
-            {t("hero.noCost")} {t("hero.formTime")}
-          </span>
+      {!isVideoLoading && (
+        <div className="page-shell hero-content">
+          <h1 id="hero-title">
+            {t("hero.title")} <br /><em>{t("hero.emphasis")}</em>{" "}
+            <span className="hero-guarantee">{t("hero.copy")}</span>
+          </h1>
+          <p className="hero-subcopy">{t("hero.subcopy")}</p>
+          <div className="hero-actions">
+            <GlowButton />
+            <span>
+              {t("hero.noCost")} {t("hero.formTime")}
+            </span>
+          </div>
         </div>
-      </div>
+      )}
       <div className="scroll-cue" aria-hidden="true">
         ↓
       </div>
