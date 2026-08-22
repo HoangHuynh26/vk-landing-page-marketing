@@ -13,7 +13,7 @@ function CaseStudyCard({ study }) {
   return (
     <article className={`case-study case-study--${study.id}`}>
       <div className="case-heading">
-        <p style={{fontSize:"25px", fontFamily: "Inter Regular"}} className="eyebrow dark-eyebrow">{t("caseStudy.eyebrow")}</p>
+        <p style={{fontSize:"25px", fontFamily: "SF Pro"}} className="eyebrow dark-eyebrow">{t("caseStudy.eyebrow")}</p>
         <h2>{content.title}</h2>
       </div>
       <div className="case-metrics">

@@ -66,7 +66,7 @@
 }
 .step-content { max-width: 480px; }
 .step-kicker {
-  margin: 2px 0 12px;
+  margin: 2px 0 120px;
   color: #e7bb68;
   font-size: 11px;
   font-weight: 800;
@@ -83,7 +83,7 @@
   margin: 0;
   color: rgba(255, 255, 255, 0.7);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 2.0;
 }
 .strategy-visual-column {
   position: sticky;
