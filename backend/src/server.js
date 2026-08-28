@@ -4,7 +4,7 @@ const leadRouter = require("./router/leadRouter");
 
 const app = express();
 const port = Number(process.env.PORT) || 5000;
-const allowedOrigin = "http://localhost:3000";
+const allowedOrigin = "https://vkdigitalhub.netlify.app";
 const requestLog = new Map();
 
 app.disable("x-powered-by");
