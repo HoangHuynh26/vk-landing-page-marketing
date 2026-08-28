@@ -49,14 +49,6 @@ export default function TrustBar() {
       <div className="trustbar-support">
         <p>{t("trust.support")}</p>
       </div>
-      <div className="trust-badges">
-        <span className="secure-badge">
-          <i aria-hidden="true" />
-          {t("trust.sslSecure")}
-        </span>
-        <span>{t("trust.visa")}</span>
-        <span>{t("trust.mastercard")}</span>
-      </div>
     </section>
   );
 }

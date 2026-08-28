@@ -38,13 +38,12 @@ export default function Hero() {
       <div className="hero-overlay" />
       {!isVideoLoading && (
         <div className="page-shell hero-content">
-          <h1 id="hero-title">
+          <h1 id="hero-title" style={{ marginBottom: "20px" }}>
             {t("hero.title")} <br /><em>{t("hero.emphasis")}</em>{" "}
             <span className="hero-guarantee">{t("hero.copy")}</span>
           </h1>
-          <p className="hero-subcopy">{t("hero.subcopy")}</p>
           <div className="hero-actions">
-            <GlowButton />
+            <GlowButton variant="hero" />
             <span>
               {t("hero.noCost")} {t("hero.formTime")}
             </span>

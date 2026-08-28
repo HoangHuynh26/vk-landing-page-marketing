@@ -1,111 +1,130 @@
 .lead-form {
-  scroll-margin-top: 116px;
   display: grid;
-  grid-template-columns: 0.2fr 0.3fr 0.3fr 0.3fr;
-  align-items: end;
-  gap: 12px;
-}
-.lead-form label {
-  display: grid;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 12px;
-  font-weight: 700;
-}
-.lead-form input {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
   width: 100%;
-  min-height: 50px;
-  padding: 0 15px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 6px;
-  color: white;
-  background: rgba(255, 255, 255, 0.09);
-  font: inherit;
-  outline: none;
+  text-align: left;
+  font-family: var(--font-primary);
 }
-.lead-form input:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(201, 151, 78, 0.18);
+
+.lead-form .field-full {
+  grid-column: 1 / -1;
 }
-.lead-form button {
-  min-height: 50px;
-  padding: 0 20px;
-  border: 0;
-  border-radius: 6px;
+
+.lead-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   color: var(--dark);
-  background: var(--gold);
   font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.lead-form input,
+.lead-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1.5px solid rgba(23, 34, 31, 0.15);
+  border-radius: 8px;
+  color: var(--dark);
+  background: #ffffff;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.lead-form input::placeholder,
+.lead-form textarea::placeholder {
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.lead-form input:focus,
+.lead-form textarea:focus {
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.16);
+}
+
+.lead-form textarea {
+  min-height: 85px;
+  resize: vertical;
+}
+
+.lead-form-submit {
+  grid-column: 1 / -1;
+  min-height: 50px;
+  margin-top: 4px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  font-size: 14px;
   font-weight: 800;
+  font-family: var(--font-primary);
+  letter-spacing: 0.02em;
   cursor: pointer;
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.28);
   transition:
     transform 0.2s ease,
-    background 0.2s ease;
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
-.lead-form button:hover:not(:disabled) {
+
+.lead-form-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  background: #e3b968;
+  background: linear-gradient(135deg, #13877e, var(--primary-dark));
+  box-shadow: 0 14px 30px rgba(15, 118, 110, 0.38);
 }
-.lead-form button:disabled {
+
+.lead-form-submit:disabled {
   cursor: wait;
   opacity: 0.7;
 }
+
 .form-message {
   grid-column: 1 / -1;
-  margin: 2px 0 0;
-  color: rgba(255, 255, 255, 0.85);
+  margin: 4px 0 0;
+  padding: 11px 14px;
+  border-radius: 8px;
   font-size: 13px;
+  line-height: 1.4;
+  font-weight: 500;
 }
+
 .form-message-validation,
 .form-message-failure {
-  color: #ffb19a;
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
 }
+
 .form-message-success {
-  color: #a7ddb7;
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
 }
-.success-modal-backdrop {
-  position: fixed;
-  z-index: 20;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  padding: 20px;
-  background: rgba(4, 20, 20, 0.72);
-}
-.success-modal {
-  width: min(100%, 420px);
-  padding: 32px 28px 28px;
-  border: 1px solid rgba(201, 151, 78, 0.4);
-  border-radius: 16px;
-  color: white;
-  background: var(--primary-dark);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
-  text-align: center;
-}
-.success-modal h2 {
-  margin: 0;
-  color: #a7ddb7;
-  font-size: 40px;
-}
-.success-modal p {
-  margin: 14px 0 24px;
-  line-height: 1.5;
-}
-.success-modal button {
-  min-width: 100px;
-}
-@media (max-width: 760px) {
+
+
+
+@media (max-width: 640px) {
   .lead-form {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
-  .lead-form button {
-    width: 100%;
+  .lead-form .field-full {
+    grid-column: 1;
   }
-}
-@media (min-width: 761px) and (max-width: 1024px) {
-  .lead-form {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .lead-form button {
-    width: 100%;
+  .lead-form input,
+  .lead-form textarea {
+    padding: 10px 12px;
+    font-size: 14px;
   }
 }

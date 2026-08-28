@@ -1,46 +1,59 @@
-import "./PainSolution.css";
-import { useEffect, useRef } from "react";
+import { useState } from "react";
 import { useLanguage } from "../../i18n/LanguageContext";
+import "./PainSolution.css";
+
+const cardImages = [
+  "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=85",
+  "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=85",
+];
+
+function PainCardContent({ card, t }) {
+  return (
+    <>
+      <div className="pain-heading">
+        <h3>{card.title}</h3>
+      </div>
+      <div className="pain-details">
+        <p className="pain-text">{card.pain}</p>
+        <div className="pain-solution-block">
+          <b>{t("nav.online")}</b>
+          <p>{card.online}</p>
+        </div>
+        <div className="pain-solution-block">
+          <b>{t("nav.offline")}</b>
+          <p>{card.offline}</p>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function PainCard({ card, index, image, isExpanded, onToggle, t }) {
+  return (
+    <button
+      type="button"
+      className={`pain-item pain-item--${index}${isExpanded ? " is-expanded" : ""}`}
+      aria-expanded={isExpanded}
+      aria-controls={`pain-content-${index}`}
+      aria-label={`${card.title}. ${isExpanded ? "Collapse" : "Expand"}`}
+      onClick={onToggle}
+    >
+      <div className="pain-cover" aria-hidden="true">
+        <img src={image} alt="" loading="lazy" />
+      </div>
+      <div id={`pain-content-${index}`} className="pain-card-content">
+        <span className="pain-number">0{index + 1}</span>
+        <PainCardContent card={card} t={t} />
+      </div>
+    </button>
+  );
+}
 
 export default function PainSolution() {
   const { t } = useLanguage();
   const cards = t("pain.cards");
-  const gridRef = useRef(null);
-
-  useEffect(() => {
-    const grid = gridRef.current;
-    if (!grid) return undefined;
-    const cards = [...grid.querySelectorAll(".pain-card")];
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        cards.forEach((card) => card.classList.add("is-revealed"));
-        observer.unobserve(grid);
-      },
-      { threshold: 0.2 },
-    );
-    observer.observe(grid);
-    return () => observer.disconnect();
-  }, [cards]);
-
-  function handlePointerMove(event) {
-    if (event.pointerType && event.pointerType !== "mouse") return;
-    const card = event.currentTarget;
-    const bounds = card.getBoundingClientRect();
-    const x = event.clientX - bounds.left;
-    const y = event.clientY - bounds.top;
-    const rotateY = (x / bounds.width - 0.5) * 10;
-    const rotateX = (y / bounds.height - 0.5) * -10;
-    card.style.setProperty("--mx", `${x}px`);
-    card.style.setProperty("--my", `${y}px`);
-    card.style.setProperty("--rx", `${rotateX}deg`);
-    card.style.setProperty("--ry", `${rotateY}deg`);
-  }
-
-  function resetPointer(event) {
-    event.currentTarget.style.setProperty("--rx", "0deg");
-    event.currentTarget.style.setProperty("--ry", "0deg");
-  }
+  const [activeIndex, setActiveIndex] = useState(null);
 
   return (
     <section className="pain-solution page-shell" aria-labelledby="pain-title">
@@ -49,27 +62,21 @@ export default function PainSolution() {
         <br />
         <em>{t("pain.emphasis")}</em>
       </h2>
-      <div className="pain-grid" ref={gridRef}>
+      <div className="pain-grid">
         {cards.map((card, index) => (
-          <article
-            className="pain-card"
-            style={{ "--card-index": index }}
+          <PainCard
             key={card.title}
-            onPointerMove={handlePointerMove}
-            onPointerLeave={resetPointer}
-          >
-            <span className="card-number">0{index + 1}</span>
-            <h3>{card.title}</h3>
-            <p className="pain-text">{card.pain}</p>
-            <div>
-              <b>{t("nav.online")}</b>
-              <p>{card.online}</p>
-            </div>
-            <div>
-              <b>{t("nav.offline")}</b>
-              <p>{card.offline}</p>
-            </div>
-          </article>
+            card={card}
+            index={index}
+            image={cardImages[index]}
+            isExpanded={activeIndex === index}
+            onToggle={() =>
+              setActiveIndex((current) =>
+                current === index ? null : index
+              )
+            }
+            t={t}
+          />
         ))}
       </div>
     </section>

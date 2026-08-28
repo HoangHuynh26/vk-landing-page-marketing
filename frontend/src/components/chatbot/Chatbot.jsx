@@ -51,9 +51,7 @@ export default function Chatbot() {
   }
   function handleFollowUp(id) {
     if (id === "form") {
-      document
-        .getElementById("lead-form")
-        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      window.dispatchEvent(new CustomEvent("open-lead-form"));
       return;
     }
     if (id === "other") {

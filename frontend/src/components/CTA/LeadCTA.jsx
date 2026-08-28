@@ -1,4 +1,3 @@
-import LeadForm from "../form/LeadForm";
 import GlowButton from "./GlowButton";
 import { lazy, Suspense } from "react";
 import "./LeadCTA.css";
@@ -8,6 +7,12 @@ const FAQ = lazy(() => import("../FAQ/FAQ"));
 
 export default function LeadCTA() {
   const { t } = useLanguage();
+
+  const openForm = (event) => {
+    event.preventDefault();
+    window.dispatchEvent(new CustomEvent("open-lead-form"));
+  };
+
   return (
     <>
       <section
@@ -16,7 +21,12 @@ export default function LeadCTA() {
         aria-labelledby="faq-home-title"
       >
         <div className="section-heading">
-          <h1 style={{fontSize: "45px", fontFamily: "SF Pro"}} className="eyebrow dark-eyebrow">{t("faq.eyebrow")}</h1>
+          <h1
+            style={{ fontSize: "45px", fontFamily: "SF Pro", color: "#0f766e" }}
+            className="eyebrow dark-eyebrow"
+          >
+            {t("faq.eyebrow")}
+          </h1>
           <h1 id="faq-home-title">
             {t("faq.emphasis") && (
               <>
@@ -29,15 +39,23 @@ export default function LeadCTA() {
         <Suspense fallback={null}>
           <FAQ />
         </Suspense>
-        <p style={{fontSize:"14px"}} className="faq-ending">{t("faq.ending")}</p>
-        <GlowButton />
       </section>
-      <section className="lead-cta" id="lead-cta" aria-labelledby="lead-title">
+
+      <section
+        className="lead-cta"
+        id="lead-cta"
+        aria-labelledby="lead-title"
+      >
         <div className="page-shell">
-          <p style={{fontSize:"20px", fontFamily:"SF Pro"}} className="eyebrow">{t("cta.eyebrow")}</p>
+          <p
+            style={{ fontSize: "20px", fontFamily: "SF Pro" }}
+            className="eyebrow"
+          >
+            {t("cta.eyebrow")}
+          </p>
           <h2 id="lead-title">{t("cta.title")}</h2>
           <p>{t("cta.copy")}</p>
-          <LeadForm />
+          <GlowButton onClick={openForm} href="#lead-form" />
         </div>
       </section>
     </>

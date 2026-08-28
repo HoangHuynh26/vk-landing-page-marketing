@@ -15,14 +15,12 @@ export const translations = {
     },
     hero: {
       eyebrow: "MARKETING PARTNER FOR NAIL & SPA",
-      title: "Lấp đầy lịch hẹn tiệm nails của bạn",
-      emphasis: "chỉ với 2 giờ/tuần.",
-      copy: "Cam kết tăng 50% khách mới trong 60 ngày hoặc hoàn tiền 100%.",
-      subcopy:
-        "Bạn đang đốt tiền vào Facebook Ads nhưng khách hàng mới vẫn thưa thớt? Bạn có một tiệm nails tuyệt vời nhưng ít người biết đến? Đã đến lúc thay đổi.",
+      title: "Gấp đôi số lượng đặt chỗ",
+      emphasis: "trong 60 ngày",
+      copy: "– mà không cần chi thêm tiền cho quảng cáo",
       noCost: "Không mất phí. Không cam kết.",
       formTime: "Chỉ 2 phút để điền form.",
-      reviews: "từ 40+ đánh giá Google",
+      reviews: "từ 100+ đánh giá Google",
       captions: [
         "Bạn tập trung làm nails.",
         "Chúng tôi lo phần marketing.",
@@ -31,19 +29,15 @@ export const translations = {
       ],
     },
     trust: {
-      rating: "dựa trên 40+ đánh giá Google",
+      rating: "dựa trên 100+ đánh giá Google",
       support:
-        "Đã hỗ trợ 30+ tiệm nails & spa trên khắp nước Úc tăng trưởng doanh thu bền vững.",
+        "Đã hỗ trợ 150+ tiệm nails & spa trên khắp nước Úc tăng trưởng doanh thu bền vững.",
       businesses: "tiệm Nail & Spa trên khắp nước Úc",
-      ssl: "SSL",
-      sslSecure: "SSL Secure",
-      visa: "VISA",
-      mastercard: "Mastercard",
     },
     stats: {
       items: [
         {
-          value: 30,
+          value: 150,
           suffix: "+",
           label: "tiệm Nail & Spa được hỗ trợ",
         },
@@ -117,27 +111,46 @@ export const translations = {
       ],
     },
     caseStudy: {
+      eyebrow: "DỰ ÁN THỰC TẾ",
+      title: "Những con số biết nói",
+      subtitle: "Xem cách các tiệm Nail & Spa tại Úc đột phá lượng khách và doanh thu",
+      beforeLabel: "TRƯỚC",
+      afterLabel: "SAU 30 NGÀY",
+      growthLabel: "Tăng trưởng",
       studies: {
-        "perth-a": { title: "Tiệm Nails A tại Perth", before: "5 khách/tuần với quảng cáo chưa hiệu quả.", after: "25 khách/tuần, doanh thu tăng 200%.", testimonial: "Marketing đã trở thành khoản đầu tư sinh lời nhất.", author: "Chủ tiệm A" },
-        "melbourne-b": { title: "Tiệm Nails B tại Melbourne", before: "8 khách/tuần và chưa có chiến lược tăng trưởng ổn định.", after: "32 khách/tuần sau khi triển khai.", testimonial: "Bản kế hoạch giúp chúng tôi biết bước tiếp theo.", author: "Chủ tiệm B" },
-        "brisbane-c": { title: "Tiệm Nails C tại Brisbane", before: "12 khách/tuần với tăng trưởng chưa ổn định.", after: "41 khách/tuần với kết quả đo lường rõ ràng.", testimonial: "Chúng tôi nhìn thấy kết quả rõ ràng mỗi tuần.", author: "Chủ tiệm C" },
-        "sydney-d": { title: "Tiệm Nails D tại Sydney", before: "6 khách/tuần với khả năng tiếp cận địa phương thấp.", after: "29 khách/tuần nhờ chiến dịch địa phương phù hợp.", testimonial: "Thông điệp đúng đã thu hút đúng khách hàng.", author: "Chủ tiệm D" },
+        "perth-a": {
+          title: "Tiệm Nail & Beauty Studio tại Perth",
+          before: "5 lịch hẹn online/tuần, thiếu hệ thống giữ chân khách quay lại.",
+          after: "25 lịch hẹn/tuần với tỷ lệ khách quen quay lại đạt 32%.",
+          testimonial: "Lịch hẹn tiệm tôi tăng gấp 5 lần chỉ sau 4 tuần hợp tác cùng VK Digital Hub.",
+          author: "Chị Lan – Chủ tiệm Nail Perth",
+        },
+        "melbourne-b": {
+          title: "Luxe Nail Lounge tại Melbourne",
+          before: "8 khách mới/tháng, chỉ dựa vào khách vãng lai và truyền miệng.",
+          after: "32 khách đặt trước/tháng sau khi tối ưu Google Maps & Ads địa phương.",
+          testimonial: "Chiến lược tiếp cận chuẩn giúp salon tôi luôn kín lịch vào các khung giờ vàng.",
+          author: "Anh Minh – Quản lý Salon Melbourne",
+        },
+        "brisbane-c": {
+          title: "Wellness & Nail Spa tại Brisbane",
+          before: "12 lượt khách/tuần, quản lý lịch hẹn thủ công hay bị trễ tin nhắn.",
+          after: "41 khách/tuần với quy trình chatbot & chăm sóc khách tự động.",
+          testimonial: "Tiết kiệm hơn 8 tiếng mỗi tuần trả lời inbox mà khách lại chốt lịch nhiều hơn hẳn.",
+          author: "Chị Thảo – Founder Spa Brisbane",
+        },
+        "sydney-d": {
+          title: "Premium Beauty Clinic tại Sydney",
+          before: "6 buổi tư vấn gói VIP/tháng với chi phí quảng cáo cao.",
+          after: "29 buổi tư vấn trọn gói/tháng nhờ phễu marketing đúng tệp địa phương.",
+          testimonial: "Đúng tệp khách hàng cao cấp tìm đến tiệm mà chúng tôi không cần giảm giá dịch vụ.",
+          author: "Chị Helen – Chủ Clinic Sydney",
+        },
       },
-      eyebrow: "Dự án thực tế",
-      title: "Tiệm Nails A tại Perth",
-      beforeLabel: "Trước",
-      afterLabel: "Sau 30 ngày",
-      before: "5 khách/tuần, chi $500/tháng cho quảng cáo không hiệu quả.",
-      after: "25 khách/tuần, doanh thu tăng 200%.",
-      testimonial:
-        "Tôi từng nghĩ marketing chỉ là phí tổn, nhưng giờ tôi thấy đó là đầu tư sinh lời nhất.",
-      author: "Chủ tiệm A",
-      arrow: "Kết quả",
     },
     testimonials: {
       eyebrow: "CÂU CHUYỆN KHÁCH HÀNG",
       title: "Được các tiệm làm đẹp tại Úc tin yêu",
-      subtitle: "Những chia sẻ thật từ các chủ salon đang tăng trưởng với chiến lược marketing rõ ràng hơn.",
       carouselLabel: "Băng chuyền lời chứng thực khách hàng",
       previous: "Lời chứng thực trước",
       next: "Lời chứng thực tiếp theo",
@@ -199,19 +212,31 @@ export const translations = {
       ],
     },
     form: {
-      businessName: "Tên tiệm",
-      businessPlaceholder: "Nhập tên tiệm của bạn",
+      fullName: "Họ và tên",
+      fullNamePlaceholder: "Nhập họ và tên của bạn",
+      companyName: "Tên công ty / Doanh nghiệp",
+      companyNamePlaceholder: "Nhập tên công ty hoặc tiệm",
+      address: "Địa chỉ",
+      addressPlaceholder: "Nhập địa chỉ doanh nghiệp",
       email: "Email",
-      emailPlaceholder: "Vui lòng nhập email của bạn",
-      invalidEmail: "Vui lòng nhập email hợp lệ.",
+      emailPlaceholder: "Nhập email của bạn (ví dụ: name@example.com)",
       phone: "Số điện thoại",
-      phonePlaceholder: "Vui lòng nhập số điện thoại của bạn",
-      submit: "Nhận bản đánh giá miễn phí",
-      submitting: "Đang gửi...",
-      missingBusiness: "Vui lòng nhập tên tiệm.",
-      invalidPhone: "Số điện thoại phải gồm đúng 10 chữ số.",
-      success: "Đã nhận thông tin. Chúng tôi sẽ liên hệ với bạn sớm.",
-      failure: "Không thể gửi yêu cầu. Vui lòng thử lại sau.",
+      phonePlaceholder: "Nhập số điện thoại (ví dụ: 0412 345 678)",
+      message: "Lời nhắn / Nhu cầu tư vấn (Không bắt buộc)",
+      messagePlaceholder: "Hãy cho chúng tôi biết về mục tiêu hoặc khó khăn tiệm bạn đang gặp phải (không bắt buộc)...",
+      submit: "NHẬN BẢN ĐÁNH GIÁ MIỄN PHÍ",
+      submitting: "Đang gửi yêu cầu...",
+      missingName: "Vui lòng nhập họ và tên.",
+      missingCompany: "Vui lòng nhập tên công ty / doanh nghiệp.",
+      missingAddress: "Vui lòng nhập địa chỉ.",
+      invalidEmail: "Vui lòng nhập địa chỉ email hợp lệ.",
+      invalidPhone: "Vui lòng nhập số điện thoại hợp lệ (tối thiểu 8-10 chữ số).",
+      missingMessage: "Vui lòng nhập lời nhắn hoặc nhu cầu của bạn.",
+      success: "Cảm ơn bạn! Chúng tôi đã nhận được thông tin và sẽ liên hệ lại trong thời gian sớm nhất.",
+      successTitle: "Gửi yêu cầu thành công!",
+      failure: "Không thể gửi yêu cầu lúc này. Vui lòng thử lại sau.",
+      errorTitle: "Gửi yêu cầu thất bại",
+      close: "Đóng",
     },
     cta: {
       eyebrow: "BẮT ĐẦU TỪ MỘT CUỘC TRÒ CHUYỆN",
@@ -224,6 +249,7 @@ export const translations = {
       positioning:
         "Marketing partner giúp các tiệm Nail & Spa tại Australia tăng trưởng bền vững.",
       explore: "Khám phá",
+      followUs: "Kết nối với chúng tôi",
       action: "Sẵn sàng lấp đầy lịch hẹn?",
       copyright: "© 2026 VK Digital Hub. All rights reserved.",
       built: "Built for ambitious Nail & Spa owners.",
@@ -293,57 +319,15 @@ export const translations = {
       form: "Điền form ngay",
       scenarios: [
         {
-          id: "pricing",
-          label: "💰 Tôi muốn biết chi phí",
-          question: "Tôi muốn biết chi phí",
-          answer:
-            "VK Digital Hub có các gói marketing linh hoạt tùy theo nhu cầu và quy mô tiệm. Anh/chị có thể nhận bản đánh giá marketing miễn phí trước để chúng tôi đề xuất hướng phù hợp.",
-          followUps: [
-            {
-              id: "free",
-              label: "Nhận bản đánh giá miễn phí",
-            },
-            {
-              id: "consultation",
-              label: "Đăng ký tư vấn",
-            },
-            {
-              id: "other",
-              label: "Câu hỏi khác",
-            },
-          ],
-        },
-        {
           id: "free",
           label: "🎯 Tôi muốn nhận bản đánh giá miễn phí",
           question: "Tôi muốn nhận bản đánh giá miễn phí",
           answer:
-            "Anh/chị chỉ cần điền tên tiệm và số điện thoại. Bản đánh giá hoàn toàn miễn phí và không yêu cầu cam kết.",
+            "Anh/chị chỉ cần điền thông tin trong form. Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất và hoàn toàn không yêu cầu cam kết.",
           followUps: [
             {
               id: "form",
               label: "Điền form ngay",
-            },
-            {
-              id: "other",
-              label: "Câu hỏi khác",
-            },
-          ],
-        },
-        {
-          id: "clients",
-          label: "📈 Làm sao để tăng khách mới?",
-          question: "Làm sao để tăng khách mới?",
-          answer:
-            "Chúng tôi kết hợp marketing địa phương, Google Business Profile, quảng cáo, nội dung, booking funnel và chăm sóc khách hàng quay lại để tạo một hệ thống tăng trưởng bền vững.",
-          followUps: [
-            {
-              id: "free",
-              label: "Nhận bản đánh giá miễn phí",
-            },
-            {
-              id: "consultation",
-              label: "Đăng ký tư vấn",
             },
             {
               id: "other",
@@ -406,14 +390,6 @@ export const translations = {
             },
           ],
         },
-        {
-          id: "other",
-          label: "❓ Tôi có câu hỏi khác",
-          question: "Tôi có câu hỏi khác",
-          answer:
-            "Anh/chị cứ nhập câu hỏi bên dưới, em sẽ hỗ trợ trong phạm vi thông tin mà VK Digital Hub cung cấp.",
-          followUps: [],
-        },
       ],
       answers: {
         pricing:
@@ -450,13 +426,11 @@ export const translations = {
     },
     hero: {
       eyebrow: "MARKETING PARTNER FOR NAIL & SPA",
-      title: "Fill your nail salon appointments",
-      emphasis: "with just 2 hours a week.",
-      copy: "A 50% increase in new clients within 60 days or a 100% refund.",
-      subcopy:
-        "Are you burning money on Facebook Ads while new clients stay scarce? You have a wonderful salon, but too few people know about it. It is time to change that.",
-      noCost: "No cost. No commitment.",
-      formTime: "Only 2 minutes to apply.",
+      title: "Double your bookings",
+      emphasis: "in 60 days",
+      copy: "– without spending more on ads",
+      noCost: "No fees. No commitment.",
+      formTime: "It takes just 2 minutes to fill out the form.",
       reviews: "from 40+ Google reviews",
       captions: [
         "You focus on your nail business.",
@@ -466,21 +440,17 @@ export const translations = {
       ],
     },
     trust: {
-      rating: "based on 40+ Google reviews",
+      rating: "based on 100+ Google reviews",
       support:
-        "Helping 30+ Nail & Spa businesses across Australia grow sustainable revenue.",
+        "Helping 150+ Nail & Spa businesses across Australia grow sustainable revenue.",
       businesses: "Nail & Spa businesses across Australia",
-      ssl: "SSL",
-      sslSecure: "SSL Secure",
-      visa: "VISA",
-      mastercard: "Mastercard",
     },
     stats: {
       eyebrow: "MEASURABLE GROWTH",
       title: "The numbers tell the rest of the story.",
       items: [
         {
-          value: 30,
+          value: 150,
           suffix: "+",
           label: "Nail & Spa businesses supported",
         },
@@ -550,22 +520,42 @@ export const translations = {
       ],
     },
     caseStudy: {
-      studies: {
-        "perth-a": { title: "Nails Salon A in Perth", before: "5 clients/week with ineffective advertising.", after: "25 clients/week and revenue up 200%.", testimonial: "Marketing became our most profitable investment.", author: "Salon owner A" },
-        "melbourne-b": { title: "Nails Salon B in Melbourne", before: "8 clients/week without a reliable growth strategy.", after: "32 clients/week after launch.", testimonial: "The plan made our next steps clear.", author: "Salon owner B" },
-        "brisbane-c": { title: "Nails Salon C in Brisbane", before: "12 clients/week with inconsistent growth.", after: "41 clients/week with measurable results.", testimonial: "We can see the results clearly every week.", author: "Salon owner C" },
-        "sydney-d": { title: "Nails Salon D in Sydney", before: "6 clients/week with low local visibility.", after: "29 clients/week from targeted local campaigns.", testimonial: "The right message brought the right clients.", author: "Salon owner D" },
-      },
-      eyebrow: "CASE STUDY",
-      title: "Nails Salon A in Perth",
+      eyebrow: "PROVEN RESULTS",
+      title: "Real Results From Real Salons",
+      subtitle: "See how Australian Nail & Spa businesses achieve sustainable booking and revenue growth",
       beforeLabel: "BEFORE",
       afterLabel: "AFTER 30 DAYS",
-      before: "5 clients/week, spending $500/month on ineffective advertising.",
-      after: "25 clients/week, revenue up 200%.",
-      testimonial:
-        "I used to think marketing was just an expense, but now I see it as the most profitable investment.",
-      author: "Salon owner A",
-      arrow: "Result",
+      growthLabel: "Growth",
+      studies: {
+        "perth-a": {
+          title: "Nail & Beauty Studio in Perth",
+          before: "5 online bookings/wk with no client retention system.",
+          after: "25 bookings/wk with a 32% repeat client rate.",
+          testimonial: "Our bookings quadrupled in less than a month with VK Digital Hub.",
+          author: "Lan – Salon Owner, Perth",
+        },
+        "melbourne-b": {
+          title: "Luxe Nail Lounge in Melbourne",
+          before: "8 new clients/mo relying solely on word of mouth.",
+          after: "32 pre-booked clients/mo after local Google & Maps optimization.",
+          testimonial: "Targeted campaigns consistently filled our salon during peak & quiet hours.",
+          author: "Minh – Studio Manager, Melbourne",
+        },
+        "brisbane-c": {
+          title: "Wellness & Nail Spa in Brisbane",
+          before: "12 bookings/wk with manual DM tracking and missed enquiries.",
+          after: "41 bookings/wk with automated booking flow & SMS reminders.",
+          testimonial: "Saved 8+ hours a week on messaging while converting far more bookings.",
+          author: "Thao – Spa Founder, Brisbane",
+        },
+        "sydney-d": {
+          title: "Premium Beauty Clinic in Sydney",
+          before: "6 discovery sessions/mo with high ad spending and low ROAS.",
+          after: "29 high-ticket packages booked/mo via local conversion funnels.",
+          testimonial: "Attracted high-value clients effortlessly without discounting our craft.",
+          author: "Helen – Clinic Director, Sydney",
+        },
+      },
     },
     testimonials: {
       eyebrow: "CUSTOMER STORIES",
@@ -633,20 +623,34 @@ export const translations = {
       ],
     },
     form: {
+      fullName: "Full name",
+      fullNamePlaceholder: "Enter your full name",
+      companyName: "Company / Business name",
+      companyNamePlaceholder: "Enter your company or business name",
+      address: "Address",
+      addressPlaceholder: "Enter your business address",
       email: "Email",
-      emailPlaceholder: "Please enter your email address",
-      invalidEmail: "Please enter a valid email address.",
-      businessName: "Business name",
-      businessPlaceholder: "Please enter your salon name",
+      emailPlaceholder: "Enter your email address (e.g. name@example.com)",
       phone: "Phone number",
-      phonePlaceholder: "Please enter your phone number",
-      submit: "Get my free assessment",
+      phonePlaceholder: "Enter your phone number (e.g. 0412 345 678)",
+      message: "Message (Optional)",
+      messagePlaceholder: "Tell us about your business goals or current challenges (optional)...",
+      submit: "Get My Free Assessment",
       submitting: "Submitting...",
-      missingBusiness: "Please enter your business name.",
-      invalidPhone: "Phone number must contain exactly 10 digits.",
-      success:
-        "Thanks, we received your details. Our team will contact you soon.",
+      missingName: "Please enter your full name.",
+      missingCompany: "Please enter your company or business name.",
+      missingAddress: "Please enter your address.",
+      invalidEmail: "Please enter a valid email address.",
+      invalidPhone: "Please enter a valid phone number (at least 8-10 digits).",
+      missingMessage: "Please enter a message.",
+      success: "Thank you! We have received your details and will get in touch shortly.",
+      successTitle: "Request Submitted Successfully!",
+      returningHome: "Returning to home section in",
+      seconds: "seconds...",
+      returnNow: "Return to Home Now",
       failure: "We could not submit your request. Please try again later.",
+      errorTitle: "Submission Failed",
+      close: "Close",
     },
     cta: {
       eyebrow: "START WITH A CONVERSATION",
@@ -659,6 +663,7 @@ export const translations = {
       positioning:
         "Marketing partner helping Nail & Spa businesses across Australia grow sustainably.",
       explore: "Explore",
+      followUs: "Follow Us",
       action: "Ready to fill your appointment book?",
       copyright: "© 2026 VK Digital Hub. All rights reserved.",
       built: "Built for ambitious Nail & Spa owners.",
@@ -728,57 +733,15 @@ export const translations = {
       form: "Open the form",
       scenarios: [
         {
-          id: "pricing",
-          label: "💰 I want to know the cost",
-          question: "I want to know the cost",
-          answer:
-            "VK Digital Hub offers flexible marketing packages based on your salon's needs and size. Start with a free marketing assessment so we can recommend the right approach.",
-          followUps: [
-            {
-              id: "free",
-              label: "Get a free assessment",
-            },
-            {
-              id: "consultation",
-              label: "Book a consultation",
-            },
-            {
-              id: "other",
-              label: "Another question",
-            },
-          ],
-        },
-        {
           id: "free",
           label: "🎯 I want a free assessment",
           question: "I want a free assessment",
           answer:
-            "Just enter your salon name and phone number. The assessment is completely free with no commitment.",
+            "You simply need to fill out the form. We will get back to you as soon as possible, with absolutely no obligation required.",
           followUps: [
             {
               id: "form",
               label: "Open the form",
-            },
-            {
-              id: "other",
-              label: "Another question",
-            },
-          ],
-        },
-        {
-          id: "clients",
-          label: "📈 How do I get more new clients?",
-          question: "How do I get more new clients?",
-          answer:
-            "We combine local marketing, Google Business Profile, advertising, content, a booking funnel, and customer retention to build sustainable growth.",
-          followUps: [
-            {
-              id: "free",
-              label: "Get a free assessment",
-            },
-            {
-              id: "consultation",
-              label: "Book a consultation",
             },
             {
               id: "other",
@@ -840,14 +803,6 @@ export const translations = {
               label: "Another question",
             },
           ],
-        },
-        {
-          id: "other",
-          label: "❓ I have another question",
-          question: "I have another question",
-          answer:
-            "Type your question below and I will help within the information VK Digital Hub provides.",
-          followUps: [],
         },
       ],
       answers: {

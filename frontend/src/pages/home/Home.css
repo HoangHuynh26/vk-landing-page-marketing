@@ -13,3 +13,11 @@
     padding-bottom: 64px;
   }
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none; /* Firefox */
+}

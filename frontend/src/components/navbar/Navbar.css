@@ -101,7 +101,7 @@
 .nav-links {
   gap: 22px;
   color: rgba(0, 0, 0, 0.84);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 .nav-links a {
@@ -135,7 +135,7 @@
   border-radius: 999px;
   color: rgba(0, 0, 0, 0.9);
   background: rgba(249, 255, 253, 0.24);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
   cursor: pointer;

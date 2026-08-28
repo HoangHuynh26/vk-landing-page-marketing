@@ -86,7 +86,6 @@ export default function Testimonial() {
       <div className="round-testimonials-heading">
         <p>{t("testimonials.eyebrow")}</p>
         <h2 id="testimonials-title">{t("testimonials.title")}</h2>
-        <span>{t("testimonials.subtitle")}</span>
       </div>
 
       <div

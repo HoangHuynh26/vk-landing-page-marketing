@@ -2,7 +2,6 @@ import Hero from "../../components/hero/Hero";
 import TrustBar from "../../components/trustbar/TrustBar";
 import PainSolution from "../../components/painSolution/PainSolution";
 import { caseStudies } from "../../components/caseStudies/caseStudyData";
-import LiveNotification from "../../components/liveNotification/LiveNotification";
 import LazyLoad from "../../components/common/LazyLoad";
 import Statistics from "../../components/statistic/Statistics";
 import Testimonial from "../../components/testimonial/Testimonial";
@@ -77,7 +76,6 @@ export default function Home() {
           <LeadCTA />
         </Suspense>
       </LazyLoad>
-      <LiveNotification />
     </main>
   );
 }

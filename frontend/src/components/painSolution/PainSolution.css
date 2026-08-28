@@ -1,131 +1,265 @@
+/* ── Pain Solution — Case-Study-style expandable cards ── */
+
 .pain-solution {
   padding-top: 96px;
   padding-bottom: 96px;
 }
-.dark-eyebrow {
-  color: var(--primary);
-}
+
 .pain-solution h2 {
   margin: 0;
   color: var(--dark);
   font-size: clamp(32px, 4vw, 48px);
   line-height: 1.08;
 }
+
 .pain-solution h2 em {
   color: var(--primary);
   font-style: normal;
 }
+
+/* ── Grid → Flex row (matches case-study-grid-list) ── */
+
 .pain-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  width: 100%;
   margin-top: 44px;
 }
-.pain-card {
-  --rx: 0deg;
-  --ry: 0deg;
-  --mx: 50%;
-  --my: 50%;
-  --reveal-delay: calc(var(--card-index, 0) * 140ms);
+
+/* ── Card ── */
+
+.pain-item {
   position: relative;
-  padding: 28px;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 550px;
   overflow: hidden;
-  border: 1px solid rgba(23, 34, 31, 0.1);
-  border-radius: 8px;
-  background:
-    radial-gradient(
-      circle at var(--mx) var(--my),
-      rgba(201, 151, 78, 0.14),
-      transparent 34%
-    ),
-    var(--surface);
-  box-shadow: 0 14px 28px rgba(23, 34, 31, 0.06);
-  opacity: 0;
-  transform: translate3d(0, 70px, 0);
-  will-change: opacity, transform;
+  box-sizing: border-box;
+  padding: 28px;
+  border: 0;
+  border-radius: 12px;
+  color: var(--dark);
+  text-align: left;
+  background: #e8ded0;
+  box-shadow: 0 18px 44px rgba(23, 34, 31, 0.08);
+  cursor: pointer;
+  isolation: isolate;
   transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.3s ease;
+    flex 560ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 260ms ease,
+    box-shadow 260ms ease;
 }
-.pain-card.is-revealed {
+
+.pain-item::before {
+  position: absolute;
+  z-index: 2;
+  inset: 0 0 auto;
+  height: 5px;
+  content: "";
+  background: var(--primary);
+}
+
+.pain-item--1::before { background: var(--gold); }
+.pain-item--2::before { background: var(--accent); }
+
+.pain-item--1 { background: #e4ece8; }
+.pain-item--2 { background: #eee4da; }
+
+/* ── Cover image ── */
+
+.pain-cover {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  background: var(--dark);
   opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition-delay: var(--reveal-delay);
+  transition:
+    opacity 420ms ease,
+    transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.pain-card.is-revealed:hover {
-  transition-delay: 0ms;
+
+.pain-cover::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(11, 28, 25, 0.15), rgba(11, 28, 25, 0.82));
 }
-.pain-card:hover {
-  transform: translateY(-7px) rotateX(var(--rx)) rotateY(var(--ry));
-  box-shadow: 0 22px 38px rgba(23, 34, 31, 0.14);
+
+.pain-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.card-number {
+
+/* ── Card content ── */
+
+.pain-card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.pain-number {
   color: var(--gold);
   font-size: 20px;
   font-weight: 800;
 }
-.pain-card h3 {
-  margin: 22px 0 12px;
-  font-size: 22px;
+
+.pain-heading {
+  display: block;
 }
-.pain-card p {
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.55;
+
+.pain-heading h3 {
+  margin: 22px 0 0;
+  color: var(--dark);
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.12;
 }
+
+.pain-item:not(.is-expanded) .pain-heading h3 {
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.22);
+}
+
+.pain-item:not(.is-expanded) .pain-number {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Details (hidden until expanded) ── */
+
+.pain-details {
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    max-height 480ms ease,
+    margin-top 480ms ease,
+    opacity 280ms ease,
+    transform 480ms ease;
+}
+
 .pain-text {
-  min-height: 72px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+  min-height: auto;
+  margin: 0 0 8px;
 }
-.pain-card div {
-  margin-top: 22px;
+
+.pain-solution-block {
+  margin-top: 18px;
   padding-top: 15px;
   border-top: 1px solid rgba(23, 34, 31, 0.08);
 }
-.pain-card b {
+
+.pain-solution-block b {
   color: var(--accent);
-  font-size: 12px;
+  font-size: 17px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-.pain-card div p {
-  margin-bottom: 0;
+
+.pain-solution-block p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
 }
+
+/* ── Hover / Focus ── */
+
+.pain-item:hover,
+.pain-item:focus-visible,
+.pain-item.is-expanded {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 54px rgba(23, 34, 31, 0.16);
+}
+
+.pain-item:hover .pain-cover img,
+.pain-item:focus-visible .pain-cover img {
+  transform: scale(1.09);
+}
+
+.pain-item:focus-visible {
+  outline: 3px solid rgba(201, 151, 78, 0.9);
+  outline-offset: 3px;
+}
+
+/* ── Expanded state ── */
+
+.pain-item.is-expanded {
+  flex: 4 1 0;
+}
+
+.pain-item.is-expanded .pain-details {
+  max-height: 700px;
+  margin-top: 20px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pain-item.is-expanded .pain-cover {
+  opacity: 0;
+  transform: scale(1.06);
+  pointer-events: none;
+}
+
+.pain-item.is-expanded .pain-heading h3 {
+  color: var(--dark);
+  text-shadow: none;
+  font-size: 41px;
+}
+
+.pain-item.is-expanded .pain-number {
+  color: var(--gold);
+}
+
+/* ── Responsive ── */
+
 @media (max-width: 760px) {
   .pain-solution {
     padding-top: 64px;
     padding-bottom: 64px;
   }
   .pain-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
-  .pain-card:hover {
-    transform: translateY(-5px);
+  .pain-item,
+  .pain-item.is-expanded {
+    flex: 0 0 auto;
+    min-height: 112px;
+    padding: 22px;
   }
-}
-@media (min-width: 761px) and (max-width: 1024px) {
-  .pain-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .pain-item.is-expanded {
+    min-height: 360px;
   }
-}
-@media (pointer: coarse) {
-  .pain-card {
-    --rx: 0deg;
-    --ry: 0deg;
-  }
-  .pain-card:hover {
-    transform: translateY(-4px);
+  .pain-item:not(.is-expanded) .pain-heading h3 {
+    max-width: 18ch;
+    font-size: 22px;
   }
 }
+
+@media (max-width: 900px) {
+  .pain-item { padding: 22px; }
+  .pain-item.is-expanded { flex: 3 1 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .pain-card,
-  .pain-card.is-revealed {
-    opacity: 1;
-    transform: none;
+  .pain-item,
+  .pain-details,
+  .pain-cover,
+  .pain-cover img {
     transition: none;
-    will-change: auto;
-  }
-  .pain-card:hover {
-    transform: none;
   }
 }

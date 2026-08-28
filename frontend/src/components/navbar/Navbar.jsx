@@ -91,7 +91,7 @@ export default function Navbar() {
               <span aria-hidden="true">→</span>
               <span>{nextLanguage.toUpperCase()}</span>
             </button>
-            <GlowButton className="nav-cta" />
+            <GlowButton className="nav-cta" variant="nav" />
           </div>
         </div>
       </nav>

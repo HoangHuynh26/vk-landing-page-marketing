@@ -1,9 +1,6 @@
 .trustbar {
   display: grid;
-  grid-template-columns: minmax(250px, 1fr) minmax(300px, 1.2fr) minmax(
-      300px,
-      1fr
-    );
+  grid-template-columns: minmax(250px, 1fr) minmax(300px, 1.2fr);
   align-items: center;
   gap: 36px;
   min-height: 150px;
