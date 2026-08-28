@@ -7,9 +7,12 @@ async function createLead(req, res, next) {
     return res.status(400).json({ success: false, message: result.error });
   try {
     await forwardLeadToMake(result.value);
-    console.log(result.value);
     console.info("Lead accepted", {
-      businessNameLength: result.value.businessName.length,
+      fullName: result.value.fullName,
+      companyName: result.value.companyName,
+      email: result.value.email,
+      phone: result.value.phone,
+      language: result.value.language,
     });
     return res
       .status(200)

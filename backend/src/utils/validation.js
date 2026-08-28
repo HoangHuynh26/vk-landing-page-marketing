@@ -6,16 +6,41 @@ function sanitizeText(value, maxLength) {
 }
 
 function validateLead(body) {
-  const businessName = sanitizeText(body?.businessName, 120);
+  const fullName = sanitizeText(body?.fullName, 120);
+  const companyName = sanitizeText(
+    body?.companyName || body?.businessName,
+    150,
+  );
+  const address = sanitizeText(body?.address, 250);
   const email = sanitizeText(body?.email, 254).toLowerCase();
   const phone = String(body?.phone || "").replace(/\D/g, "");
-  const language = body?.language === "en" ? "en" : body?.language === "vi" ? "vi" : "";
-  if (!businessName) return { error: "Business name is required" };
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+  const message = sanitizeText(body?.message, 2000);
+  const language =
+    body?.language === "en" ? "en" : body?.language === "vi" ? "vi" : "vi";
+
+  if (!fullName) return { error: "Full name is required" };
+  if (!companyName) return { error: "Company name is required" };
+  if (!address) return { error: "Address is required" };
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { error: "Invalid email address" };
-  if (phone.length !== 10) return { error: "Invalid phone number" };
-  if (!language) return { error: "Invalid language" };
-  return { value: { businessName, email, phone, language } };
+  }
+  if (!phone || phone.length < 8 || phone.length > 15) {
+    return { error: "Invalid phone number" };
+  }
+
+  return {
+    value: {
+      fullName,
+      companyName,
+      businessName: companyName,
+      address,
+      email,
+      phone,
+      message,
+      language,
+      submittedAt: new Date().toISOString(),
+    },
+  };
 }
 
 module.exports = { validateLead };
