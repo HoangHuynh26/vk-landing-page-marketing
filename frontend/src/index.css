@@ -16,14 +16,35 @@
 .lazy-section-placeholder {
   min-height: 240px;
 }
+.trustbar-section .lazy-section-placeholder {
+  min-height: 80px;
+}
+.statistics-section .lazy-section-placeholder {
+  min-height: 160px;
+}
 .case-study-section .lazy-section-placeholder {
   min-height: 120px;
 }
+
+/* Lazy load reveal: two-phase transition (pre-reveal → revealed) */
+.lazy-pre-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.lazy-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 body {
   margin: 0;
+  overflow-x: clip;
   background: var(--ivory);
   color: var(--dark);
   font-family:
@@ -61,7 +82,12 @@ button {
 }
 @media (max-width: 900px) {
   .page-shell {
-    width: min(100% - 48px, 1120px);
+    width: min(100% - 40px, 1120px);
+  }
+}
+@media (max-width: 480px) {
+  .page-shell {
+    width: min(100% - 24px, 1120px);
   }
 }
 .glow-btn:focus-visible,

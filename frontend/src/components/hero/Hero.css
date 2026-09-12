@@ -212,6 +212,38 @@
   }
 }
 
+@media (max-width: 480px) {
+  .hero-content {
+    padding-top: 76px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .hero h1 {
+    font-size: clamp(24px, 7vw, 32px);
+    line-height: 1.15;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .hero-actions > span {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .hero-subcopy {
+    font-size: 14px;
+    margin-top: 14px;
+    margin-bottom: 20px;
+  }
+
+  .hero-caption {
+    font-size: 10.5px;
+    padding: 8px 12px;
+    bottom: 12px;
+  }
+}
+
 @media (min-width: 761px) and (max-width: 1024px) {
   .hero {
     min-height: 100svh;

@@ -72,14 +72,22 @@
   letter-spacing: 0.02em;
   cursor: pointer;
   box-shadow: 0 10px 24px rgba(15, 118, 110, 0.28);
+  transform: translate3d(var(--tx, 0px), var(--ty, 0px), 0);
+  will-change: transform;
   transition:
-    transform 0.2s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.lead-form-submit.is-magnetic {
+  transition:
+    transform 0.1s cubic-bezier(0.25, 1, 0.5, 1),
     background 0.2s ease,
     box-shadow 0.2s ease;
 }
 
 .lead-form-submit:hover:not(:disabled) {
-  transform: translateY(-2px);
   background: linear-gradient(135deg, #13877e, var(--primary-dark));
   box-shadow: 0 14px 30px rgba(15, 118, 110, 0.38);
 }
@@ -118,13 +126,29 @@
   .lead-form {
     grid-template-columns: 1fr;
     gap: 12px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
   }
   .lead-form .field-full {
     grid-column: 1;
   }
+  .lead-form label {
+    text-align: left;
+  }
   .lead-form input,
   .lead-form textarea {
-    padding: 10px 12px;
+    padding: 11px 13px;
     font-size: 14px;
+    box-sizing: border-box;
+  }
+  .lead-form-submit {
+    width: 100%;
+    max-width: 320px;
+    margin: 8px auto 0;
+    display: block;
+  }
+  .form-message {
+    text-align: center;
   }
 }

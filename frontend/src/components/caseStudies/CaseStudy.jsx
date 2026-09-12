@@ -22,22 +22,22 @@ function StudyContent({ study, content }) {
 
       <div className="case-study-details">
         <div className="case-metrics">
-          <div>
-            <span style={{fontSize: "20px"}}>{t("caseStudy.beforeLabel")}</span>
-            <strong>{study.beforeValue}</strong>
-            <p style={{fontSize: "20px"}}>{content.before}</p>
+          <div className="before-metric">
+            <span className="metric-label">{t("caseStudy.beforeLabel")}</span>
+            <strong className="metric-value">{study.beforeValue}</strong>
+            <p className="metric-desc">{content.before}</p>
           </div>
           <div className="metric-arrow" aria-hidden="true">→</div>
           <div className="after-metric">
-            <span style={{fontSize: "20px"}}>{t("caseStudy.afterLabel")}</span>
-            <strong>{study.afterValue}</strong>
-            <p style={{fontSize: "20px"}}>{content.after}</p>
+            <span className="metric-label">{t("caseStudy.afterLabel")}</span>
+            <strong className="metric-value">{study.afterValue}</strong>
+            <p className="metric-desc">{content.after}</p>
           </div>
         </div>
 
-        <blockquote style={{fontSize: "20px"}}>
+        <blockquote className="case-testimonial">
           “{content.testimonial}”
-          <cite style={{fontSize: "20px"}}>— {content.author}</cite>
+          <cite>— {content.author}</cite>
         </blockquote>
       </div>
     </>
@@ -61,6 +61,9 @@ function CaseStudyCard({ study, content, image, isExpanded, onToggle }) {
         <img src={image} alt="" loading="lazy" />
       </div>
       <div id={`case-study-content-${study.id}`} className="case-study-card-content">
+        <div className="case-study-badge">
+          <span>{isExpanded ? "−" : "+"}</span>
+        </div>
         <StudyContent study={study} content={content} />
       </div>
     </button>
@@ -72,9 +75,9 @@ export default function CaseStudy({ study, studies }) {
   const [activeId, setActiveId] = useState(null);
   const caseStudies = (studies || (study ? [study] : [])).slice(0, 4);
   const studyImages = {
-    "perth-a": "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=85",
-    "melbourne-b": "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=1200&q=85",
-    "brisbane-c": "https://images.unsplash.com/photo-1619607146034-5a05296c8f9a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "perth-a": "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=85&fm=webp",
+    "melbourne-b": "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=1200&q=85&fm=webp",
+    "brisbane-c": "https://images.unsplash.com/photo-1619607146034-5a05296c8f9a?q=80&w=687&auto=format&fit=crop&fm=webp",
   };
 
   if (caseStudies.length === 0) return null;

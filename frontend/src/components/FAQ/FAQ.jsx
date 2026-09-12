@@ -5,7 +5,7 @@ import { useLanguage } from "../../i18n/LanguageContext";
 export default function FAQ({ items, compact = false }) {
   const { t } = useLanguage();
   const localizedItems = items || t("faq.items");
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
   return (
     <div className={`faq-list ${compact ? "faq-list-compact" : ""}`}>
       {localizedItems.map((item, index) => {

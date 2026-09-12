@@ -38,6 +38,19 @@ export default function Navbar() {
     };
   }, []);
 
+  const languageButton = (
+    <button
+      className="language-toggle"
+      type="button"
+      onClick={() => setLanguage(nextLanguage)}
+      aria-label={`Switch language to ${nextLanguage.toUpperCase()}`}
+    >
+      <span className="language-current">{language.toUpperCase()}</span>
+      <span aria-hidden="true">→</span>
+      <span>{nextLanguage.toUpperCase()}</span>
+    </button>
+  );
+
   return (
     <header
       className={`site-header ${isScrolled ? "is-scrolled" : ""}`}
@@ -60,18 +73,8 @@ export default function Navbar() {
             VK Digital Hub
           </span>
         </a>
-        <button
-          className="menu-toggle"
-          type="button"
-          aria-expanded={open}
-          aria-controls="main-menu"
-          onClick={() => setOpen(!open)}
-        >
-          <span className="sr-only">
-            {open ? t("nav.close") : t("nav.open")}
-          </span>
-          <span aria-hidden="true">{open ? "×" : "☰"}</span>
-        </button>
+
+        {/* Centered navigation menu */}
         <div id="main-menu" className={`nav-menu ${open ? "is-open" : ""}`}>
           <div className="nav-links">
             {links.map(([label, path]) => (
@@ -80,19 +83,29 @@ export default function Navbar() {
               </a>
             ))}
           </div>
-          <div className="nav-actions">
-            <button
-              className="language-toggle"
-              type="button"
-              onClick={() => setLanguage(nextLanguage)}
-              aria-label={`Switch language to ${nextLanguage.toUpperCase()}`}
-            >
-              <span className="language-current">{language.toUpperCase()}</span>
-              <span aria-hidden="true">→</span>
-              <span>{nextLanguage.toUpperCase()}</span>
-            </button>
+          <div className="nav-mobile-cta">
+            <GlowButton className="nav-cta" variant="nav" onClick={() => setOpen(false)} />
+          </div>
+        </div>
+
+        {/* Header actions: Language switcher always outside next to button */}
+        <div className="nav-header-actions">
+          {languageButton}
+          <div className="nav-desktop-cta">
             <GlowButton className="nav-cta" variant="nav" />
           </div>
+          <button
+            className="menu-toggle"
+            type="button"
+            aria-expanded={open}
+            aria-controls="main-menu"
+            onClick={() => setOpen(!open)}
+          >
+            <span className="sr-only">
+              {open ? t("nav.close") : t("nav.open")}
+            </span>
+            <span aria-hidden="true">{open ? "×" : "☰"}</span>
+          </button>
         </div>
       </nav>
     </header>

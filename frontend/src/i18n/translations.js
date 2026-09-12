@@ -12,10 +12,11 @@ export const translations = {
       close: "Đóng menu",
       homeLabel: "VK Digital Hub trang chủ",
       cta: "NHẬN BẢN ĐÁNH GIÁ MARKETING MIỄN PHÍ",
+      backToTop: "Về đầu trang",
     },
     hero: {
       eyebrow: "MARKETING PARTNER FOR NAIL & SPA",
-      title: "Gấp đôi số lượng đặt chỗ",
+      title: "Có thêm khách hàng",
       emphasis: "trong 60 ngày",
       copy: "– mà không cần chi thêm tiền cho quảng cáo",
       noCost: "Không mất phí. Không cam kết.",
@@ -158,22 +159,23 @@ export const translations = {
       showReview: "Hiện lời chứng thực",
       dragHint: "Kéo để xoay · Di chuột để tạm dừng",
       items: [
-        { name: "Mia Thompson", rating: 5, avatar: "https://i.pravatar.cc/96?img=47", text: "Lịch hẹn của chúng tôi cuối cùng đã ổn định hơn. Mỗi tuần đều biết điều gì đang hiệu quả.", timestamp: "2 tuần trước" },
-        { name: "Sophie Nguyen", rating: 5, avatar: "https://i.pravatar.cc/96?img=32", text: "Chiến lược giúp chúng tôi tự tin ngừng đoán mò và bắt đầu tăng trưởng.", timestamp: "3 tuần trước" },
-        { name: "Olivia Carter", rating: 5, avatar: "https://i.pravatar.cc/96?img=44", text: "Chúng tôi tiếp cận được nhiều khách hàng địa phương hơn mà không còn áp lực quảng cáo.", timestamp: "1 tháng trước" },
-        { name: "Emma Wilson", rating: 5, avatar: "https://i.pravatar.cc/96?img=49", text: "Salon đã có thông điệp rõ ràng và lượng khách quan tâm ổn định.", timestamp: "1 tháng trước" },
-        { name: "Grace Martin", rating: 5, avatar: "https://i.pravatar.cc/96?img=25", text: "Báo cáo hàng tuần giúp chúng tôi hiểu mọi kết quả rất dễ dàng.", timestamp: "2 tháng trước" },
-        { name: "Chloe Taylor", rating: 5, avatar: "https://i.pravatar.cc/96?img=5", text: "Chúng tôi có nhiều khách quay lại hơn và lịch hẹn khỏe mạnh hơn.", timestamp: "2 tháng trước" },
-        { name: "Isla Brown", rating: 5, avatar: "https://i.pravatar.cc/96?img=23", text: "Đây giống như một đối tác marketing thật sự hiểu ngành salon.", timestamp: "3 tháng trước" },
-        { name: "Ruby Anderson", rating: 5, avatar: "https://i.pravatar.cc/96?img=10", text: "Chiến dịch đã hoàn vốn nhanh hơn chúng tôi mong đợi.", timestamp: "3 tháng trước" },
-        { name: "Amelia Davis", rating: 5, avatar: "https://i.pravatar.cc/96?img=16", text: "Khả năng hiển thị tại địa phương tốt hơn và khách mới tìm thấy chúng tôi trước tiên.", timestamp: "4 tháng trước" },
-        { name: "Harper Lee", rating: 5, avatar: "https://i.pravatar.cc/96?img=36", text: "Chuyên nghiệp, phản hồi nhanh và luôn tập trung vào kết quả quan trọng.", timestamp: "5 tháng trước" },
+        { name: "Mia Thompson", rating: 5, avatar: "/testimonials/avatar-1.webp", text: "Lịch hẹn của chúng tôi cuối cùng đã ổn định hơn. Mỗi tuần đều biết điều gì đang hiệu quả.", timestamp: "2 tuần trước" },
+        { name: "Sophie Nguyen", rating: 5, avatar: "/testimonials/avatar-2.webp", text: "Chiến lược giúp chúng tôi tự tin ngừng đoán mò và bắt đầu tăng trưởng.", timestamp: "3 tuần trước" },
+        { name: "Olivia Carter", rating: 5, avatar: "/testimonials/avatar-3.webp", text: "Chúng tôi tiếp cận được nhiều khách hàng địa phương hơn mà không còn áp lực quảng cáo.", timestamp: "1 tháng trước" },
+        { name: "Emma Wilson", rating: 5, avatar: "/testimonials/avatar-4.webp", text: "Salon đã có thông điệp rõ ràng và lượng khách quan tâm ổn định.", timestamp: "1 tháng trước" },
+        { name: "Grace Martin", rating: 5, avatar: "/testimonials/avatar-5.webp", text: "Báo cáo hàng tuần giúp chúng tôi hiểu mọi kết quả rất dễ dàng.", timestamp: "2 tháng trước" },
+        { name: "Chloe Taylor", rating: 5, avatar: "/testimonials/avatar-6.webp", text: "Chúng tôi có nhiều khách quay lại hơn và lịch hẹn khỏe mạnh hơn.", timestamp: "2 tháng trước" },
+        { name: "Isla Brown", rating: 5, avatar: "/testimonials/avatar-7.webp", text: "Đây giống như một đối tác marketing thật sự hiểu ngành salon.", timestamp: "3 tháng trước" },
+        { name: "Ruby Anderson", rating: 5, avatar: "/testimonials/avatar-8.webp", text: "Chiến dịch đã hoàn vốn nhanh hơn chúng tôi mong đợi.", timestamp: "3 tháng trước" },
+        { name: "Amelia Davis", rating: 5, avatar: "/testimonials/avatar-9.webp", text: "Khả năng hiển thị tại địa phương tốt hơn và khách mới tìm thấy chúng tôi trước tiên.", timestamp: "4 tháng trước" },
+        { name: "Harper Lee", rating: 5, avatar: "/testimonials/avatar-10.webp", text: "Chuyên nghiệp, phản hồi nhanh và luôn tập trung vào kết quả quan trọng.", timestamp: "5 tháng trước" },
       ],
     },
     notification: {
       activity: "Hoạt động mới",
       demo: "DEMO · ",
       message: "Tiệm Nails tại Joondalup vừa đăng ký gói Pro cách đây 5 phút.",
+      receivedReview: "vừa nhận bản đánh giá marketing miễn phí.",
       close: "Đóng thông báo",
     },
     faq: {
@@ -247,9 +249,14 @@ export const translations = {
     },
     footer: {
       positioning:
-        "Marketing partner giúp các tiệm Nail & Spa tại Australia tăng trưởng bền vững.",
+        "Chiến lược marketing thông minh được xây dựng để giúp doanh nghiệp Australia tăng trưởng.",
       explore: "Khám phá",
       followUs: "Kết nối với chúng tôi",
+      contact: "Thông tin liên hệ",
+      phoneLabel: "Điện thoại",
+      phonePlaceholder: "+61 431 679 731",
+      emailLabel: "Email",
+      emailPlaceholder: "admin@vkdigitalhub.com.au",
       action: "Sẵn sàng lấp đầy lịch hẹn?",
       copyright: "© 2026 VK Digital Hub. All rights reserved.",
       built: "Built for ambitious Nail & Spa owners.",
@@ -312,11 +319,23 @@ export const translations = {
       placeholder: "Bạn muốn hỏi điều gì?",
       emptyQuestion: "Vui lòng nhập câu hỏi trước khi gửi.",
       send: "Gửi câu hỏi",
-      welcome: "Chào bạn! Em có thể hỗ trợ gì cho anh/chị?",
+      welcome: "Chào anh/chị! Em có thể hỗ trợ gì cho mình ạ?",
       inactivity:
-        "Chào bạn! Em thấy anh/chị đang xem landing, có thắc mắc gì em hỗ trợ ngay ạ.",
+        "Chào anh/chị! Em thấy mình đang xem landing page; có thắc mắc gì cứ nhắn em nhé!",
+      prompts: [
+        "Muốn biết marketing của business đang ở đâu? Chat với chúng em nhé!",
+"Chỉ 2 phút để chia sẻ về business — chúng em sẽ giúp anh/chị tìm cơ hội cải thiện.",
+"Điền form ngắn để nhận bản đánh giá marketing miễn phí nhé!",
+"Muốn nhận đánh giá marketing miễn phí? Chat với chúng em để bắt đầu!",
+"Chia sẻ mục tiêu của anh/chị — chúng em sẽ đề xuất hướng marketing phù hợp.",
+"Để lại vài thông tin về business và nhận tư vấn marketing miễn phí.",
+      ],
+      closePrompt: "Đóng thông báo",
       other: "Câu hỏi khác",
       form: "Điền form ngay",
+      formBadge: "BẢN ĐÁNH GIÁ MIỄN PHÍ",
+      formSub: "Chỉ mất 2 phút · Miễn phí & Không cam kết",
+      formAction: "Bấm để điền",
       scenarios: [
         {
           id: "free",
@@ -343,8 +362,8 @@ export const translations = {
             "Chúng tôi cam kết hoàn tiền 100% nếu sau 60 ngày anh/chị không thấy tăng ít nhất 50% lượng khách mới, theo điều kiện áp dụng của chương trình.",
           followUps: [
             {
-              id: "free",
-              label: "Nhận bản đánh giá miễn phí",
+              id: "form",
+              label: "Điền form ngay",
             },
             {
               id: "other",
@@ -360,12 +379,12 @@ export const translations = {
             "Có. Chúng tôi hỗ trợ online trên toàn nước Úc và đặc biệt am hiểu thị trường Tây Úc như Perth, Mandurah và các khu vực lân cận.",
           followUps: [
             {
-              id: "consultation",
-              label: "Đăng ký tư vấn",
+              id: "form",
+              label: "Điền form ngay",
             },
             {
-              id: "free",
-              label: "Nhận bản đánh giá miễn phí",
+              id: "consultation",
+              label: "Đăng ký tư vấn",
             },
             {
               id: "other",
@@ -391,7 +410,15 @@ export const translations = {
           ],
         },
       ],
+      selectTopic:
+        "Dưới đây là một số chủ đề thường gặp, anh/chị hãy chọn chủ đề quan tâm nhé:",
       answers: {
+        greeting:
+          "Chào anh/chị! Em có thể hỗ trợ gì cho mình về các gói giải pháp marketing cho tiệm Nail & Spa, chính sách hoàn tiền 60 ngày hoặc nhận bản đánh giá miễn phí ạ?",
+        contact:
+          "Anh/chị có thể liên hệ trực tiếp với VK Digital Hub qua thông tin bên dưới (Hotline: **+61 431 679 731** · Email: **admin@vkdigitalhub.com.au**), hoặc điền form để chuyên viên hỗ trợ ngay ạ:",
+        problem:
+          "Anh/chị chỉ cần điền thông tin vào form, chúng em sẽ đề xuất giải pháp phù hợp nhất ạ.",
         pricing:
           "Mỗi tiệm có nhu cầu khác nhau. Bạn có thể nhận bản đánh giá miễn phí để chúng tôi đề xuất hướng phù hợp.",
         service:
@@ -401,12 +428,12 @@ export const translations = {
           "Mục tiêu là tăng 50% khách mới trong 60 ngày. Nếu không đạt cam kết theo điều kiện đã thống nhất, bạn được hoàn tiền 100%.",
         locations:
           "Chúng tôi hỗ trợ các tiệm Nail & Spa tại Australia và bắt đầu bằng việc phân tích khu vực quanh tiệm.",
-        contact:
-          "Bạn có thể để lại tên tiệm và số điện thoại trong form. Đội ngũ sẽ liên hệ lại sớm.",
+        appointment:
+          "Anh/chị có thể để lại tên tiệm và số điện thoại trong form để đội ngũ liên hệ và sắp xếp lịch tư vấn sớm nhất.",
         technology:
           "Đội ngũ xử lý phần công nghệ và triển khai. Bạn không cần tự học hay vận hành hệ thống marketing.",
         fallback:
-          "Em chưa có thông tin chính xác cho câu hỏi này. Bạn để lại thông tin trong form để đội ngũ hỗ trợ trực tiếp nhé.",
+          "Em chưa có thông tin chính xác cho câu hỏi này. Anh/chị có thể tham khảo các chủ đề gợi ý bên dưới hoặc điền form để được hỗ trợ trực tiếp nhé!",
       },
     },
   },
@@ -423,10 +450,11 @@ export const translations = {
       close: "Close menu",
       homeLabel: "VK Digital Hub home",
       cta: "GET YOUR FREE MARKETING ASSESSMENT",
+      backToTop: "Return to top",
     },
     hero: {
       eyebrow: "MARKETING PARTNER FOR NAIL & SPA",
-      title: "Double your bookings",
+      title: "Gain more customers",
       emphasis: "in 60 days",
       copy: "– without spending more on ads",
       noCost: "No fees. No commitment.",
@@ -520,7 +548,7 @@ export const translations = {
       ],
     },
     caseStudy: {
-      eyebrow: "PROVEN RESULTS",
+      eyebrow: "CASE STUDIES",
       title: "Real Results From Real Salons",
       subtitle: "See how Australian Nail & Spa businesses achieve sustainable booking and revenue growth",
       beforeLabel: "BEFORE",
@@ -568,16 +596,16 @@ export const translations = {
       showReview: "Show testimonial",
       dragHint: "Drag to spin · Hover to pause",
       items: [
-        { name: "Mia Thompson", rating: 5, avatar: "https://i.pravatar.cc/96?img=47", text: "Our bookings finally feel consistent. We know what is working every week.", timestamp: "2 weeks ago" },
-        { name: "Sophie Nguyen", rating: 5, avatar: "https://i.pravatar.cc/96?img=32", text: "The strategy gave us confidence to stop guessing and start growing.", timestamp: "3 weeks ago" },
-        { name: "Olivia Carter", rating: 5, avatar: "https://i.pravatar.cc/96?img=44", text: "We reached more local clients without increasing our advertising stress.", timestamp: "1 month ago" },
-        { name: "Emma Wilson", rating: 5, avatar: "https://i.pravatar.cc/96?img=49", text: "Our salon now has a clear message and a steady stream of enquiries.", timestamp: "1 month ago" },
-        { name: "Grace Martin", rating: 5, avatar: "https://i.pravatar.cc/96?img=25", text: "The weekly reporting makes every result easy to understand.", timestamp: "2 months ago" },
-        { name: "Chloe Taylor", rating: 5, avatar: "https://i.pravatar.cc/96?img=5", text: "We have more returning clients and a much healthier booking calendar.", timestamp: "2 months ago" },
-        { name: "Isla Brown", rating: 5, avatar: "https://i.pravatar.cc/96?img=23", text: "It feels like having a marketing partner who truly understands salons.", timestamp: "3 months ago" },
-        { name: "Ruby Anderson", rating: 5, avatar: "https://i.pravatar.cc/96?img=10", text: "The campaign paid for itself faster than we expected.", timestamp: "3 months ago" },
-        { name: "Amelia Davis", rating: 5, avatar: "https://i.pravatar.cc/96?img=16", text: "Our local visibility improved and new customers now find us first.", timestamp: "4 months ago" },
-        { name: "Harper Lee", rating: 5, avatar: "https://i.pravatar.cc/96?img=36", text: "Professional, responsive, and focused on results that matter to our business.", timestamp: "5 months ago" },
+        { name: "Mia Thompson", rating: 5, avatar: "/testimonials/avatar-1.webp", text: "Our bookings finally feel consistent. We know what is working every week.", timestamp: "2 weeks ago" },
+        { name: "Sophie Nguyen", rating: 5, avatar: "/testimonials/avatar-2.webp", text: "The strategy gave us confidence to stop guessing and start growing.", timestamp: "3 weeks ago" },
+        { name: "Olivia Carter", rating: 5, avatar: "/testimonials/avatar-3.webp", text: "We reached more local clients without increasing our advertising stress.", timestamp: "1 month ago" },
+        { name: "Emma Wilson", rating: 5, avatar: "/testimonials/avatar-4.webp", text: "Our salon now has a clear message and a steady stream of enquiries.", timestamp: "1 month ago" },
+        { name: "Grace Martin", rating: 5, avatar: "/testimonials/avatar-5.webp", text: "The weekly reporting makes every result easy to understand.", timestamp: "2 months ago" },
+        { name: "Chloe Taylor", rating: 5, avatar: "/testimonials/avatar-6.webp", text: "We have more returning clients and a much healthier booking calendar.", timestamp: "2 months ago" },
+        { name: "Isla Brown", rating: 5, avatar: "/testimonials/avatar-7.webp", text: "It feels like having a marketing partner who truly understands salons.", timestamp: "3 months ago" },
+        { name: "Ruby Anderson", rating: 5, avatar: "/testimonials/avatar-8.webp", text: "The campaign paid for itself faster than we expected.", timestamp: "3 months ago" },
+        { name: "Amelia Davis", rating: 5, avatar: "/testimonials/avatar-9.webp", text: "Our local visibility improved and new customers now find us first.", timestamp: "4 months ago" },
+        { name: "Harper Lee", rating: 5, avatar: "/testimonials/avatar-10.webp", text: "Professional, responsive, and focused on results that matter to our business.", timestamp: "5 months ago" },
       ],
     },
     notification: {
@@ -585,6 +613,7 @@ export const translations = {
       demo: "DEMO · ",
       message:
         "A nail salon in Joondalup signed up for the Pro plan 5 minutes ago.",
+      receivedReview: "received a free marketing review.",
       close: "Close notification",
     },
     faq: {
@@ -661,9 +690,14 @@ export const translations = {
     },
     footer: {
       positioning:
-        "Marketing partner helping Nail & Spa businesses across Australia grow sustainably.",
+        "Smart marketing strategies built to help Australian businesses grow.",
       explore: "Explore",
       followUs: "Follow Us",
+      contact: "Contact",
+      phoneLabel: "Phone",
+      phonePlaceholder: "+61 431 679 731",
+      emailLabel: "Email",
+      emailPlaceholder: "admin@vkdigitalhub.com.au",
       action: "Ready to fill your appointment book?",
       copyright: "© 2026 VK Digital Hub. All rights reserved.",
       built: "Built for ambitious Nail & Spa owners.",
@@ -728,9 +762,21 @@ export const translations = {
       send: "Send question",
       welcome: "Hi! How can I help you today?",
       inactivity:
-        "Hi! I can see you are looking around. Is there anything I can help with?",
+        "Hello! I see you're viewing the landing page; let me know if you have any questions.",
+      prompts: [
+        "Want to know where your business's marketing stands? Chat with us!",
+        "Share a few details about your business in just 2 minutes—we’ll help you find opportunities for improvement.",
+        "Fill out this short form to get a free marketing assessment!",
+        "Want a free marketing assessment? Chat with us to get started!",
+        "Share your goals—we’ll recommend the right marketing approach.",
+        "Provide some details about your business and get a free marketing consultation."
+      ],
+      closePrompt: "Close notification",
       other: "Another question",
       form: "Open the form",
+      formBadge: "FREE ASSESSMENT",
+      formSub: "Takes 2 mins · Free & No commitment",
+      formAction: "Click to open",
       scenarios: [
         {
           id: "free",
@@ -757,8 +803,8 @@ export const translations = {
             "We commit to a 100% refund if, after 60 days, you do not see at least a 50% increase in new clients, subject to the program conditions.",
           followUps: [
             {
-              id: "free",
-              label: "Get a free assessment",
+              id: "form",
+              label: "Open the form",
             },
             {
               id: "other",
@@ -774,12 +820,12 @@ export const translations = {
             "Yes. We support salons online across Australia and have particular familiarity with Western Australian markets including Perth, Mandurah, and nearby areas.",
           followUps: [
             {
-              id: "consultation",
-              label: "Book a consultation",
+              id: "form",
+              label: "Open the form",
             },
             {
-              id: "free",
-              label: "Get a free assessment",
+              id: "consultation",
+              label: "Book a consultation",
             },
             {
               id: "other",
@@ -805,7 +851,15 @@ export const translations = {
           ],
         },
       ],
+      selectTopic:
+        "Here are our frequently asked topics, please select one to explore:",
       answers: {
+        greeting:
+          "Hello! How can I help you today regarding our marketing solutions for Nail & Spa businesses, our 60-day refund guarantee, or getting your free marketing assessment?",
+        contact:
+          "You can reach VK Digital Hub directly using the contact details below (Phone: **+61 431 679 731** · Email: **admin@vkdigitalhub.com.au**), or fill out the form for prompt assistance:",
+        problem:
+          "Simply fill out the form, and we will provide the most suitable solution.",
         pricing:
           "Every salon has different needs. Get a free assessment so we can recommend the right approach.",
         service:
@@ -815,12 +869,12 @@ export const translations = {
           "We target a 50% increase in new clients within 60 days. If the agreed conditions are not met, you receive a 100% refund.",
         locations:
           "We support Nail & Spa businesses across Australia, starting with the market around your salon.",
-        contact:
-          "Leave your salon name and phone number in the form and our team will contact you soon.",
+        appointment:
+          "Leave your salon name and phone number in the form and our team will contact you to schedule a consultation.",
         technology:
           "Our team handles the technology and execution. You do not need to learn or operate a marketing system.",
         fallback:
-          "I do not have a reliable answer for that yet. Please leave your details in the form so our team can help directly.",
+          "I don't have exact information for that question yet. Please explore the suggested topics below or fill out the form for direct support!",
       },
     },
   },

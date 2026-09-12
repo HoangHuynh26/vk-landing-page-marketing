@@ -120,7 +120,14 @@ export default function Testimonial() {
                   style={{ backgroundImage: `linear-gradient(180deg, rgba(23,58,52,0.06), rgba(23,58,52,0.94)), url(${review.avatar})` }}
                 >
                   <div className="round-testimonial-card-content">
-                    <img src={review.avatar} alt="" loading="lazy" />
+                    <img
+                      src={review.avatar}
+                      alt={review.name}
+                      width={48}
+                      height={48}
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <span className="round-testimonial-stars" aria-label={`${review.rating} out of 5 stars`}>
                       {"★".repeat(review.rating)}
                     </span>

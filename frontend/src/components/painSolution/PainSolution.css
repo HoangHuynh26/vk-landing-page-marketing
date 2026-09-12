@@ -39,7 +39,7 @@
   box-sizing: border-box;
   padding: 28px;
   border: 0;
-  border-radius: 12px;
+  border-radius: 14px;
   color: var(--dark);
   text-align: left;
   background: #e8ded0;
@@ -47,9 +47,11 @@
   cursor: pointer;
   isolation: isolate;
   transition:
-    flex 560ms cubic-bezier(0.22, 1, 0.36, 1),
+    flex 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    min-height 520ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 260ms ease,
-    box-shadow 260ms ease;
+    box-shadow 260ms ease,
+    background-color 300ms ease;
 }
 
 .pain-item::before {
@@ -78,14 +80,14 @@
   opacity: 1;
   transition:
     opacity 420ms ease,
-    transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .pain-cover::after {
   position: absolute;
   inset: 0;
   content: "";
-  background: linear-gradient(180deg, rgba(11, 28, 25, 0.15), rgba(11, 28, 25, 0.82));
+  background: linear-gradient(180deg, rgba(11, 28, 25, 0.22), rgba(11, 28, 25, 0.88));
 }
 
 .pain-cover img {
@@ -108,10 +110,308 @@
   flex-direction: column;
 }
 
+.pain-card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pain-header-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ── Outstanding Icon Wrapper & Ambient Aura Halo ── */
+
+.pain-card-icon-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pain-card-icon-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 22px;
+  opacity: 0.65;
+  filter: blur(12px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+}
+
+.pain-card-icon-wrap--0 .pain-card-icon-glow {
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.8) 0%, rgba(45, 212, 191, 0.45) 45%, transparent 72%);
+}
+
+.pain-card-icon-wrap--1 .pain-card-icon-glow {
+  background: radial-gradient(circle, rgba(201, 151, 78, 0.85) 0%, rgba(253, 224, 71, 0.45) 45%, transparent 72%);
+}
+
+.pain-card-icon-wrap--2 .pain-card-icon-glow {
+  background: radial-gradient(circle, rgba(217, 119, 87, 0.8) 0%, rgba(251, 146, 60, 0.45) 45%, transparent 72%);
+}
+
+.pain-item:hover .pain-card-icon-glow,
+.pain-item.is-expanded .pain-card-icon-glow {
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+/* ── Outstanding Icon Container ── */
+
+.pain-card-icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.12) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.pain-card-icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+  overflow: visible;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Card 0: Ads / Marketing (Deep Teal & Bright Mint accents) */
+.pain-card-icon--0 {
+  color: #6ee7b7;
+  box-shadow:
+    0 12px 28px -4px rgba(0, 0, 0, 0.35),
+    0 4px 14px rgba(15, 118, 110, 0.4),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Card 1: Salon Brand (Radiant 24K Champagne Gold) */
+.pain-card-icon--1 {
+  color: #fde047;
+  box-shadow:
+    0 12px 28px -4px rgba(0, 0, 0, 0.35),
+    0 4px 14px rgba(201, 151, 78, 0.5),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Card 2: Marketing Automation (Sunset Amber & Coral) */
+.pain-card-icon--2 {
+  color: #fdba74;
+  box-shadow:
+    0 12px 28px -4px rgba(0, 0, 0, 0.35),
+    0 4px 14px rgba(217, 119, 87, 0.45),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover lift on card */
+.pain-item:hover .pain-card-icon {
+  transform: translateY(-4px) scale(1.08);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.pain-item:hover .pain-card-icon--0 {
+  box-shadow:
+    0 16px 34px -4px rgba(0, 0, 0, 0.42),
+    0 6px 18px rgba(15, 118, 110, 0.6),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.95);
+}
+
+.pain-item:hover .pain-card-icon--1 {
+  box-shadow:
+    0 16px 34px -4px rgba(0, 0, 0, 0.42),
+    0 6px 18px rgba(201, 151, 78, 0.65),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.95);
+}
+
+.pain-item:hover .pain-card-icon--2 {
+  box-shadow:
+    0 16px 34px -4px rgba(0, 0, 0, 0.42),
+    0 6px 18px rgba(217, 119, 87, 0.6),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.95);
+}
+
+.pain-item:hover .pain-card-icon svg {
+  transform: scale(1.06);
+}
+
+/* Expanded state — Elevated illuminated jewel container */
+.pain-item.is-expanded .pain-card-icon {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 253, 248, 0.96) 100%);
+  box-shadow:
+    0 14px 30px -6px rgba(23, 34, 31, 0.14),
+    0 4px 12px rgba(201, 151, 78, 0.22),
+    inset 0 1.5px 2px #ffffff;
+}
+
+.pain-item.is-expanded .pain-card-icon--0 {
+  color: var(--primary);
+  border-color: rgba(15, 118, 110, 0.36);
+}
+.pain-item.is-expanded .pain-card-icon--1 {
+  color: #b57a2c;
+  border-color: rgba(201, 151, 78, 0.48);
+}
+.pain-item.is-expanded .pain-card-icon--2 {
+  color: var(--accent);
+  border-color: rgba(217, 119, 87, 0.4);
+}
+
+/* ── Micro-Animations ── */
+
+@keyframes pulseSoundWave {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes shimmerDiamond {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 0px currentColor);
+  }
+  50% {
+    transform: scale(1.1) rotate(2deg);
+    filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.8));
+  }
+}
+
+@keyframes microSparkle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes pulseBolt {
+  0%, 100% {
+    opacity: 0.85;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1.5px) scale(1.12);
+  }
+}
+
+.pain-item:hover .pain-wave--1 {
+  animation: pulseSoundWave 1.4s ease-in-out infinite;
+  transform-origin: 16px 14px;
+}
+.pain-item:hover .pain-wave--2 {
+  animation: pulseSoundWave 1.4s ease-in-out infinite 0.25s;
+  transform-origin: 16px 14px;
+}
+
+.pain-item:hover .pain-star-main {
+  animation: shimmerDiamond 2.2s ease-in-out infinite;
+  transform-origin: 14px 14px;
+}
+.pain-item:hover .pain-star-sec {
+  animation: microSparkle 1.8s ease-in-out infinite 0.3s;
+  transform-origin: 22px 6px;
+}
+.pain-item:hover .pain-star-micro {
+  animation: microSparkle 1.8s ease-in-out infinite 0.7s;
+  transform-origin: 6px 21px;
+}
+
+.pain-item:hover .pain-bolt {
+  animation: pulseBolt 1.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  transform-origin: 21px 8px;
+}
+
+/* ── Number ── */
+
 .pain-number {
   color: var(--gold);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+}
+
+/* ── Toggle Badge (+ / −) ── */
+
+.pain-toggle-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1.5px solid rgba(255, 255, 255, 0.38);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.pain-toggle-svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pain-toggle-vertical {
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+.pain-item:hover .pain-toggle-badge {
+  background: rgba(255, 255, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.65);
+  transform: scale(1.08);
+}
+
+.pain-item.is-expanded .pain-toggle-badge {
+  background: rgba(23, 34, 31, 0.08);
+  border-color: rgba(23, 34, 31, 0.16);
+  color: var(--dark);
+  box-shadow: 0 2px 8px rgba(23, 34, 31, 0.06);
+}
+
+.pain-item.is-expanded .pain-toggle-svg {
+  transform: rotate(90deg);
+}
+
+.pain-item.is-expanded .pain-toggle-vertical {
+  transform: scaleY(0);
+  opacity: 0;
 }
 
 .pain-heading {
@@ -119,62 +419,134 @@
 }
 
 .pain-heading h3 {
-  margin: 22px 0 0;
+  margin: 18px 0 0;
   color: var(--dark);
   font-size: clamp(22px, 2.2vw, 32px);
-  line-height: 1.12;
+  line-height: 1.15;
+  transition: color 0.3s ease, font-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .pain-item:not(.is-expanded) .pain-heading h3 {
   color: #fff;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.22);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.28);
 }
 
 .pain-item:not(.is-expanded) .pain-number {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
 }
 
-/* ── Details (hidden until expanded) ── */
+/* ── Details (smooth unfolding transition) ── */
 
 .pain-details {
   max-height: 0;
   padding: 0;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(12px);
   transition:
-    max-height 480ms ease,
-    margin-top 480ms ease,
-    opacity 280ms ease,
-    transform 480ms ease;
+    max-height 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    margin-top 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 300ms ease,
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .pain-text {
   color: var(--muted);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.55;
   min-height: auto;
   margin: 0 0 8px;
 }
 
+/* ── Solution Blocks ── */
+
 .pain-solution-block {
-  margin-top: 18px;
-  padding-top: 15px;
+  margin-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid rgba(23, 34, 31, 0.08);
 }
 
-.pain-solution-block b {
-  color: var(--accent);
-  font-size: 17px;
+.pain-solution-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 14px 5px 6px;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.pain-solution-title--online {
+  background: rgba(15, 118, 110, 0.08);
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  color: #0f766e;
+}
+
+.pain-solution-title--online:hover {
+  background: rgba(15, 118, 110, 0.14);
+  border-color: rgba(15, 118, 110, 0.35);
+}
+
+.pain-solution-title--offline {
+  background: rgba(217, 119, 87, 0.09);
+  border: 1px solid rgba(217, 119, 87, 0.22);
+  color: #b85433;
+}
+
+.pain-solution-title--offline:hover {
+  background: rgba(217, 119, 87, 0.15);
+  border-color: rgba(217, 119, 87, 0.38);
+}
+
+.pain-solution-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.pain-solution-title--online .pain-solution-icon {
+  background: rgba(15, 118, 110, 0.15);
+  color: #0f766e;
+  box-shadow: 0 2px 6px rgba(15, 118, 110, 0.15);
+}
+
+.pain-solution-title--offline .pain-solution-icon {
+  background: rgba(217, 119, 87, 0.16);
+  color: #c25938;
+  box-shadow: 0 2px 6px rgba(217, 119, 87, 0.15);
+}
+
+.pain-solution-title:hover .pain-solution-icon {
+  transform: scale(1.12);
+}
+
+.pain-solution-icon svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+.pain-solution-title b {
+  font-size: 13px;
   letter-spacing: 0.08em;
+  font-weight: 700;
+  color: inherit;
 }
 
 .pain-solution-block p {
-  margin: 6px 0 0;
-  color: var(--muted);
-  font-size: 16px;
+  margin: 8px 0 0 2px;
+  color: var(--dark);
+  font-size: 15px;
   line-height: 1.5;
+  opacity: 0.88;
 }
 
 /* ── Hover / Focus ── */
@@ -188,7 +560,7 @@
 
 .pain-item:hover .pain-cover img,
 .pain-item:focus-visible .pain-cover img {
-  transform: scale(1.09);
+  transform: scale(1.08);
 }
 
 .pain-item:focus-visible {
@@ -204,7 +576,7 @@
 
 .pain-item.is-expanded .pain-details {
   max-height: 700px;
-  margin-top: 20px;
+  margin-top: 18px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -218,7 +590,7 @@
 .pain-item.is-expanded .pain-heading h3 {
   color: var(--dark);
   text-shadow: none;
-  font-size: 41px;
+  font-size: clamp(24px, 2.5vw, 36px);
 }
 
 .pain-item.is-expanded .pain-number {
@@ -227,39 +599,115 @@
 
 /* ── Responsive ── */
 
+@media (max-width: 900px) {
+  .pain-item {
+    padding: 22px;
+  }
+
+  .pain-item.is-expanded {
+    flex: 3 1 0;
+  }
+}
+
 @media (max-width: 760px) {
   .pain-solution {
     padding-top: 64px;
     padding-bottom: 64px;
   }
+
   .pain-grid {
     flex-direction: column;
+    gap: 16px;
+    margin-top: 28px;
   }
-  .pain-item,
-  .pain-item.is-expanded {
-    flex: 0 0 auto;
-    min-height: 112px;
-    padding: 22px;
-  }
-  .pain-item.is-expanded {
-    min-height: 360px;
-  }
-  .pain-item:not(.is-expanded) .pain-heading h3 {
-    max-width: 18ch;
-    font-size: 22px;
-  }
-}
 
-@media (max-width: 900px) {
-  .pain-item { padding: 22px; }
-  .pain-item.is-expanded { flex: 3 1 0; }
+  .pain-item {
+    flex: 0 0 auto;
+    min-height: 140px;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .pain-header-left {
+    gap: 12px;
+  }
+
+  .pain-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+  }
+
+  .pain-card-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .pain-toggle-badge {
+    width: 32px;
+    height: 32px;
+  }
+
+  .pain-toggle-svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .pain-solution-title {
+    padding: 4px 12px 4px 5px;
+    font-size: 12px;
+  }
+
+  .pain-solution-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .pain-solution-icon svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .pain-item.is-expanded {
+    min-height: 400px;
+  }
+
+  .pain-item:not(.is-expanded) .pain-heading h3 {
+    max-width: 22ch;
+    font-size: 21px;
+    margin-top: 10px;
+  }
+
+  .pain-item.is-expanded .pain-heading h3 {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+
+  .pain-details {
+    padding-bottom: 4px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .pain-item,
   .pain-details,
   .pain-cover,
-  .pain-cover img {
-    transition: none;
+  .pain-cover img,
+  .pain-heading h3,
+  .pain-toggle-badge,
+  .pain-toggle-svg,
+  .pain-toggle-vertical,
+  .pain-card-icon,
+  .pain-card-icon svg,
+  .pain-card-icon-glow,
+  .pain-solution-icon,
+  .pain-wave--1,
+  .pain-wave--2,
+  .pain-star-main,
+  .pain-star-sec,
+  .pain-star-micro,
+  .pain-bolt {
+    animation: none !important;
+    transition: none !important;
   }
 }

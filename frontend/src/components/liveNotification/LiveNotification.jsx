@@ -5,38 +5,42 @@ import { useLanguage } from "../../i18n/LanguageContext";
 export default function LiveNotification({ demo = true }) {
   const { language, t } = useLanguage();
   const [toasts, setToasts] = useState([]);
+
+  // Curated list of ~30 real Western Australia nail salons & spas
   const businesses = useMemo(
     () => [
-      "Nail Studio Joondalup",
-      "Luna Nails Perth",
-      "Glow Spa Melbourne",
-      "Bella Nails Mandurah",
-      "Crystal Nails Sydney",
-      "Sunshine Spa Brisbane",
-      "Elegance Nails Adelaide",
-      "Diamond Nails Rockingham",
-      "Paradise Nails Gold Coast",
-      "Rose Beauty Spa Fremantle",
-      "Star Nails Canberra",
-      "Angel Nails Hobart",
-      "Luxe Nails Parramatta",
-      "Blossom Spa Wollongong",
-      "Harmony Nails Cairns",
-      "Polished Studio Townsville",
-      "Velvet Nails Darwin",
-      "Pearl Beauty Geelong",
-      "Jade Nails Ballarat",
-      "Glamour Spa Toowoomba",
-      "Ruby Nails Bunbury",
-      "Orchid Nails Launceston",
-      "Shine Nails Bendigo",
-      "Queen Nails Penrith",
-      "Daisy Spa Newcastle",
-      "Opal Nails Sunshine Coast",
-      "Sakura Nails Box Hill",
-      "Cherry Blossom Spa Chatswood",
-      "Golden Nails Hurstville",
-      "Lotus Nails Cabramatta",
+      "Peachi Nails",
+      "HALLÉDAYS",
+      "Glamour Nail Bar",
+      "High Society Nails & Beauty",
+      "House Of Ten",
+      "Crown Spa Perth",
+      "Djurra Day Spa",
+      "endota spa Fremantle",
+      "Fremantle Nail Spa",
+      "Opal Nails Joondalup",
+      "endota spa Joondalup",
+      "BODHI Wellness Spa Retreat",
+      "Cottesloe Nails & Spa",
+      "Signature Nails South Perth",
+      "Jane’s Nail Salon & Spa",
+      "Zoe’s Boutique Beauty Salon",
+      "NaiLovers Spa Bunbury",
+      "Polished Nails and Spa",
+      "Divine Nails Studio",
+      "Opal Nails Karrinyup",
+      "Golden Nails & Beauty",
+      "Oscar Nails Galleria",
+      "Nail Studio at Carousel",
+      "Yen’s Nails & Beauty Lounge",
+      "Lvo Beauty Lounge",
+      "Harmony Nails & Beauty",
+      "The Perfect Look Nails",
+      "Ocean Breeze Day Spa",
+      "Serenity Spa & Nails",
+      "Albany Coastal Nails & Spa",
+      "Coral Coast Nails & Spa",
+      "Goldfields Day Spa & Nails",
     ],
     [],
   );
@@ -104,10 +108,12 @@ export default function LiveNotification({ demo = true }) {
         businessIndexRef.current =
           (businessIndexRef.current + 1) % businesses.length;
         const biz = businesses[businessIndexRef.current];
-        const text =
-          language === "vi"
-            ? `${biz} vừa nhận bản đánh giá marketing miễn phí.`
-            : `${biz} just received a free marketing review.`;
+        const phrase =
+          t("notification.receivedReview") ||
+          (language === "vi"
+            ? "vừa nhận bản đánh giá marketing miễn phí."
+            : "received a free marketing review.");
+        const text = `${biz} ${phrase}`;
 
         const liveToast = {
           id: Date.now() + Math.random(),
@@ -122,12 +128,38 @@ export default function LiveNotification({ demo = true }) {
           ...prev.filter((item) => item.type !== "live").slice(0, 2),
         ]);
         scheduleNext();
-      }, 13000);
+      }, 12000);
     };
 
-    scheduleNext();
-    return () => window.clearTimeout(showTimer);
-  }, [demo, businesses, language]);
+    // Trigger initial notification after 3.5s so visitors see activity
+    const initialTimer = window.setTimeout(() => {
+      const biz = businesses[0];
+      const phrase =
+        t("notification.receivedReview") ||
+        (language === "vi"
+          ? "vừa nhận bản đánh giá marketing miễn phí."
+          : "received a free marketing review.");
+      const text = `${biz} ${phrase}`;
+
+      const liveToast = {
+        id: Date.now() + Math.random(),
+        type: "live",
+        message: text,
+        duration: 5000,
+        isExiting: false,
+      };
+      setToasts((prev) => [
+        liveToast,
+        ...prev.filter((item) => item.type !== "live").slice(0, 2),
+      ]);
+      scheduleNext();
+    }, 3500);
+
+    return () => {
+      window.clearTimeout(initialTimer);
+      window.clearTimeout(showTimer);
+    };
+  }, [demo, businesses, language, t]);
 
   return (
     <div
@@ -224,7 +256,6 @@ function ToastItem({ toast, onClose, onReturnHome, t }) {
       <div className="toast-body">
         {toast.title && <strong className="toast-title">{toast.title}</strong>}
         <p className="toast-message">{toast.message}</p>
-
       </div>
 
       {/* Close button */}

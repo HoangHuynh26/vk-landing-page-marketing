@@ -67,34 +67,17 @@ export default function LeadModal() {
         >
           ×
         </button>
-        <p
-          className="eyebrow"
-          style={{
-            color: "var(--gold)",
-            fontWeight: 700,
-            letterSpacing: "0.08em",
-            marginBottom: "4px",
-          }}
-        >
-          {t("cta.eyebrow")}
-        </p>
-        <h2
-          id="lead-modal-title"
-          style={{ marginTop: 0, marginBottom: "12px" }}
-        >
-          {t("cta.title")}
-        </h2>
-        <p
-          style={{
-            color: "var(--muted)",
-            fontSize: "14px",
-            marginTop: 0,
-            marginBottom: "20px",
-            lineHeight: 1.45,
-          }}
-        >
-          {t("cta.copy")}
-        </p>
+        <div className="lead-modal-header">
+          <p className="eyebrow lead-modal-eyebrow">
+            {t("cta.eyebrow")}
+          </p>
+          <h2 id="lead-modal-title">
+            {t("cta.title")}
+          </h2>
+          <p className="lead-modal-copy">
+            {t("cta.copy")}
+          </p>
+        </div>
         <LeadForm
           onClose={() => setIsOpen(false)}
           onSuccess={() => setIsOpen(false)}

@@ -1,5 +1,5 @@
 export async function submitLead(payload) {
-  const apiUrl = process.env.REACT_APP_API_URL || "";
+  const apiUrl = process.env.REACT_APP_API_URL || "https://vkdigitalhub.netlify.app";
   const response = await fetch(
     `${apiUrl}/api/leads`,
     {
