@@ -36,6 +36,17 @@ export default function Chatbot() {
       ];
   const scenarios = t("chatbot.scenarios");
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("chat-open");
+    } else {
+      document.body.classList.remove("chat-open");
+    }
+    return () => {
+      document.body.classList.remove("chat-open");
+    };
+  }, [open]);
   const [promptVisible, setPromptVisible] = useState(false);
   const [promptIndex, setPromptIndex] = useState(0);
   const [question, setQuestion] = useState("");

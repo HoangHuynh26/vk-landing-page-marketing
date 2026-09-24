@@ -8,22 +8,34 @@ export default function MobileActionBar() {
 
   useEffect(() => {
     const handleScroll = () => {
+      const isMobileScreen = window.innerWidth <= 768;
       const isScrolled = window.scrollY > 280;
       const isMenuOpen = document.body.classList.contains("menu-open");
       const isModalOpen = document.querySelector(".lead-modal.is-open") !== null;
-      setVisible(isScrolled && !isMenuOpen && !isModalOpen);
+      const isChatOpen = document.body.classList.contains("chat-open");
+      const shouldShow = isMobileScreen && isScrolled && !isMenuOpen && !isModalOpen && !isChatOpen;
+
+      setVisible(shouldShow);
+      if (shouldShow) {
+        document.body.classList.add("has-mobile-bar");
+      } else {
+        document.body.classList.remove("has-mobile-bar");
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
     handleScroll();
 
-    // Also observe modal/menu changes
+    // Also observe modal/menu/chat changes on body
     const observer = new MutationObserver(handleScroll);
     observer.observe(document.body, { attributes: true, subtree: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
       observer.disconnect();
+      document.body.classList.remove("has-mobile-bar");
     };
   }, []);
 
@@ -31,7 +43,6 @@ export default function MobileActionBar() {
     e?.preventDefault();
     window.dispatchEvent(new CustomEvent("open-lead-form"));
   };
-
 
   return (
     <aside
