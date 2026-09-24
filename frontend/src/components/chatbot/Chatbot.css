@@ -1,9 +1,8 @@
 .chatbot {
   position: fixed;
-  z-index: 65;
+  z-index: 70;
   right: 24px;
   bottom: 24px;
-  transition: bottom 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .chat-launcher {
@@ -1037,10 +1036,6 @@
 @media (max-width: 768px) {
   .chatbot {
     right: 16px;
-    bottom: 16px;
-  }
-
-  body.has-mobile-bar .chatbot {
     bottom: calc(76px + env(safe-area-inset-bottom, 0px));
   }
 

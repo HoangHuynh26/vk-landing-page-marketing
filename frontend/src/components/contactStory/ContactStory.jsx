@@ -40,9 +40,6 @@ export default function ContactStory() {
       aria-label={t("contactStory.title") || "Contact and Free Assessment Conversation"}
     >
       <div className="contact-story-header">
-        <span className="contact-story-eyebrow">
-          {t("contactStory.eyebrow")}
-        </span>
         <h2 className="contact-story-title">
           {t("contactStory.title")}
         </h2>
@@ -88,9 +85,8 @@ export default function ContactStory() {
             return (
               <div
                 key={msg.id}
-                className={`contact-ios-row ${isMe ? "is-me" : "is-them"} ${
-                  inView ? "animate-bubble" : ""
-                }`}
+                className={`contact-ios-row ${isMe ? "is-me" : "is-them"} ${inView ? "animate-bubble" : ""
+                  }`}
                 style={delayStyle}
               >
                 <div className="contact-ios-bubble-wrap">

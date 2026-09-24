@@ -12,30 +12,25 @@ export default function MobileActionBar() {
       const isScrolled = window.scrollY > 280;
       const isMenuOpen = document.body.classList.contains("menu-open");
       const isModalOpen = document.querySelector(".lead-modal.is-open") !== null;
-      const isChatOpen = document.body.classList.contains("chat-open");
-      const shouldShow = isMobileScreen && isScrolled && !isMenuOpen && !isModalOpen && !isChatOpen;
-
-      setVisible(shouldShow);
-      if (shouldShow) {
-        document.body.classList.add("has-mobile-bar");
-      } else {
-        document.body.classList.remove("has-mobile-bar");
-      }
+      setVisible(isMobileScreen && isScrolled && !isMenuOpen && !isModalOpen);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
+    window.addEventListener("open-lead-form", handleScroll, { passive: true });
+    window.addEventListener("close-lead-form", handleScroll, { passive: true });
     handleScroll();
 
-    // Also observe modal/menu/chat changes on body
+    // Observe ONLY class attribute on body (for menu-open), no subtree to avoid loops
     const observer = new MutationObserver(handleScroll);
-    observer.observe(document.body, { attributes: true, subtree: true });
+    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
+      window.removeEventListener("open-lead-form", handleScroll);
+      window.removeEventListener("close-lead-form", handleScroll);
       observer.disconnect();
-      document.body.classList.remove("has-mobile-bar");
     };
   }, []);
 
