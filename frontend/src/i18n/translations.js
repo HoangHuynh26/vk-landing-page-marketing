@@ -20,71 +20,99 @@ export const translations = {
       backToTop: "Về đầu trang",
     },
     hero: {
-      title: "Lấp đầy lịch hẹn tiệm Nail & Spa của bạn tại Úc",
-      emphasis: "mà không cần tốn hàng giờ tự chạy quảng cáo.",
-      copy: "Cam kết 30-50 lịch hẹn mới mỗi tháng hoặc hoàn tiền 100% trong 60 ngày.",
-      noCost: "Hoàn toàn miễn phí",
-      formTime: "· Điền form trong 2 phút",
+      eyebrow: "MARKETING PARTNER FOR NAIL & SPA",
+      title: "Có thêm khách hàng",
+      emphasis: "trong 60 ngày",
+      copy: "– mà không cần chi thêm tiền cho quảng cáo",
+      noCost: "Không mất phí. Không cam kết.",
+      formTime: "Chỉ 2 phút để điền form.",
+      reviews: "từ 100+ đánh giá Google",
+      captions: [
+        "Bạn tập trung làm nails.",
+        "Chúng tôi lo phần marketing.",
+        "Lịch hẹn tăng đều mỗi tuần.",
+        "Ít việc marketing hơn. Nhiều khách hơn.",
+      ],
     },
     trust: {
-      rating: "dựa trên hơn 45+ tiệm Nail & Spa tại Úc",
-      support: "Được tin chọn bởi các chủ tiệm tại Perth, Sydney, Melbourne & Brisbane",
+      rating: "dựa trên 100+ đánh giá Google",
+      support:
+        "Đã hỗ trợ 150+ tiệm nails & spa trên khắp nước Úc tăng trưởng doanh thu bền vững.",
+      businesses: "tiệm Nail & Spa trên khắp nước Úc",
     },
     stats: {
-      eyebrow: "KẾT QUẢ ĐO LƯỜNG",
-      title: "Hiệu quả thực tế chứng minh bằng con số",
       items: [
-        { value: 45, suffix: "+", label: "Tiệm Nail & Spa đang đồng hành tại Úc" },
-        { value: 380, suffix: "%", label: "Tăng trưởng lịch hẹn online trung bình" },
-        { value: 94, suffix: "%", label: "Khách hàng đạt kết quả trong 30 ngày đầu" },
-        { value: 60, suffix: " Ngày", label: "Cam kết hoàn tiền nếu không đạt hiệu quả" },
+        {
+          value: 150,
+          suffix: "+",
+          label: "tiệm Nail & Spa được hỗ trợ",
+        },
+        {
+          value: 50,
+          suffix: "%",
+          label: "mục tiêu tăng khách mới",
+        },
+        {
+          value: 100,
+          suffix: "%",
+          label: "hoàn tiền nếu không đạt cam kết",
+        },
       ],
     },
     pain: {
-      eyebrow: "VẤN ĐỀ & GIẢI PHÁP",
-      title: "Bạn có đang gặp phải",
-      emphasis: "những rào cản này?",
+      eyebrow: "VẤN ĐỀ THẬT, GIẢI PHÁP THỰC TẾ",
+      title: "Bạn không cần làm nhiều hơn.",
+      emphasis: "Bạn cần đúng cách hơn.",
       cards: [
         {
-          title: "Đốt tiền quảng cáo nhưng khách không tới tiệm",
-          pain: "Chạy ads Facebook, Google tốn kém nhưng tin nhắn toàn hỏi giá rồi im lặng, tỷ lệ chuyển đổi thành lịch hẹn thực tế rất thấp.",
-          online: "Chiến dịch nhắm mục tiêu địa phương bán kính 5km, tối ưu trang đích chốt lịch hẹn tự động.",
-          offline: "Kịch bản tư vấn giữ chân khách & voucher ưu đãi trải nghiệm lần đầu tại tiệm.",
+          title: "Quảng cáo không hiệu quả",
+          pain: "Bạn chi tiền cho quảng cáo nhưng không biết ai quan tâm và cách nào hiệu quả.",
+          online:
+            "Quảng cáo Google & Facebook định hướng, nhắm đúng khách hàng tại Tây Úc đang cần dịch vụ nails.",
+          offline:
+            'Mini event offline kết hợp quảng cáo địa phương: "Ngày hội làm đẹp – Nhận voucher 50% khi đăng ký tại quầy." Phát voucher tại chợ, trung tâm thương mại ở Perth, Joondalup, Mandurah.',
         },
         {
-          title: "Vắng khách vào các ngày trong tuần (Thứ 2 - Thứ 5)",
-          pain: "Cuối tuần thì quá tải nhưng các ngày đầu tuần thợ ngồi chơi, chi phí mặt bằng và nhân công vẫn phải chi trả đều đặn.",
-          online: "Hệ thống flash deal tự động vào các khung giờ vắng khách (Happy Hours) qua tin nhắn SMS/Zalo.",
-          offline: "Gói combo dịch vụ kết hợp làm móng & chăm sóc móng định kỳ vào ngày thường.",
+          title: "Tiệm đẹp nhưng ít người biết",
+          pain: "Bạn muốn xây thương hiệu nhưng không biết bắt đầu từ đâu, khách mới đến rồi đi không quay lại.",
+          online:
+            "Nội dung hấp dẫn trên Instagram/TikTok + Email/SMS marketing tự động nhắc lịch, gửi ưu đãi sinh nhật, khuyến mãi theo mùa.",
+          offline: "\"Nail Art Challenge\" offline + livestream: Tặng voucher free cho 3 người thắng. Voucher sinh nhật (tặng 1 dịch vụ miễn phí). Chương trình giới thiệu bạn bè: Cả 2 được tặng voucher $20. Gói quà tặng lễ (Mother's Day, Christmas): Gift card + hoa/socola. Happy Hour giờ thấp điểm: Giảm 20% để kéo khách vào giờ vắng.",
         },
         {
-          title: "Khách chỉ đến một lần rồi không bao giờ quay lại",
-          pain: "Không có hệ thống lưu trữ thông tin khách hàng, thiếu quy trình chăm sóc nhắc lịch sau khi làm móng.",
-          online: "Hệ thống CRM tự động gửi lời chúc, nhắc bảo dưỡng móng sau 3 tuần kèm ưu đãi VIP.",
-          offline: "Thẻ thành viên điện tử tích điểm đổi dịch vụ miễn phí, nâng tỷ lệ khách quen lên trên 40%.",
+          title: "Không có thời gian làm marketing",
+          pain: "Bạn mất hàng giờ trả lời tin nhắn, tư vấn lịch hẹn nhưng khách vẫn không chốt.",
+          online:
+            "Hệ thống tin nhắn tự động + quy trình chốt lịch hẹn thông minh, giải phóng 5–7 giờ/tuần.",
+          offline:
+            'Voucher giấy khi đặt lịch online: "Giảm 10% lần sau" kèm QR code. Thẻ thành viên ưu đãi cho khách quen.',
         },
       ],
     },
     strategy: {
-      eyebrow: "QUY TRÌNH HỢP TÁC",
-      title: "3 bước đơn giản để bứt phá lượng khách",
-      emphasis: "ngay trong tháng này.",
-      visualLabel: "Lộ trình tăng trưởng của bạn",
+      eyebrow: "CÁCH CHÚNG TÔI LÀM VIỆC",
+      title: "3 bước đơn giản",
+      emphasis: "chúng tôi lo tất cả",
+      caption: "Không cần kiến thức marketing. Chúng tôi làm tất cả cho bạn.",
+      closing: "Và đã có hơn 30 tiệm làm được. Dưới đây là bằng chứng...",
       steps: [
         {
           number: "01",
-          title: "Điền form thông tin ngắn (2 phút)",
-          text: "Chia sẻ khu vực hoạt động, quy mô tiệm và mục tiêu kinh doanh của bạn để đội ngũ chuyên gia nghiên cứu thị trường.",
+          icon: "✦",
+          title: "Đăng ký",
+          text: "Đăng ký thông tin tiệm của bạn – Chỉ 2 phút điền form.",
         },
         {
           number: "02",
-          title: "Nhận bản phân tích & chiến lược riêng",
-          text: "Chúng tôi phân tích đối thủ trong bán kính 5km, vị trí Google Maps và thiết lập trang web đặt hẹn tối ưu chuyển đổi.",
+          icon: "⌁",
+          title: "Phân tích",
+          text: "Chúng tôi phân tích và xây dựng chiến lược – Nhận báo cáo trong 24–48 giờ.",
         },
         {
           number: "03",
-          title: "Kích hoạt hệ thống & đón khách mới",
-          text: "Hệ thống bắt đầu đưa khách hàng có nhu cầu thật vào lịch hẹn của tiệm, theo dõi kết quả minh bạch từng ngày.",
+          icon: "↗",
+          title: "Triển khai",
+          text: "Nhận kế hoạch marketing và bắt đầu thu hút khách hàng – Triển khai ngay.",
         },
       ],
     },
@@ -245,28 +273,36 @@ export const translations = {
     },
     faq: {
       eyebrow: "CÂU HỎI THƯỜNG GẶP",
-      title: "Giải đáp mọi thắc mắc",
-      emphasis: "trước khi bắt đầu.",
+      title: "FAQ",
+      emphasis: "",
+      ending:
+        "Vẫn còn băn khoăn? Chat ngay với chúng tôi hoặc bấm nút bên dưới để nhận ưu đãi.",
       items: [
         {
-          question: "Bản đánh giá marketing miễn phí bao gồm những gì?",
-          answer: "Bản đánh giá bao gồm: kiểm tra thứ hạng Google Maps của tiệm bạn so với đối thủ trong bán kính 5km, phân tích điểm nghẽn chuyển đổi trên website/fanpage, và bản đề xuất chiến lược thu hút 30-50 lịch hẹn mới.",
+          question: "Tôi không rành về công nghệ, tôi có dùng được không?",
+          answer:
+            "✅ Hoàn toàn có. Chúng tôi thiết kế mọi thứ đơn giản, bạn chỉ cần tập trung vào việc làm nails và chăm sóc khách hàng. Chúng tôi lo phần kỹ thuật.",
         },
         {
-          question: "Cam kết hoàn tiền trong 60 ngày hoạt động như thế nào?",
-          answer: "Nếu sau 60 ngày triển khai đúng theo kế hoạch mà tiệm không đạt được số lượng lịch hẹn mục tiêu đã cam kết, chúng tôi sẽ hoàn lại 100% phí dịch vụ mà không có bất kỳ điều kiện phức tạp nào.",
+          question: "Chi phí bao nhiêu và có cam kết gì về hiệu quả không?",
+          answer:
+            "✅ Chúng tôi có các gói linh hoạt. Điểm mạnh là cam kết hoàn tiền 100% nếu sau 60 ngày bạn không thấy tăng ít nhất 50% lượng khách mới.",
         },
         {
-          question: "Tiệm của tôi ở xa (tiểu bang khác) có hợp tác được không?",
-          answer: "Hoàn toàn được. Chúng tôi đang vận hành hiệu quả cho các tiệm tại Tây Úc (Perth, Mandurah), Victoria (Melbourne), New South Wales (Sydney) và Queensland (Brisbane) thông qua hệ thống làm việc số hóa hiện đại.",
+          question: "So với việc tôi tự chạy quảng cáo thì khác gì?",
+          answer:
+            "✅ Bạn tự làm mất rất nhiều thời gian, dễ đốt tiền vì thiếu kinh nghiệm. Chúng tôi làm chiến lược tổng thể, tối ưu từng đồng, giúp bạn tiết kiệm thời gian và tiền bạc.",
         },
         {
-          question: "Tôi không rành về công nghệ thì có tự vận hành được không?",
-          answer: "Bạn không cần lo lắng! Toàn bộ việc cài đặt, tối ưu quảng cáo, thiết kế và quản trị kỹ thuật đều do đội ngũ chuyên gia của VK Digital Hub đảm nhận. Bạn chỉ cần đón khách và phục vụ tận tâm.",
+          question:
+            "Tôi ở Tây Úc (Perth, Mandurah…) – các bạn có hỗ trợ được không?",
+          answer:
+            "✅ Có, chúng tôi hỗ trợ online toàn nước Úc, đặc biệt am hiểu thị trường Tây Úc. Mọi cuộc họp đều qua Zoom/Google Meet và hỗ trợ 24/7.",
         },
         {
-          question: "Chi phí dịch vụ hàng tháng là bao nhiêu?",
-          answer: "Mỗi tiệm có quy mô và mục tiêu khác nhau. Sau buổi đánh giá miễn phí, chúng tôi sẽ đề xuất gói ngân sách tối ưu nhất dựa trên vị trí và số lượng bàn/thợ của tiệm bạn.",
+          question: "Sau khi áp dụng, tôi được hỗ trợ gì?",
+          answer:
+            "✅ Bạn có Account Manager riêng, luôn sẵn sàng giải đáp thắc mắc và điều chỉnh chiến dịch kịp thời. Chúng tôi đồng hành dài hạn với bạn.",
         },
       ],
     },
@@ -300,9 +336,11 @@ export const translations = {
       returnNow: "Về trang chủ ngay",
     },
     cta: {
-      eyebrow: "SẴN SÀNG ĐỘT PHÁ DOANH THU?",
-      title: "Nhận bản đánh giá marketing miễn phí trị giá $500",
-      copy: "Chúng tôi phân tích toàn bộ sự hiện diện số của tiệm bạn và đưa ra lộ trình tăng 30-50 lịch hẹn mới ngay trong 30 ngày tới.",
+      eyebrow: "BẮT ĐẦU TỪ MỘT CUỘC TRÒ CHUYỆN",
+      title: "Nhận bản đánh giá marketing miễn phí",
+      copy: "Không mất phí. Không cam kết. Chỉ 2 phút để điền form.",
+      chatbot:
+        "Vẫn còn băn khoăn? Chat ngay với chúng tôi hoặc bấm nút bên dưới để nhận ưu đãi.",
     },
     footer: {
       positioning: "Chiến lược marketing số chuyên sâu dành riêng cho các chủ tiệm Nail & Spa tại Úc.",
@@ -453,71 +491,95 @@ export const translations = {
       backToTop: "Return to top",
     },
     hero: {
-      title: "Fill Your Australian Nail & Spa Salon Bookings",
-      emphasis: "without wasting hours struggling with complex ads.",
-      copy: "Guaranteed 30-50 new appointments every month or 100% refund within 60 days.",
-      noCost: "100% Free",
-      formTime: "· 2-min assessment form",
+      eyebrow: "MARKETING PARTNER FOR NAIL & SPA",
+      title: "Get more clients",
+      emphasis: "in 60 days",
+      copy: "– without spending more on ads",
+      noCost: "No fees. No commitment.",
+      formTime: "It takes just 2 minutes to fill out the form.",
+      reviews: "from 100+ Google reviews",
+      captions: [
+        "You focus on your nail business.",
+        "We handle the marketing.",
+        "Your bookings keep growing every week.",
+        "Less marketing work. More clients.",
+      ],
     },
     trust: {
-      rating: "based on 45+ Australian Nail & Spa salons",
-      support: "Trusted by ambitious salon owners across Perth, Sydney, Melbourne & Brisbane",
+      rating: "based on 100+ Google reviews",
+      support:
+        "Helping 150+ Nail & Spa businesses across Australia grow sustainable revenue.",
+      businesses: "Nail & Spa businesses across Australia",
     },
     stats: {
-      eyebrow: "MEASURABLE METRICS",
-      title: "Real Results Proven by Real Numbers",
       items: [
-        { value: 45, suffix: "+", label: "Active Nail & Spa salons across Australia" },
-        { value: 380, suffix: "%", label: "Average online booking growth rate" },
-        { value: 94, suffix: "%", label: "Clients achieving positive ROI in first 30 days" },
-        { value: 60, suffix: " Days", label: "Full money-back performance guarantee" },
+        {
+          value: 150,
+          suffix: "+",
+          label: "Nail & Spa businesses supported",
+        },
+        {
+          value: 50,
+          suffix: "%",
+          label: "new-client growth target",
+        },
+        {
+          value: 100,
+          suffix: "%",
+          label: "refund if the guarantee is not met",
+        },
       ],
     },
     pain: {
-      eyebrow: "PAIN POINTS & SOLUTIONS",
-      title: "Are You Facing These",
-      emphasis: "Common Bottlenecks?",
+      eyebrow: "REAL PROBLEMS, PRACTICAL SOLUTIONS",
+      title: "You do not need to do more.",
+      emphasis: "You need a better way.",
       cards: [
         {
-          title: "Spending money on ads without confirmed bookings",
-          pain: "Running Facebook and Google ads feels like burning cash. Enquiries drop off after asking prices, with very few confirmed appointments.",
-          online: "Hyperlocal targeted booking funnels within 5km, paired with automated instant reservation landing pages.",
-          offline: "High-conversion consultation scripts & first-time VIP trial incentives.",
+          title: "Ineffective advertising",
+          pain: "You spend money on advertising but don't know who is interested or what works effectively.",
+          online: "Targeted Google and Facebook ads reaching customers in Western Australia who are looking for nail services.",
+          offline:
+            "A small-scale offline event combined with local promotion: \"Beauty Day – Get a 50% off voucher by signing up at the booth.\" Vouchers will be distributed at markets and shopping centers in Perth, Joondalup, and Mandurah.",
         },
         {
-          title: "Slow mid-week days (Monday through Thursday)",
-          pain: "Your staff sits idle on weekdays while rent and wage costs remain fixed. The weekend surge cannot compensate for slow weekdays.",
-          online: "Automated off-peak flash campaigns (Happy Hours) triggered via SMS and targeted local messaging.",
-          offline: "Weekday recurring maintenance packages and loyalty combo perks.",
+          title: "A beautiful salon with low awareness",
+          pain: "You want to build a brand but don't know where to start, and new customers come and go without returning.",
+          online: "Engaging Instagram/TikTok content + automated email/SMS marketing for appointment reminders, birthday offers, and seasonal promotions.",
+          offline: "\"Nail Art Challenge\" (in-person & livestream): Free service vouchers for the 3 winners. Birthday voucher (one complimentary service). Refer-a-friend program: Both parties receive a $20 voucher. Holiday gift packages (Mother's Day, Christmas): Gift card plus flowers or chocolates. Off-peak Happy Hour: 20% discount to attract customers during quiet periods.",
         },
         {
-          title: "One-time clients never return to your salon",
-          pain: "No customer database or automated follow-up. Once clients walk out the door, there's no proactive system to bring them back.",
-          online: "Smart automated CRM reminder sequences scheduled 3 weeks post-visit with VIP renewal perks.",
-          offline: "Digital loyalty cards boosting customer retention rates beyond 40%.",
+          title: "No time for marketing",
+          pain: "You spend hours replying to messages and discussing appointments, yet customers still don't commit.",
+          online: "Automated messaging system + smart appointment scheduling process, freeing up 5–7 hours per week.",
+          offline: "Paper voucher for online bookings: \"10% off your next visit\" with a QR code. Membership card offering perks for regular customers.",
         },
       ],
     },
     strategy: {
-      eyebrow: "OUR STRATEGIC PROCESS",
-      title: "3 Simple Steps to Accelerate Growth",
-      emphasis: "Starting This Month.",
-      visualLabel: "Your growth, in motion",
+      eyebrow: "HOW WE WORK",
+      title: "3 simple steps",
+      emphasis: "we handle everything",
+      caption: "No marketing knowledge needed. We do it all for you.",
+      closing: "More than 30 salons have done it. Here is the proof...",
       steps: [
         {
           number: "01",
-          title: "Fill out a quick questionnaire (2 mins)",
-          text: "Tell us about your salon location, scale, and business targets so our analysts can study your local competitive landscape.",
+          icon: "✦",
+          title: "Sign up",
+          text: "Complete a 2-minute form. Tell us your salon name and service area.",
         },
         {
           number: "02",
-          title: "Receive your tailored strategy roadmap",
-          text: "We audit competitors within 5km, optimize your Google Maps ranking, and set up high-converting booking pages.",
+          icon: "⌁",
+          title: "Analyze",
+          text: "We study your local market, competitors, and strengths to build your strategy.",
         },
         {
           number: "03",
-          title: "Launch campaigns & welcome new clients",
-          text: "The system begins funneling high-intent clients directly into your booking book, with transparent daily reporting.",
+          icon: "↗",
+          title: "Launch",
+          text: "Your campaigns run automatically and bookings come in. You get a transparent weekly report.",
         },
       ],
     },
@@ -678,28 +740,36 @@ export const translations = {
     },
     faq: {
       eyebrow: "FREQUENTLY ASKED QUESTIONS",
-      title: "Answers to Common Questions",
-      emphasis: "Before You Get Started.",
+      title: "FAQ",
+      emphasis: "",
+      ending:
+        "Still have questions? Chat with us or use the button below to claim your offer.",
       items: [
         {
-          question: "What is included in the free marketing assessment?",
-          answer: "The free assessment includes an audit of your Google Maps rankings versus nearby competitors within 5km, an analysis of website/social booking conversion bottlenecks, and a tailored action plan to drive 30-50 new appointments.",
+          question: "I am not tech-savvy. Can I still use this?",
+          answer:
+            "✅ Absolutely. We keep everything simple so you can focus on doing nails and caring for clients. We handle the technical side.",
         },
         {
-          question: "How does the 60-day money-back guarantee work?",
-          answer: "If after 60 days of following our strategy your salon does not reach the agreed target of new booking volume, we issue a prompt 100% refund of our management fee with zero hassle.",
+          question: "How much does it cost, and is there a results guarantee?",
+          answer:
+            "✅ We offer flexible packages. Our promise is a 100% refund if, after 60 days, you do not see at least a 50% increase in new clients.",
         },
         {
-          question: "Can you manage salons in other Australian states?",
-          answer: "Absolutely. We actively manage successful salons across Western Australia (Perth, Mandurah), Victoria (Melbourne), New South Wales (Sydney), and Queensland (Brisbane) via streamlined digital reporting.",
+          question: "How is this different from running ads myself?",
+          answer:
+            "✅ Doing it yourself takes time and can waste budget without the right experience. We build the overall strategy and optimize every dollar, saving you time and money.",
         },
         {
-          question: "Do I need technical or digital marketing skills?",
-          answer: "Not at all! Our specialist team handles all the technical architecture, ads management, tracking, and funnel optimization. You and your staff simply focus on delivering great salon service.",
+          question:
+            "I am in Western Australia (Perth, Mandurah...). Can you support me?",
+          answer:
+            "✅ Yes. We support salons online across Australia and understand Western Australian markets especially well. Meetings are through Zoom/Google Meet with 24/7 support.",
         },
         {
-          question: "What are the monthly fees for your services?",
-          answer: "Each salon varies based on chair count, location, and growth goals. After your free assessment, we present an exact, transparent quote tailored to your specific budget and goals.",
+          question: "What support do I receive after getting started?",
+          answer:
+            "✅ You receive a dedicated Account Manager who answers questions and adjusts campaigns promptly. We are here for the long term.",
         },
       ],
     },
@@ -733,9 +803,11 @@ export const translations = {
       returnNow: "Return now",
     },
     cta: {
-      eyebrow: "READY TO GROW YOUR SALON?",
-      title: "Claim Your Free $500 Marketing Audit",
-      copy: "We analyze your entire digital presence and outline a clear roadmap to 30-50 new monthly bookings.",
+      eyebrow: "START WITH A CONVERSATION",
+      title: "Get your free marketing assessment",
+      copy: "No cost. No commitment. Only 2 minutes to apply.",
+      chatbot:
+        "Still have questions? Chat with us or use the button below to claim your offer.",
     },
     footer: {
       positioning: "Specialized digital marketing strategies tailored for ambitious Australian Nail & Spa owners.",
