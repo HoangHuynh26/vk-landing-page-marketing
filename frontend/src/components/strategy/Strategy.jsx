@@ -66,7 +66,7 @@ export default function Strategy() {
         </div>
         <div className="strategy-visual-column">
           <div className="strategy-visual-panel" aria-live="polite">
-            <div className="strategy-visual-label">Your growth, in motion</div>
+            <div className="strategy-visual-label">{t("strategy.visualLabel") || "Your growth, in motion"}</div>
             {steps.map((step, index) => (
               <img
                 className={activeStep === index ? "is-active" : ""}

@@ -3,7 +3,7 @@ import { useLanguage } from "../../i18n/LanguageContext";
 import "./ContactStory.css";
 
 export default function ContactStory() {
-  const { language } = useLanguage();
+  const { t } = useLanguage();
   const [inView, setInView] = useState(false);
   const containerRef = useRef(null);
 
@@ -18,7 +18,7 @@ export default function ContactStory() {
           observer.disconnect();
         }
       },
-      { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
     );
 
     observer.observe(el);
@@ -30,82 +30,24 @@ export default function ContactStory() {
     window.dispatchEvent(new CustomEvent("open-lead-form"));
   };
 
-  const isVi = language === "vi";
-
-  const messages = isVi
-    ? [
-        {
-          id: 1,
-          sender: "them",
-          time: "10:24 AM",
-          text: "Tôi muốn mở rộng tiệm nail của mình tại Úc, nhưng chưa biết bắt đầu từ đâu để có thêm nhiều khách mới?",
-        },
-        {
-          id: 2,
-          sender: "me",
-          time: "10:25 AM",
-          text: "Hãy để chúng tôi đồng hành cùng bạn! Bước đầu tiên là một bản đánh giá marketing toàn diện — phân tích thứ hạng Google Maps, website đặt lịch và đối thủ quanh tiệm hoàn toàn miễn phí.",
-        },
-        {
-          id: 3,
-          sender: "them",
-          time: "10:26 AM",
-          text: "Bản đánh giá này gồm những gì và có mất phí không ạ?",
-        },
-        {
-          id: 4,
-          sender: "me",
-          time: "10:27 AM",
-          text: "Hoàn toàn 100% miễn phí & không ràng buộc. Bạn sẽ nhận được báo cáo chi tiết 5 cơ hội vàng để tăng 30-50 lịch hẹn mới/tháng. Chỉ mất 30 giây để điền thông tin!",
-        },
-      ]
-    : [
-        {
-          id: 1,
-          sender: "them",
-          time: "10:24 AM",
-          text: "I want to grow my salon in Australia, but I'm not sure how to effectively attract high-value repeat clients?",
-        },
-        {
-          id: 2,
-          sender: "me",
-          time: "10:25 AM",
-          text: "We can help you get started! The first step is a comprehensive, complimentary marketing assessment — analyzing your local Google Maps visibility, online booking, and competitors.",
-        },
-        {
-          id: 3,
-          sender: "them",
-          time: "10:26 AM",
-          text: "What exactly is included in this free assessment?",
-        },
-        {
-          id: 4,
-          sender: "me",
-          time: "10:27 AM",
-          text: "It is 100% free with zero commitment. You'll receive actionable insights and a tailored roadmap to add 30-50 confirmed appointments every month. Takes just 30 seconds!",
-        },
-      ];
+  const messages = t("contactStory.messages") || [];
 
   return (
     <section
       ref={containerRef}
       className="contact-story-section"
       id="contact-assessment"
-      aria-label="Contact and Free Assessment Conversation"
+      aria-label={t("contactStory.title") || "Contact and Free Assessment Conversation"}
     >
       <div className="contact-story-header">
         <span className="contact-story-eyebrow">
-          {isVi ? "KẾT NỐI & TƯ VẤN" : "CONNECT & CONSULT"}
+          {t("contactStory.eyebrow")}
         </span>
         <h2 className="contact-story-title">
-          {isVi
-            ? "Hãy để chúng tôi hiểu câu chuyện tiệm của bạn"
-            : "Let Us Understand Your Salon's Story"}
+          {t("contactStory.title")}
         </h2>
         <p className="contact-story-sub">
-          {isVi
-            ? "Mỗi bước đột phá lượng khách đều bắt đầu từ một cuộc trò chuyện chân thành và thấu hiểu."
-            : "Every booking breakthrough begins with an open, authentic conversation."}
+          {t("contactStory.subtitle")}
         </p>
       </div>
 
@@ -129,7 +71,7 @@ export default function ContactStory() {
                 VK Digital Hub <span className="contact-ios-verified">✓</span>
               </strong>
               <small className="contact-ios-status">
-                {isVi ? "Tư vấn viên trưởng · Trực tuyến" : "Lead Strategist · Online"}
+                {t("contactStory.role")}
               </small>
             </div>
           </div>
@@ -161,7 +103,7 @@ export default function ContactStory() {
             );
           })}
 
-          {/* Typing Indicator at bottom of conversation */}
+          {/* Typing Indicator */}
           <div
             className={`contact-ios-row is-me ${inView ? "animate-bubble" : ""}`}
             style={{ animationDelay: "1.7s" }}
@@ -181,12 +123,10 @@ export default function ContactStory() {
         >
           <div className="contact-ios-action-header">
             <span className="contact-ios-action-badge">
-              {isVi ? "🎯 BƯỚC TIẾP THEO" : "🎯 NEXT STEP"}
+              {t("contactStory.actionBadge")}
             </span>
             <p className="contact-ios-action-prompt">
-              {isVi
-                ? "Sẵn sàng để tiệm bạn luôn kín lịch hẹn? Bấm nhận bản đánh giá miễn phí ngay hôm nay!"
-                : "Ready to keep your appointment book full? Claim your free assessment today!"}
+              {t("contactStory.actionPrompt")}
             </p>
           </div>
 
@@ -198,7 +138,7 @@ export default function ContactStory() {
             >
               <span className="contact-ios-cta-icon" aria-hidden="true">📋</span>
               <span className="contact-ios-cta-label">
-                {isVi ? "Nhận bản đánh giá marketing miễn phí" : "Get Free Marketing Assessment"}
+                {t("contactStory.ctaBtn")}
               </span>
               <span className="contact-ios-cta-arrow" aria-hidden="true">➔</span>
             </button>
@@ -208,12 +148,12 @@ export default function ContactStory() {
           <div className="contact-ios-direct-links">
             <a href="tel:+61431679731" className="contact-direct-chip">
               <span className="direct-chip-icon" aria-hidden="true">📞</span>
-              <span>Hotline: <strong>+61 431 679 731</strong></span>
+              <span>{t("contactStory.hotlineLabel")}: <strong>+61 431 679 731</strong></span>
             </a>
             <span className="contact-direct-divider">·</span>
             <a href="mailto:admin@vkdigitalhub.com.au" className="contact-direct-chip">
               <span className="direct-chip-icon" aria-hidden="true">✉️</span>
-              <span>Email: <strong>admin@vkdigitalhub.com.au</strong></span>
+              <span>{t("contactStory.emailLabel")}: <strong>admin@vkdigitalhub.com.au</strong></span>
             </a>
           </div>
         </div>

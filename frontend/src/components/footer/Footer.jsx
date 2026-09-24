@@ -3,9 +3,10 @@ import { useLanguage } from "../../i18n/LanguageContext";
 
 const links = [
   ["nav.home", "#top"],
-  ["nav.caseStudies", "#case-studies"],
-  ["nav.faq", "#faq"],
   ["nav.about", "#strategy"],
+  ["nav.caseStudies", "#case-studies"],
+  ["nav.testimonials", "#testimonials"],
+  ["nav.faq", "#faq"],
 ];
 
 const socialLinks = [
