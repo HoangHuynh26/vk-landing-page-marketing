@@ -56,7 +56,7 @@ export default function Home() {
     <main className="home-page" id="top">
       <Hero />
 
-      <LazyLoad className="trustbar-section" id="trustbar">
+      <LazyLoad className="trustbar-section" id="trustbar" force={true}>
         <TrustBar />
       </LazyLoad>
 

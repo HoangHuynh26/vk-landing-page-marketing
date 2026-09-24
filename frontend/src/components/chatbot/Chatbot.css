@@ -1075,3 +1075,31 @@
     display: none;
   }
 }
+
+/* Persistent Quick Contact Bar at top of Chatbot */
+.chat-quick-contact-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(15, 118, 110, 0.08);
+  border-bottom: 1px solid rgba(15, 118, 110, 0.15);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+.chat-quick-contact-link {
+  color: var(--primary-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+.chat-quick-contact-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+.chat-quick-contact-sep {
+  color: var(--muted);
+  opacity: 0.6;
+}

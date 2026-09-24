@@ -5,7 +5,8 @@ import "./Testimonial.css";
 const IMAGE_WIDTH = 390;
 const IMAGE_HEIGHT = 340;
 const SPACING = 3;
-const SPEED = 2.4;
+const SPEED = 0.35;
+const DRAG_SENSITIVITY = 0.12;
 const TILT = -7;
 const PERSPECTIVE = 2600;
 
@@ -25,7 +26,7 @@ export default function Testimonial() {
   const count = reviews.length;
   const angle = 360 / count;
   const radius = (IMAGE_WIDTH * (1 + SPACING * 0.15)) / (2 * Math.tan(Math.PI / count));
-  const degreesPerSecond = SPEED * 6;
+  const degreesPerSecond = SPEED * 2.2;
 
   useEffect(() => {
     const ring = ringRef.current;
@@ -45,7 +46,7 @@ export default function Testimonial() {
       if (!drag.active && !pausedRef.current && !reducedMotion) {
         if (Math.abs(velocityRef.current) > 0.01) {
           rotationRef.current += velocityRef.current * frameDelta;
-          velocityRef.current *= 0.94;
+          velocityRef.current *= 0.90;
         } else {
           rotationRef.current += degreesPerSecond * frameDelta;
         }
@@ -71,9 +72,9 @@ export default function Testimonial() {
 
     const distance = event.clientX - drag.x;
     drag.x = event.clientX;
-    const rotationDelta = distance * 1.5;
+    const rotationDelta = distance * DRAG_SENSITIVITY;
     rotationRef.current += rotationDelta;
-    velocityRef.current = rotationDelta * 60;
+    velocityRef.current = rotationDelta * 3;
   };
 
   const handlePointerUp = (event) => {

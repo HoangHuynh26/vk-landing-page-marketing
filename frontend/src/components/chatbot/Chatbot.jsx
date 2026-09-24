@@ -131,7 +131,7 @@ export default function Chatbot() {
     const scenario = scenarios.find((item) => item.id === id);
     if (!scenario) return;
     const isContact =
-      id === "contact" ||
+      id === "contact" || id === "contact_direct" ||
       scenario.answer.includes("@") ||
       scenario.answer.includes("+61");
     setMessages((current) => [
@@ -157,7 +157,7 @@ export default function Chatbot() {
     const botText = typeof botResult === "string" ? botResult : botResult.text;
     const isFallback = typeof botResult === "object" ? botResult.isFallback : false;
     const isContact =
-      (typeof botResult === "object" && botResult.key === "contact") ||
+      (typeof botResult === "object" && (botResult.key === "contact" || botResult.key === "contact_direct")) ||
       botText.includes("+61") ||
       botText.includes("@");
 
@@ -258,6 +258,15 @@ export default function Chatbot() {
               −
             </button>
           </header>
+          <div className="chat-quick-contact-bar">
+            <a href="tel:+61431679731" className="chat-quick-contact-link">
+              <span aria-hidden="true">📞</span> +61 431 679 731
+            </a>
+            <span className="chat-quick-contact-sep">·</span>
+            <a href="mailto:admin@vkdigitalhub.com.au" className="chat-quick-contact-link">
+              <span aria-hidden="true">✉️</span> Email
+            </a>
+          </div>
           <div className="chat-messages" aria-live="polite">
             <p className="bot-message">{renderFormattedText(t("chatbot.welcome"))}</p>
             {messages.map((message, index) => (

@@ -5,14 +5,16 @@ import { useLanguage } from "../../i18n/LanguageContext";
 
 const links = [
   ["nav.home", "#top"],
-  ["nav.caseStudies", "#case-studies"],
-  ["nav.faq", "#faq"],
   ["nav.about", "#strategy"],
+  ["nav.caseStudies", "#case-studies"],
+  ["nav.testimonials", "#testimonials"],
+  ["nav.faq", "#faq"],
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(() => window.scrollY > 24);
+  const [activeSection, setActiveSection] = useState("#top");
   const { language, setLanguage, t } = useLanguage();
   const nextLanguage = language === "vi" ? "en" : "vi";
 
@@ -29,9 +31,38 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 24);
+
+      // Scroll spy logic: detect currently active section
+      const sectionOrder = [
+        { id: "faq", hash: "#faq" },
+        { id: "testimonials", hash: "#testimonials" },
+        { id: "case-studies", hash: "#case-studies" },
+        { id: "strategy", hash: "#strategy" },
+      ];
+
+      const scrollPos = window.scrollY + 140;
+      let found = false;
+
+      for (const sec of sectionOrder) {
+        const el = document.getElementById(sec.id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            setActiveSection(sec.hash);
+            found = true;
+            break;
+          }
+        }
+      }
+
+      if (!found) {
+        setActiveSection("#top");
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -46,8 +77,8 @@ export default function Navbar() {
       aria-label={`Switch language to ${nextLanguage.toUpperCase()}`}
     >
       <span className="language-current">{language.toUpperCase()}</span>
-      <span aria-hidden="true">→</span>
-      <span>{nextLanguage.toUpperCase()}</span>
+      <span className="language-arrow" aria-hidden="true">⇄</span>
+      <span className="language-next">{nextLanguage.toUpperCase()}</span>
     </button>
   );
 
@@ -78,7 +109,12 @@ export default function Navbar() {
         <div id="main-menu" className={`nav-menu ${open ? "is-open" : ""}`}>
           <div className="nav-links">
             {links.map(([label, path]) => (
-              <a key={path} href={path} onClick={() => setOpen(false)}>
+              <a
+                key={path}
+                href={path}
+                className={activeSection === path ? "is-active" : ""}
+                onClick={() => setOpen(false)}
+              >
                 {t(label)}
               </a>
             ))}
@@ -100,11 +136,12 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="main-menu"
             onClick={() => setOpen(!open)}
+            aria-label={open ? t("nav.close") : t("nav.open")}
           >
             <span className="sr-only">
               {open ? t("nav.close") : t("nav.open")}
             </span>
-            <span aria-hidden="true">{open ? "×" : "☰"}</span>
+            <span aria-hidden="true" className="menu-toggle-icon">{open ? "✕" : "☰"}</span>
           </button>
         </div>
       </nav>

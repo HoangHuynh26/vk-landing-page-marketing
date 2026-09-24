@@ -1,3 +1,4 @@
+import MobileActionBar from "../common/MobileActionBar";
 import { lazy, Suspense } from "react";
 import Navbar from "../navbar/Navbar";
 import Chatbot from "../chatbot/Chatbot";
@@ -23,6 +24,7 @@ export default function Layout() {
       <ScrollToTop />
       <LeadModal />
       <LiveNotification />
+      <MobileActionBar />
     </>
   );
 }

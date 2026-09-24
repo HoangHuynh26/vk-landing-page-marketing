@@ -1,3 +1,4 @@
+import ContactStory from "../contactStory/ContactStory";
 import GlowButton from "./GlowButton";
 import { lazy, Suspense } from "react";
 import "./LeadCTA.css";
@@ -40,6 +41,9 @@ export default function LeadCTA() {
           <FAQ />
         </Suspense>
       </section>
+
+      {/* Interactive Story Contact & Free Assessment Section under FAQ */}
+      <ContactStory />
 
       <section
         className="lead-cta"

@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { translations } from "./translations";
 
 const LanguageContext = createContext(null);
@@ -11,6 +11,12 @@ export function LanguageProvider({ children }) {
   const [language, setLanguageState] = useState(
     () => localStorage.getItem("vk-language") || "vi",
   );
+
+  useEffect(() => {
+    document.body.dataset.language = language;
+    document.documentElement.lang = language;
+  }, [language]);
+
   const setLanguage = (nextLanguage) => {
     const next = nextLanguage === "en" ? "en" : "vi";
     localStorage.setItem("vk-language", next);

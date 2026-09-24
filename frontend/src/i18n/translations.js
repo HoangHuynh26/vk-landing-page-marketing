@@ -3,6 +3,7 @@ export const translations = {
     nav: {
       home: "Trang chủ",
       caseStudies: "Case Studies",
+      testimonials: "Đánh giá",
       faq: "FAQ",
       about: "Về chúng tôi",
       language: "Ngôn ngữ",
@@ -112,40 +113,38 @@ export const translations = {
       ],
     },
     caseStudy: {
-      eyebrow: "DỰ ÁN THỰC TẾ",
-      title: "Những con số biết nói",
-      subtitle: "Xem cách các tiệm Nail & Spa tại Úc đột phá lượng khách và doanh thu",
-      beforeLabel: "TRƯỚC",
-      afterLabel: "SAU 30 NGÀY",
-      growthLabel: "Tăng trưởng",
+      eyebrow: "REAL-WORLD CASE STUDIES",
+      title: "Real Results from Australian Nail & Spa Salons",
+      subtitle: "Practical marketing strategies driving verifiable bookings and higher customer retention",
+      beforeLabel: "BEFORE",
+      afterLabel: "AFTER 30-60 DAYS",
+      growthLabel: "GROWTH",
+      verifiedClient: "Verified Australian Salon Client",
+      openLabel: "View case study details",
       studies: {
-        "perth-a": {
-          title: "Tiệm Nail & Beauty Studio tại Perth",
-          before: "5 lịch hẹn online/tuần, thiếu hệ thống giữ chân khách quay lại.",
-          after: "25 lịch hẹn/tuần với tỷ lệ khách quen quay lại đạt 32%.",
-          testimonial: "Lịch hẹn tiệm tôi tăng gấp 5 lần chỉ sau 4 tuần hợp tác cùng VK Digital Hub.",
-          author: "Chị Lan – Chủ tiệm Nail Perth",
+        "perth-fashion-nails": {
+          title: "Fashion Nails Morley (Perth, WA)",
+          subTitle: "Local SEO & booking conversion rate optimization",
+          before: "8 online bookings/week, heavily reliant on walk-ins with a 25% no-show rate.",
+          after: "38 bookings/week, fully booked on weekends, with a 42% repeat client rate.",
+          testimonial: "Since optimizing our booking flow and Google Maps with VK Digital Hub, our salon is consistently fully booked on weekends. Clients love how easy it is to schedule.",
+          author: "Tracy Nguyen – Owner, Fashion Nails Morley (WA)",
         },
-        "melbourne-b": {
-          title: "Luxe Nail Lounge tại Melbourne",
-          before: "8 khách mới/tháng, chỉ dựa vào khách vãng lai và truyền miệng.",
-          after: "32 khách đặt trước/tháng sau khi tối ưu Google Maps & Ads địa phương.",
-          testimonial: "Chiến lược tiếp cận chuẩn giúp salon tôi luôn kín lịch vào các khung giờ vàng.",
-          author: "Anh Minh – Quản lý Salon Melbourne",
+        "melbourne-luxe-nails": {
+          title: "Luxe Nail Lounge (Melbourne, VIC)",
+          subTitle: "Automated VIP retention and re-engagement system",
+          before: "12 repeat VIP clients/month with no system to follow up or re-engage past visitors.",
+          after: "48 repeat VIP clients/month, boosting repeat client revenue by over 65%.",
+          testimonial: "The automated re-engagement system keeps our regulars coming back on schedule without requiring hours of manual messaging.",
+          author: "Kevin Vu – Manager, Luxe Nail Lounge Chadstone (VIC)",
         },
-        "brisbane-c": {
-          title: "Wellness & Nail Spa tại Brisbane",
-          before: "12 lượt khách/tuần, quản lý lịch hẹn thủ công hay bị trễ tin nhắn.",
-          after: "41 khách/tuần với quy trình chatbot & chăm sóc khách tự động.",
-          testimonial: "Tiết kiệm hơn 8 tiếng mỗi tuần trả lời inbox mà khách lại chốt lịch nhiều hơn hẳn.",
-          author: "Chị Thảo – Founder Spa Brisbane",
-        },
-        "sydney-d": {
-          title: "Premium Beauty Clinic tại Sydney",
-          before: "6 buổi tư vấn gói VIP/tháng với chi phí quảng cáo cao.",
-          after: "29 buổi tư vấn trọn gói/tháng nhờ phễu marketing đúng tệp địa phương.",
-          testimonial: "Đúng tệp khách hàng cao cấp tìm đến tiệm mà chúng tôi không cần giảm giá dịch vụ.",
-          author: "Chị Helen – Chủ Clinic Sydney",
+        "brisbane-sunnybank": {
+          title: "Sunnybank Nail & Spa (Brisbane, QLD)",
+          subTitle: "Hyperlocal targeted social booking campaigns within 5km",
+          before: "$14 per enquiry on social ads with lots of price shoppers but few confirmed appointments.",
+          after: "Reduced to $3.20 per confirmed booking, generating 120+ new customers monthly.",
+          testimonial: "VK Hub understands our local Australian market intimately. The enquiries coming in are genuine appointments from clients ready to book.",
+          author: "Mai Huynh – Co-founder, Sunnybank Nail & Spa (QLD)",
         },
       },
     },
@@ -319,7 +318,7 @@ export const translations = {
       placeholder: "Bạn muốn hỏi điều gì?",
       emptyQuestion: "Vui lòng nhập câu hỏi trước khi gửi.",
       send: "Gửi câu hỏi",
-      welcome: "Chào anh/chị! Em có thể hỗ trợ gì cho mình ạ?",
+      welcome: "Chào anh/chị! Em là trợ lý của VK Digital Hub. Em có thể hỗ trợ giải đáp nhanh, hoặc anh/chị có thể gọi ngay Hotline: +61 431 679 731 hay Email: admin@vkdigitalhub.com.au để được tư vấn trực tiếp!",
       inactivity:
         "Chào anh/chị! Em thấy mình đang xem landing page; có thắc mắc gì cứ nhắn em nhé!",
       prompts: [
@@ -337,6 +336,38 @@ export const translations = {
       formSub: "Chỉ mất 2 phút · Miễn phí & Không cam kết",
       formAction: "Bấm để điền",
       scenarios: [
+        {
+          id: "contact_direct",
+          label: "📞 Direct Hotline & Support Email",
+          question: "Please give me direct phone and email contact",
+          answer: "You can reach our senior consultants directly via our Hotline or Email below for immediate assistance:",
+          followUps: [
+            {
+              id: "form",
+              label: "Get Free Marketing Assessment",
+            },
+            {
+              id: "other",
+              label: "Other Questions",
+            },
+          ],
+        },
+        {
+          id: "contact_direct",
+          label: "📞 Hotline & Email liên hệ trực tiếp",
+          question: "Cho tôi số điện thoại và email liên hệ trực tiếp",
+          answer: "Dạ anh/chị có thể kết nối ngay với chuyên viên tư vấn của VK Digital Hub qua Hotline hoặc Email dưới đây để được hỗ trợ nhanh nhất:",
+          followUps: [
+            {
+              id: "form",
+              label: "Điền form nhận bản đánh giá miễn phí",
+            },
+            {
+              id: "other",
+              label: "Câu hỏi khác",
+            },
+          ],
+        },
         {
           id: "free",
           label: "🎯 Tôi muốn nhận bản đánh giá miễn phí",
