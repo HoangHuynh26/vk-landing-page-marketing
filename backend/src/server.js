@@ -12,12 +12,24 @@ const allowedOrigins = [
 ];
 const requestLog = new Map();
 
+app.set("trust proxy", 1);
 app.disable("x-powered-by");
+
+// Standard security headers
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  next();
+});
+
 app.use(
   cors({
     origin: (origin, callback) => {
       // Allow requests with no origin (like mobile apps, curl, or Postman)
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin) return callback(null, true);
+      const normalized = origin.replace(/\/+$/, "");
+      if (allowedOrigins.includes(normalized)) {
         return callback(null, true);
       }
       return callback(null, false);
@@ -27,7 +39,8 @@ app.use(
 app.use(express.json({ limit: "10kb" }));
 
 app.use("/api/leads", (req, res, next) => {
-  const key = req.ip || "unknown";
+  const forwarded = req.headers["x-forwarded-for"];
+  const key = (forwarded ? String(forwarded).split(",")[0].trim() : req.ip) || "unknown";
   const now = Date.now();
   const recent = (requestLog.get(key) || []).filter(
     (timestamp) => now - timestamp < 60_000,
@@ -38,6 +51,16 @@ app.use("/api/leads", (req, res, next) => {
       .json({ success: false, message: "Too many requests" });
   recent.push(now);
   requestLog.set(key, recent);
+
+  // Periodic pruning to prevent memory leak
+  if (requestLog.size > 1000) {
+    for (const [ipKey, timestamps] of requestLog.entries()) {
+      if (timestamps.every((t) => now - t >= 60_000)) {
+        requestLog.delete(ipKey);
+      }
+    }
+  }
+
   return next();
 });
 

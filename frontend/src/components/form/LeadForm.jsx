@@ -10,6 +10,7 @@ const initialForm = {
   email: "",
   phone: "",
   message: "",
+  website: "", // Honeypot field for bot spam detection
 };
 
 export default function LeadForm({ onClose, onSuccess }) {
@@ -90,6 +91,7 @@ export default function LeadForm({ onClose, onSuccess }) {
         phone: cleanPhone,
         message: messageText,
         language,
+        website: form.website || "",
       });
       setForm(initialForm);
       setStatus("idle");
@@ -142,6 +144,19 @@ export default function LeadForm({ onClose, onSuccess }) {
       onSubmit={handleSubmit}
       noValidate
     >
+      {/* Honeypot field for bot spam trap */}
+      <div style={{ display: "none" }} aria-hidden="true">
+        <input
+          type="text"
+          id="website"
+          name="website"
+          value={form.website}
+          onChange={updateField}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <label htmlFor="fullName">
         {label("form.fullName", "Full name")}
         <input

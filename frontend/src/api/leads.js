@@ -11,11 +11,10 @@ export async function submitLead(payload) {
     }
   }
 
-  if (!apiUrl) {
-    apiUrl = "https://vkdigitalhub.netlify.app";
-  }
+  const baseUrl = apiUrl ? apiUrl.replace(/\/+$/, "") : "";
+  const endpoint = `${baseUrl}/api/leads`;
 
-  const response = await fetch(`${apiUrl}/api/leads`, {
+  const response = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),

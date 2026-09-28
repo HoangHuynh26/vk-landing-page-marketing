@@ -1,11 +1,18 @@
 function sanitizeText(value, maxLength) {
-  return String(value || "")
+  const str = String(value || "")
     .replace(/[<>]/g, "")
     .trim()
     .slice(0, maxLength);
+  // Neutralize spreadsheet formula injection characters (=, +, -, @, tab, cr)
+  return /^[=+\-@\t\r]/.test(str) ? `'${str}` : str;
 }
 
 function validateLead(body) {
+  // Honeypot check: If the hidden 'website' field is populated, flag as spam
+  if (body?.website) {
+    return { isSpam: true, value: null };
+  }
+
   const fullName = sanitizeText(body?.fullName, 120);
   const companyName = sanitizeText(
     body?.companyName || body?.businessName,
