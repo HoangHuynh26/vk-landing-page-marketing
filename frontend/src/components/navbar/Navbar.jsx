@@ -9,6 +9,7 @@ const links = [
   ["nav.caseStudies", "#case-studies"],
   ["nav.testimonials", "#testimonials"],
   ["nav.faq", "#faq"],
+  ["nav.contact", "#contact"],
 ];
 
 export default function Navbar() {
@@ -29,40 +30,80 @@ export default function Navbar() {
   }, [open]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 24);
+    let ticking = false;
+
+    const updateScrollState = () => {
+      const currentScrollY = window.scrollY;
+      const scrolled = currentScrollY > 20;
+      setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+
+      // Check if user is at the top of the page
+      if (currentScrollY < 120) {
+        setActiveSection((prev) => (prev !== "#top" ? "#top" : prev));
+        ticking = false;
+        return;
+      }
+
+      // When scrolled near/at the bottom of the page, keep the last item (#contact) active
+      const scrollBottom = window.innerHeight + currentScrollY;
+      const docHeight = document.documentElement.scrollHeight;
+      if (scrollBottom >= docHeight - 120) {
+        setActiveSection((prev) => (prev !== "#contact" ? "#contact" : prev));
+        ticking = false;
+        return;
+      }
 
       // Scroll spy logic: detect currently active section
       const sectionOrder = [
+        { id: "contact", hash: "#contact" },
         { id: "faq", hash: "#faq" },
         { id: "testimonials", hash: "#testimonials" },
         { id: "case-studies", hash: "#case-studies" },
         { id: "strategy", hash: "#strategy" },
       ];
 
-      const scrollPos = window.scrollY + 140;
-      let found = false;
+      const viewLine = currentScrollY + Math.min(280, window.innerHeight * 0.4);
+      let newActive = null;
 
       for (const sec of sectionOrder) {
         const el = document.getElementById(sec.id);
         if (el) {
-          const top = el.offsetTop;
+          const rect = el.getBoundingClientRect();
+          const top = rect.top + currentScrollY;
           const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(sec.hash);
-            found = true;
+          if (viewLine >= top && viewLine < top + height) {
+            newActive = sec.hash;
             break;
           }
         }
       }
 
-      if (!found) {
-        setActiveSection("#top");
+      if (!newActive) {
+        const contactEl = document.getElementById("contact");
+        if (contactEl) {
+          const contactTop = contactEl.getBoundingClientRect().top + currentScrollY;
+          if (viewLine >= contactTop) {
+            newActive = "#contact";
+          }
+        }
+      }
+
+      if (newActive) {
+        setActiveSection((prev) => (prev !== newActive ? newActive : prev));
+      }
+
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollState);
+        ticking = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    updateScrollState();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -82,53 +123,103 @@ export default function Navbar() {
     </button>
   );
 
+  const handleNavClick = (event, path) => {
+    setOpen(false);
+    if (!path.startsWith("#")) return;
+
+    event.preventDefault();
+    if (path === "#top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      try {
+        window.history.pushState(null, "", " ");
+      } catch (e) {}
+      return;
+    }
+
+    const targetId = path.replace("#", "");
+    const target = document.getElementById(targetId);
+    if (target) {
+      const navbarHeight = 72;
+      const targetRect = target.getBoundingClientRect();
+      const targetTop = targetRect.top + window.scrollY;
+      const targetHeight = target.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const availableHeight = windowHeight - navbarHeight;
+
+      let scrollTarget;
+      // If the target section fits nicely within viewport (like Testimonials), center it vertically!
+      if (targetHeight < availableHeight) {
+        const extraSpace = (availableHeight - targetHeight) / 2;
+        scrollTarget = targetTop - navbarHeight - extraSpace;
+      } else {
+        // If it's a tall section, place with comfortable breathing room below navbar
+        scrollTarget = targetTop - navbarHeight - 20;
+      }
+
+      window.scrollTo({
+        top: Math.max(0, Math.round(scrollTarget)),
+        behavior: "smooth",
+      });
+
+      try {
+        window.history.pushState(null, "", path);
+      } catch (e) {}
+    }
+  };
+
   return (
     <header
-      className={`site-header ${isScrolled ? "is-scrolled" : ""}`}
+      className={`site-header ${isScrolled ? "is-scrolled" : ""} ${open ? "menu-is-open" : ""}`}
     >
       <nav className="nav-shell" aria-label="Main navigation">
+        {/* Frame 1 (Left): Brand Pill (Logo + Company Name) */}
         <a
-          className="brand"
+          className="brand nav-pill nav-pill--brand"
           href="#top"
-          onClick={() => setOpen(false)}
+          onClick={(e) => handleNavClick(e, "#top")}
           aria-label={t("nav.homeLabel")}
         >
           <img
             className="brand-logo"
             src="/logo.png"
             alt="VK Digital Hub"
-            width="42"
-            height="42"
+            width="38"
+            height="38"
           />
           <span className="brand-name">
-            VK Digital Hub
+            <span className="brand-name-vk">VK</span>
+            <span className="brand-name-sub">Digital Hub</span>
           </span>
         </a>
 
-        {/* Centered navigation menu */}
+        {/* Frame 2 (Center): Navigation Menu Pill */}
         <div id="main-menu" className={`nav-menu ${open ? "is-open" : ""}`}>
-          <div className="nav-links">
+          <div className="nav-links nav-pill nav-pill--links">
             {links.map(([label, path]) => (
               <a
                 key={path}
                 href={path}
                 className={activeSection === path ? "is-active" : ""}
-                onClick={() => setOpen(false)}
+                onClick={(e) => handleNavClick(e, path)}
               >
                 {t(label)}
               </a>
             ))}
           </div>
           <div className="nav-mobile-cta">
-            <GlowButton className="nav-cta" variant="nav" onClick={() => setOpen(false)} />
+            <GlowButton className="nav-cta" variant="nav" onClick={() => setOpen(false)}>
+              {t("nav.ctaMobile") || t("nav.ctaNav") || t("nav.cta")}
+            </GlowButton>
           </div>
         </div>
 
-        {/* Header actions: Language switcher always outside next to button */}
-        <div className="nav-header-actions">
+        {/* Frame 3 (Right): Actions Pill (Language Switcher + CTA) */}
+        <div className="nav-header-actions nav-pill nav-pill--actions">
           {languageButton}
           <div className="nav-desktop-cta">
-            <GlowButton className="nav-cta" variant="nav" />
+            <GlowButton className="nav-cta" variant="nav">
+              {t("nav.ctaNav") || t("nav.cta")}
+            </GlowButton>
           </div>
           <button
             className="menu-toggle"

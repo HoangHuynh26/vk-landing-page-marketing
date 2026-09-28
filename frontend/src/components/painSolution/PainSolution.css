@@ -1,128 +1,142 @@
-/* ── Pain Solution — Case-Study-style expandable cards ── */
+/* =========================================================================
+   STACKING CARDS ON SCROLL - PAIN & SOLUTION SYSTEM
+   - Silky smooth native position: sticky card stacking
+   - Incremental top offsets creating an elegant cascading deck-of-cards
+   - High-contrast typography, luxury ambient glowing badges, and rich visuals
+   ========================================================================= */
 
 .pain-solution {
-  padding-top: 96px;
-  padding-bottom: 96px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  width: min(980px, calc(100% - 48px));
+  margin: 0 auto;
 }
 
-.pain-solution h2 {
+.pain-section-header {
+  max-width: 780px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+.pain-eyebrow {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.pain-section-header h2 {
   margin: 0;
   color: var(--dark);
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.08;
+  font-size: clamp(30px, 3.8vw, 44px);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
 }
 
-.pain-solution h2 em {
+.pain-section-header h2 em {
   color: var(--primary);
   font-style: normal;
 }
 
-/* ── Grid → Flex row (matches case-study-grid-list) ── */
+/* ── Stacking Cards Container ── */
 
-.pain-grid {
+.pain-stack-container {
   display: flex;
-  align-items: stretch;
-  gap: 14px;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  max-width: 960px;
   width: 100%;
-  margin-top: 44px;
+  margin: 0 auto;
+  padding-bottom: 60px;
 }
 
-/* ── Card ── */
+/* ── Individual Stacking Card ── */
 
-.pain-item {
-  position: relative;
-  display: flex;
-  flex: 1 1 0;
-  min-width: 0;
-  min-height: 550px;
+.pain-stack-card {
+  position: sticky;
+  top: calc(84px + var(--card-index) * 22px);
+  z-index: calc(var(--card-index) + 1);
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(23, 34, 31, 0.08);
+  box-shadow:
+    0 20px 48px -12px rgba(23, 34, 31, 0.10),
+    0 4px 14px rgba(23, 34, 31, 0.03);
   overflow: hidden;
   box-sizing: border-box;
-  padding: 28px;
-  border: 0;
-  border-radius: 14px;
-  color: var(--dark);
-  text-align: left;
-  background: #e8ded0;
-  box-shadow: 0 18px 44px rgba(23, 34, 31, 0.08);
-  cursor: pointer;
-  isolation: isolate;
-  transition:
-    flex 520ms cubic-bezier(0.22, 1, 0.36, 1),
-    min-height 520ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 260ms ease,
-    box-shadow 260ms ease,
-    background-color 300ms ease;
-}
-
-.pain-item::before {
-  position: absolute;
-  z-index: 2;
-  inset: 0 0 auto;
-  height: 5px;
-  content: "";
-  background: var(--primary);
-}
-
-.pain-item--1::before { background: var(--gold); }
-.pain-item--2::before { background: var(--accent); }
-
-.pain-item--1 { background: #e4ece8; }
-.pain-item--2 { background: #eee4da; }
-
-/* ── Cover image ── */
-
-.pain-cover {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  overflow: hidden;
-  background: var(--dark);
-  opacity: 1;
-  transition:
-    opacity 420ms ease,
-    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.pain-cover::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background: linear-gradient(180deg, rgba(11, 28, 25, 0.22), rgba(11, 28, 25, 0.88));
-}
-
-.pain-cover img {
-  display: block;
+  max-width: 960px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.04);
-  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  margin: 0 auto;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 }
 
-/* ── Card content ── */
+.pain-stack-card:hover {
+  box-shadow:
+    0 28px 60px -12px rgba(23, 34, 31, 0.15),
+    0 6px 18px rgba(23, 34, 31, 0.04);
+}
 
-.pain-card-content {
-  position: relative;
-  z-index: 1;
+/* ── Top Accent Line ── */
+
+.pain-stack-accent-bar {
+  height: 4px;
+  width: 100%;
+}
+
+/* ── Card Inner 2-Column Grid ── */
+
+.pain-stack-card-inner {
+  display: grid;
+  grid-template-columns: 1.28fr 0.92fr;
+  gap: 28px;
+  padding: 28px 32px 30px;
+  align-items: stretch;
+}
+
+/* ── Left Column: Content ── */
+
+.pain-stack-content-col {
   display: flex;
-  flex: 1;
-  min-width: 0;
   flex-direction: column;
+  justify-content: space-between;
 }
 
-.pain-card-header-row {
+/* Header bar inside card */
+
+.pain-stack-header-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.pain-header-left {
+.pain-stack-tag-wrap {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* ── Outstanding Icon Wrapper & Ambient Aura Halo ── */
+.pain-stack-num {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.pain-stack-tag {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid;
+  line-height: 1;
+}
+
+/* ── Icon Wrap & Ambient Glow ── */
 
 .pain-card-icon-wrap {
   position: relative;
@@ -133,34 +147,29 @@
 
 .pain-card-icon-glow {
   position: absolute;
-  inset: -8px;
-  border-radius: 22px;
-  opacity: 0.65;
-  filter: blur(12px);
+  inset: -6px;
+  border-radius: 20px;
+  opacity: 0.6;
+  filter: blur(10px);
   pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 0;
 }
 
 .pain-card-icon-wrap--0 .pain-card-icon-glow {
-  background: radial-gradient(circle, rgba(15, 118, 110, 0.8) 0%, rgba(45, 212, 191, 0.45) 45%, transparent 72%);
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.75) 0%, rgba(45, 212, 191, 0.4) 45%, transparent 72%);
 }
-
 .pain-card-icon-wrap--1 .pain-card-icon-glow {
-  background: radial-gradient(circle, rgba(201, 151, 78, 0.85) 0%, rgba(253, 224, 71, 0.45) 45%, transparent 72%);
+  background: radial-gradient(circle, rgba(201, 151, 78, 0.8) 0%, rgba(253, 224, 71, 0.4) 45%, transparent 72%);
 }
-
 .pain-card-icon-wrap--2 .pain-card-icon-glow {
-  background: radial-gradient(circle, rgba(217, 119, 87, 0.8) 0%, rgba(251, 146, 60, 0.45) 45%, transparent 72%);
+  background: radial-gradient(circle, rgba(217, 119, 87, 0.75) 0%, rgba(251, 146, 60, 0.4) 45%, transparent 72%);
 }
 
-.pain-item:hover .pain-card-icon-glow,
-.pain-item.is-expanded .pain-card-icon-glow {
-  opacity: 1;
-  transform: scale(1.25);
+.pain-stack-card:hover .pain-card-icon-glow {
+  opacity: 0.95;
+  transform: scale(1.2);
 }
-
-/* ── Outstanding Icon Container ── */
 
 .pain-card-icon {
   position: relative;
@@ -168,444 +177,310 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.12) 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1.5px solid rgba(255, 255, 255, 0.45);
-  transition:
-    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1),
-    background 0.35s ease,
-    border-color 0.35s ease,
-    color 0.35s ease;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  background: #ffffff;
+  border: 1.5px solid rgba(23, 34, 31, 0.1);
+  box-shadow: 0 4px 14px rgba(23, 34, 31, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.pain-card-icon--0 { color: #0f766e; }
+.pain-card-icon--1 { color: #c9974e; }
+.pain-card-icon--2 { color: #d97757; }
+
+.pain-stack-card:hover .pain-card-icon {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 8px 22px rgba(23, 34, 31, 0.14);
 }
 
 .pain-card-icon svg {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   display: block;
-  overflow: visible;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Card 0: Ads / Marketing (Deep Teal & Bright Mint accents) */
-.pain-card-icon--0 {
-  color: #6ee7b7;
-  box-shadow:
-    0 12px 28px -4px rgba(0, 0, 0, 0.35),
-    0 4px 14px rgba(15, 118, 110, 0.4),
-    inset 0 1.5px 2px rgba(255, 255, 255, 0.8),
-    inset 0 -1.5px 2px rgba(0, 0, 0, 0.15);
+/* ── Card Title ── */
+
+.pain-stack-card-title {
+  margin: 16px 0 12px;
+  color: var(--dark);
+  font-size: clamp(21px, 2.2vw, 26px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
-/* Card 1: Salon Brand (Radiant 24K Champagne Gold) */
-.pain-card-icon--1 {
-  color: #fde047;
-  box-shadow:
-    0 12px 28px -4px rgba(0, 0, 0, 0.35),
-    0 4px 14px rgba(201, 151, 78, 0.5),
-    inset 0 1.5px 2px rgba(255, 255, 255, 0.8),
-    inset 0 -1.5px 2px rgba(0, 0, 0, 0.15);
+/* ── Pain Point Quote Box ── */
+
+.pain-stack-pain-box {
+  background: rgba(23, 34, 31, 0.035);
+  border-left: 3.5px solid var(--card-color);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
 }
 
-/* Card 2: Marketing Automation (Sunset Amber & Coral) */
-.pain-card-icon--2 {
-  color: #fdba74;
-  box-shadow:
-    0 12px 28px -4px rgba(0, 0, 0, 0.35),
-    0 4px 14px rgba(217, 119, 87, 0.45),
-    inset 0 1.5px 2px rgba(255, 255, 255, 0.8),
-    inset 0 -1.5px 2px rgba(0, 0, 0, 0.15);
+.pain-stack-pain-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
 }
 
-/* Hover lift on card */
-.pain-item:hover .pain-card-icon {
-  transform: translateY(-4px) scale(1.08);
-  border-color: rgba(255, 255, 255, 0.75);
+.pain-stack-pain-header svg {
+  color: var(--card-color);
 }
 
-.pain-item:hover .pain-card-icon--0 {
-  box-shadow:
-    0 16px 34px -4px rgba(0, 0, 0, 0.42),
-    0 6px 18px rgba(15, 118, 110, 0.6),
-    inset 0 1.5px 2px rgba(255, 255, 255, 0.95);
+.pain-stack-pain-text {
+  margin: 0;
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.48;
+  font-style: italic;
 }
 
-.pain-item:hover .pain-card-icon--1 {
-  box-shadow:
-    0 16px 34px -4px rgba(0, 0, 0, 0.42),
-    0 6px 18px rgba(201, 151, 78, 0.65),
-    inset 0 1.5px 2px rgba(255, 255, 255, 0.95);
+/* ── Our Solution Header ── */
+
+.pain-stack-solution-header {
+  display: flex;
+  align-items: center;
+  margin: 0 0 10px;
 }
 
-.pain-item:hover .pain-card-icon--2 {
-  box-shadow:
-    0 16px 34px -4px rgba(0, 0, 0, 0.42),
-    0 6px 18px rgba(217, 119, 87, 0.6),
-    inset 0 1.5px 2px rgba(255, 255, 255, 0.95);
+.pain-stack-solution-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.pain-item:hover .pain-card-icon svg {
-  transform: scale(1.06);
+.pain-stack-solution-badge svg {
+  flex-shrink: 0;
 }
 
-/* Expanded state — Elevated illuminated jewel container */
-.pain-item.is-expanded .pain-card-icon {
-  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 253, 248, 0.96) 100%);
-  box-shadow:
-    0 14px 30px -6px rgba(23, 34, 31, 0.14),
-    0 4px 12px rgba(201, 151, 78, 0.22),
-    inset 0 1.5px 2px #ffffff;
+/* ── Dual Solutions Grid ── */
+
+.pain-stack-solutions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
-.pain-item.is-expanded .pain-card-icon--0 {
-  color: var(--primary);
-  border-color: rgba(15, 118, 110, 0.36);
+.pain-stack-solution-card {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(23, 34, 31, 0.07);
+  box-shadow: 0 2px 8px rgba(23, 34, 31, 0.03);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.pain-item.is-expanded .pain-card-icon--1 {
-  color: #b57a2c;
-  border-color: rgba(201, 151, 78, 0.48);
+
+.pain-stack-solution-card.online {
+  border-color: rgba(15, 118, 110, 0.2);
+  background: rgba(15, 118, 110, 0.025);
 }
-.pain-item.is-expanded .pain-card-icon--2 {
-  color: var(--accent);
-  border-color: rgba(217, 119, 87, 0.4);
+
+.pain-stack-solution-card.offline {
+  border-color: rgba(217, 119, 87, 0.2);
+  background: rgba(217, 119, 87, 0.025);
+}
+
+.pain-stack-solution-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(23, 34, 31, 0.06);
+}
+
+.solution-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.solution-badge-pill.online {
+  color: #0f766e;
+}
+
+.solution-badge-pill.offline {
+  color: #b85433;
+}
+
+.solution-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.solution-badge-pill.online .solution-badge-icon {
+  background: rgba(15, 118, 110, 0.12);
+}
+
+.solution-badge-pill.offline .solution-badge-icon {
+  background: rgba(217, 119, 87, 0.14);
+}
+
+.solution-badge-icon svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.solution-badge-pill strong {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.solution-desc-text {
+  margin: 0;
+  color: #2b3935;
+  font-size: 12.8px;
+  line-height: 1.45;
+}
+
+/* ── Right Column: Visual Photo & Overlay ── */
+
+.pain-stack-visual-col {
+  display: flex;
+}
+
+.pain-stack-image-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 290px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(23, 34, 31, 0.08);
+}
+
+.pain-stack-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pain-stack-card:hover .pain-stack-img {
+  transform: scale(1.08);
+}
+
+.pain-stack-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(23, 34, 31, 0.05) 0%, rgba(23, 34, 31, 0.72) 100%);
+  pointer-events: none;
+}
+
+.pain-stack-floating-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.pain-stack-badge-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
 }
 
 /* ── Micro-Animations ── */
 
 @keyframes pulseSoundWave {
-  0%, 100% {
-    opacity: 0.45;
-    transform: scale(0.94);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.08);
-  }
+  0%, 100% { opacity: 0.45; transform: scale(0.94); }
+  50% { opacity: 1; transform: scale(1.08); }
 }
 
 @keyframes shimmerDiamond {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-    filter: drop-shadow(0 0 0px currentColor);
-  }
-  50% {
-    transform: scale(1.1) rotate(2deg);
-    filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.8));
-  }
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(2deg); filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.8)); }
 }
 
 @keyframes microSparkle {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(0.85);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.25);
-  }
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.25); }
 }
 
 @keyframes pulseBolt {
-  0%, 100% {
-    opacity: 0.85;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-1.5px) scale(1.12);
-  }
+  0%, 100% { opacity: 0.85; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-1.5px) scale(1.12); }
 }
 
-.pain-item:hover .pain-wave--1 {
+.pain-stack-card:hover .pain-wave--1 {
   animation: pulseSoundWave 1.4s ease-in-out infinite;
   transform-origin: 16px 14px;
 }
-.pain-item:hover .pain-wave--2 {
+.pain-stack-card:hover .pain-wave--2 {
   animation: pulseSoundWave 1.4s ease-in-out infinite 0.25s;
   transform-origin: 16px 14px;
 }
 
-.pain-item:hover .pain-star-main {
+.pain-stack-card:hover .pain-star-main {
   animation: shimmerDiamond 2.2s ease-in-out infinite;
   transform-origin: 14px 14px;
 }
-.pain-item:hover .pain-star-sec {
+.pain-stack-card:hover .pain-star-sec {
   animation: microSparkle 1.8s ease-in-out infinite 0.3s;
   transform-origin: 22px 6px;
 }
-.pain-item:hover .pain-star-micro {
+.pain-stack-card:hover .pain-star-micro {
   animation: microSparkle 1.8s ease-in-out infinite 0.7s;
   transform-origin: 6px 21px;
 }
 
-.pain-item:hover .pain-bolt {
-  animation: pulseBolt 1.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+.pain-stack-card:hover .pain-bolt {
+  animation: pulseBolt 1.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   transform-origin: 21px 8px;
 }
 
-/* ── Number ── */
+/* ── Responsive Styling ── */
 
-.pain-number {
-  color: var(--gold);
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  transition: color 0.3s ease;
-}
-
-/* ── Toggle Badge (+ / −) ── */
-
-.pain-toggle-badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.22);
-  border: 1.5px solid rgba(255, 255, 255, 0.38);
-  color: #ffffff;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-  transition:
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.pain-toggle-svg {
-  width: 16px;
-  height: 16px;
-  display: block;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.pain-toggle-vertical {
-  transform-origin: center;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
-}
-
-.pain-item:hover .pain-toggle-badge {
-  background: rgba(255, 255, 255, 0.32);
-  border-color: rgba(255, 255, 255, 0.65);
-  transform: scale(1.08);
-}
-
-.pain-item.is-expanded .pain-toggle-badge {
-  background: rgba(23, 34, 31, 0.08);
-  border-color: rgba(23, 34, 31, 0.16);
-  color: var(--dark);
-  box-shadow: 0 2px 8px rgba(23, 34, 31, 0.06);
-}
-
-.pain-item.is-expanded .pain-toggle-svg {
-  transform: rotate(90deg);
-}
-
-.pain-item.is-expanded .pain-toggle-vertical {
-  transform: scaleY(0);
-  opacity: 0;
-}
-
-.pain-heading {
-  display: block;
-}
-
-.pain-heading h3 {
-  margin: 18px 0 0;
-  color: var(--dark);
-  font-size: clamp(22px, 2.2vw, 32px);
-  line-height: 1.15;
-  transition: color 0.3s ease, font-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.pain-item:not(.is-expanded) .pain-heading h3 {
-  color: #fff;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.28);
-}
-
-.pain-item:not(.is-expanded) .pain-number {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-/* ── Details (smooth unfolding transition) ── */
-
-.pain-details {
-  max-height: 0;
-  padding: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(12px);
-  transition:
-    max-height 520ms cubic-bezier(0.22, 1, 0.36, 1),
-    margin-top 520ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 300ms ease,
-    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.pain-text {
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.55;
-  min-height: auto;
-  margin: 0 0 8px;
-}
-
-/* ── Solution Blocks ── */
-
-.pain-solution-block {
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(23, 34, 31, 0.08);
-}
-
-.pain-solution-title {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 5px 14px 5px 6px;
-  border-radius: 999px;
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-weight: 700;
-  transition: all 0.25s ease;
-}
-
-.pain-solution-title--online {
-  background: rgba(15, 118, 110, 0.08);
-  border: 1px solid rgba(15, 118, 110, 0.2);
-  color: #0f766e;
-}
-
-.pain-solution-title--online:hover {
-  background: rgba(15, 118, 110, 0.14);
-  border-color: rgba(15, 118, 110, 0.35);
-}
-
-.pain-solution-title--offline {
-  background: rgba(217, 119, 87, 0.09);
-  border: 1px solid rgba(217, 119, 87, 0.22);
-  color: #b85433;
-}
-
-.pain-solution-title--offline:hover {
-  background: rgba(217, 119, 87, 0.15);
-  border-color: rgba(217, 119, 87, 0.38);
-}
-
-.pain-solution-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-.pain-solution-title--online .pain-solution-icon {
-  background: rgba(15, 118, 110, 0.15);
-  color: #0f766e;
-  box-shadow: 0 2px 6px rgba(15, 118, 110, 0.15);
-}
-
-.pain-solution-title--offline .pain-solution-icon {
-  background: rgba(217, 119, 87, 0.16);
-  color: #c25938;
-  box-shadow: 0 2px 6px rgba(217, 119, 87, 0.15);
-}
-
-.pain-solution-title:hover .pain-solution-icon {
-  transform: scale(1.12);
-}
-
-.pain-solution-icon svg {
-  width: 15px;
-  height: 15px;
-  display: block;
-}
-
-.pain-solution-title b {
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  font-weight: 700;
-  color: inherit;
-}
-
-.pain-solution-block p {
-  margin: 8px 0 0 2px;
-  color: var(--dark);
-  font-size: 15px;
-  line-height: 1.5;
-  opacity: 0.88;
-}
-
-/* ── Hover / Focus ── */
-
-.pain-item:hover,
-.pain-item:focus-visible,
-.pain-item.is-expanded {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 54px rgba(23, 34, 31, 0.16);
-}
-
-.pain-item:hover .pain-cover img,
-.pain-item:focus-visible .pain-cover img {
-  transform: scale(1.08);
-}
-
-.pain-item:focus-visible {
-  outline: 3px solid rgba(201, 151, 78, 0.9);
-  outline-offset: 3px;
-}
-
-/* ── Expanded state ── */
-
-.pain-item.is-expanded {
-  flex: 4 1 0;
-}
-
-.pain-item.is-expanded .pain-details {
-  max-height: 700px;
-  margin-top: 18px;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.pain-item.is-expanded .pain-cover {
-  opacity: 0;
-  transform: scale(1.06);
-  pointer-events: none;
-}
-
-.pain-item.is-expanded .pain-heading h3 {
-  color: var(--dark);
-  text-shadow: none;
-  font-size: clamp(24px, 2.5vw, 36px);
-}
-
-.pain-item.is-expanded .pain-number {
-  color: var(--gold);
-}
-
-/* ── Responsive ── */
-
-@media (max-width: 900px) {
-  .pain-item {
-    padding: 22px;
+@media (max-width: 960px) {
+  .pain-stack-card-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px 28px 32px;
   }
 
-  .pain-item.is-expanded {
-    flex: 3 1 0;
+  .pain-stack-image-frame {
+    min-height: 220px;
+    max-height: 260px;
   }
 }
 
@@ -615,98 +490,57 @@
     padding-bottom: 64px;
   }
 
-  .pain-grid {
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 28px;
+  .pain-section-header {
+    margin-bottom: 36px;
+    text-align: left;
   }
 
-  .pain-item {
-    flex: 0 0 auto;
-    min-height: 140px;
-    padding: 20px;
-    border-radius: 16px;
+  .pain-stack-container {
+    gap: 28px;
   }
 
-  .pain-header-left {
+  .pain-stack-card {
+    top: calc(72px + var(--card-index) * 20px);
+    border-radius: 22px;
+  }
+
+  .pain-stack-card-inner {
+    padding: 22px 20px 24px;
+    gap: 20px;
+  }
+
+  .pain-stack-card-title {
+    font-size: 22px;
+    margin: 14px 0 10px;
+  }
+
+  .pain-stack-solutions-grid {
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .pain-card-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 14px;
+  .pain-stack-image-frame {
+    min-height: 180px;
+    max-height: 200px;
   }
 
-  .pain-card-icon svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .pain-toggle-badge {
-    width: 32px;
-    height: 32px;
-  }
-
-  .pain-toggle-svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .pain-solution-title {
-    padding: 4px 12px 4px 5px;
+  .pain-stack-floating-badge {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 8px 12px;
     font-size: 12px;
-  }
-
-  .pain-solution-icon {
-    width: 22px;
-    height: 22px;
-  }
-
-  .pain-solution-icon svg {
-    width: 13px;
-    height: 13px;
-  }
-
-  .pain-item.is-expanded {
-    min-height: 400px;
-  }
-
-  .pain-item:not(.is-expanded) .pain-heading h3 {
-    max-width: 22ch;
-    font-size: 21px;
-    margin-top: 10px;
-  }
-
-  .pain-item.is-expanded .pain-heading h3 {
-    font-size: 24px;
-    margin-top: 10px;
-  }
-
-  .pain-details {
-    padding-bottom: 4px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pain-item,
-  .pain-details,
-  .pain-cover,
-  .pain-cover img,
-  .pain-heading h3,
-  .pain-toggle-badge,
-  .pain-toggle-svg,
-  .pain-toggle-vertical,
+  .pain-stack-card {
+    position: relative;
+    top: auto !important;
+  }
+  .pain-stack-img,
   .pain-card-icon,
-  .pain-card-icon svg,
-  .pain-card-icon-glow,
-  .pain-solution-icon,
-  .pain-wave--1,
-  .pain-wave--2,
-  .pain-star-main,
-  .pain-star-sec,
-  .pain-star-micro,
-  .pain-bolt {
+  .pain-card-icon-glow {
     animation: none !important;
     transition: none !important;
   }

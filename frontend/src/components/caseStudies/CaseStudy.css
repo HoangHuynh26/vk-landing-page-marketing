@@ -45,6 +45,8 @@
 }
 
 .case-study-tab-btn {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -57,6 +59,9 @@
   cursor: pointer;
   text-align: left;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  min-height: 86px;
+  height: 100%;
 }
 
 .case-study-tab-btn:hover {
@@ -74,14 +79,33 @@
 }
 
 .case-study-tab-btn.is-selected::after {
-  content: "";
+  display: none;
+}
+
+/* 10-second dynamic auto-rotation progress bar */
+.case-tab-progress-bar {
   position: absolute;
-  bottom: -2px;
-  left: 20px;
-  right: 20px;
-  height: 3px;
-  background: var(--primary);
-  border-radius: 99px;
+  bottom: 0;
+  left: 0;
+  height: 3.5px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary), #2dd4bf);
+  border-radius: 0 99px 99px 0;
+  animation: tab-timer-progress 10s linear forwards;
+  pointer-events: none;
+}
+
+.case-study-showcase.is-paused .case-tab-progress-bar {
+  animation-play-state: paused;
+}
+
+@keyframes tab-timer-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .case-tab-city {
@@ -114,17 +138,31 @@
 .case-study-featured-card {
   display: grid;
   grid-template-columns: 420px 1fr;
+  min-height: 560px;
   background: #ffffff;
   border: 1px solid rgba(23, 34, 31, 0.08);
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(23, 34, 31, 0.07);
   transition: all 0.3s ease;
+  animation: caseCardFadeIn 0.3s ease-out;
+}
+
+@keyframes caseCardFadeIn {
+  from {
+    opacity: 0.75;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .case-featured-image-col {
   position: relative;
   min-height: 380px;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -178,7 +216,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.case-featured-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 84px;
 }
 
 .case-featured-category {
@@ -204,23 +251,27 @@
   font-size: 14.5px;
   color: var(--muted);
   line-height: 1.45;
+  min-height: 42px;
 }
 
 /* Comparison grid */
 .case-comparison-grid {
   display: grid;
   grid-template-columns: 1fr 32px 1fr;
-  align-items: center;
+  align-items: stretch;
   gap: 12px;
-  padding: 18px 20px;
+  padding: 16px 20px;
   background: var(--surface, #fffdf9);
   border: 1px solid rgba(23, 34, 31, 0.08);
   border-radius: 16px;
+  min-height: 126px;
+  box-sizing: border-box;
 }
 
 .case-metric-box {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 4px;
 }
 
@@ -263,6 +314,7 @@
   font-size: 13px;
   color: var(--muted);
   line-height: 1.4;
+  min-height: 38px;
 }
 
 .case-metric-arrow-divider {
@@ -279,6 +331,10 @@
   position: relative;
   padding-left: 20px;
   border-left: 3px solid var(--primary);
+  min-height: 94px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .case-quote-icon {
@@ -297,6 +353,7 @@
   font-style: italic;
   color: var(--dark);
   line-height: 1.5;
+  min-height: 44px;
 }
 
 .case-quote-author {
@@ -311,28 +368,43 @@
 .case-tags-list {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 8px;
+  min-height: 34px;
 }
 
 .case-tag-pill {
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 999px;
   background: rgba(15, 118, 110, 0.08);
   color: var(--primary-dark);
   font-size: 12px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 @media (max-width: 960px) {
   .case-study-featured-card {
     grid-template-columns: 1fr;
+    min-height: auto;
   }
   .case-featured-image-col {
     min-height: 240px;
     max-height: 280px;
+    height: auto;
   }
   .case-featured-content-col {
     padding: 24px;
+    height: auto;
+  }
+  .case-featured-meta,
+  .case-featured-sub,
+  .case-comparison-grid,
+  .case-metric-detail,
+  .case-client-quote,
+  .case-quote-text,
+  .case-tags-list {
+    min-height: auto;
   }
 }
 
@@ -362,5 +434,9 @@
   .case-study-featured-card,
   .case-featured-img {
     transition: none !important;
+  }
+  .case-tab-progress-bar {
+    animation: none !important;
+    width: 100%;
   }
 }

@@ -1,17 +1,58 @@
-.home-page > .pain-solution {
-  padding-top: 96px;
-  padding-bottom: 96px;
+/* =========================================================================
+   FOOTER REVEAL EFFECT - MAIN CONTENT CONTAINER
+   - Solid background covering the fixed footer underneath
+   - Relative positioning with higher z-index (2 > 1)
+   - Shadow casting onto revealed footer as curtain lifts
+   - Spacing handled by .footer-reveal-spacer (with identical dark background)
+   ========================================================================= */
+main.home-page {
+  position: relative;
+  z-index: 2;
+  background: var(--ivory);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
 }
-.home-page > .case-study-section {
-  padding-top: 96px;
-  padding-bottom: 96px;
+
+/* =========================================================================
+   SECTION LAYOUT & SCROLL MARGINS (Original Background Restored)
+   ========================================================================= */
+
+.trustbar-section {
+  width: 100%;
 }
-@media (max-width: 760px) {
-  .home-page > .pain-solution,
-  .home-page > .case-study-section {
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
+
+.statistics-section {
+  width: 100%;
+}
+
+.pain-solution-section {
+  width: 100%;
+}
+
+/* Strategy: Dark (#17221f) */
+.strategy-wrapper {
+  width: 100%;
+  background: var(--dark);
+  scroll-margin-top: 80px;
+}
+
+.case-study-section {
+  width: 100%;
+  scroll-margin-top: 80px;
+}
+
+.testimonial-section {
+  width: 100%;
+  scroll-margin-top: max(80px, calc((100vh - 650px) / 2));
+}
+
+.faq-section-wrapper {
+  width: 100%;
+  scroll-margin-top: 80px;
+}
+
+.contact-story-wrapper {
+  width: 100%;
+  scroll-margin-top: 80px;
 }
 
 ::-webkit-scrollbar {

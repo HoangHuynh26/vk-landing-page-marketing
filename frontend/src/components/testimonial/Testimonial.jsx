@@ -2,11 +2,12 @@ import { useEffect, useRef } from "react";
 import { useLanguage } from "../../i18n/LanguageContext";
 import "./Testimonial.css";
 
-const IMAGE_WIDTH = 390;
-const IMAGE_HEIGHT = 340;
+const IMAGE_WIDTH = 370;
+const IMAGE_HEIGHT = 290;
 const SPACING = 3;
-const SPEED = 0.35;
-const DRAG_SENSITIVITY = 0.12;
+const SPEED = 2.2; // Tốc độ quay tự động (~4.8 độ/giây) cho chuyển động mượt mà, sống động
+const HOVER_SPEED = 0.8; // Tốc độ chậm lại khi rê chuột vào để người dùng dễ đọc
+const DRAG_SENSITIVITY = 0.14; // Độ nhạy cảm ứng 1:1 trực quan, mượt mà khi rê/kéo chuột
 const TILT = -7;
 const PERSPECTIVE = 2600;
 
@@ -17,7 +18,7 @@ export default function Testimonial() {
   const rotationRef = useRef(0);
   const velocityRef = useRef(0);
   const lastTimeRef = useRef(0);
-  const dragRef = useRef({ active: false, x: 0 });
+  const dragRef = useRef({ active: false, lastX: 0, lastTime: 0 });
   const pausedRef = useRef(false);
 
   const translatedReviews = t("testimonials.items");
@@ -37,32 +38,58 @@ export default function Testimonial() {
       ring.style.transform = `translateZ(${-radius}px) rotateY(${rotationRef.current}deg)`;
     };
 
+    let isSectionVisible = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isSectionVisible = entry.isIntersecting;
+      },
+      { rootMargin: "150px 0px" },
+    );
+    observer.observe(ring);
+
     const draw = (now) => {
       const deltaTime = lastTimeRef.current ? (now - lastTimeRef.current) / 1000 : 0;
       lastTimeRef.current = now;
       const frameDelta = Math.min(deltaTime, 0.1);
       const drag = dragRef.current;
 
-      if (!drag.active && !pausedRef.current && !reducedMotion) {
-        if (Math.abs(velocityRef.current) > 0.01) {
-          rotationRef.current += velocityRef.current * frameDelta;
-          velocityRef.current *= 0.90;
+      if (isSectionVisible && !reducedMotion) {
+        if (drag.active) {
+          // Trong lúc giữ chuột kéo: cập nhật góc quay liên tục từng frame siêu mượt
+          applyRotation();
         } else {
-          rotationRef.current += degreesPerSecond * frameDelta;
+          // Sau khi nhả chuột: giảm tốc theo quán tính tự nhiên
+          if (Math.abs(velocityRef.current) > 0.02) {
+            rotationRef.current += velocityRef.current * frameDelta;
+            velocityRef.current *= Math.pow(0.88, frameDelta * 60);
+          } else {
+            const currentSpeed = pausedRef.current ? HOVER_SPEED : degreesPerSecond;
+            rotationRef.current += currentSpeed * frameDelta;
+          }
+          applyRotation();
         }
       }
 
-      applyRotation();
       rafRef.current = requestAnimationFrame(draw);
     };
 
     rafRef.current = requestAnimationFrame(draw);
-    return () => cancelAnimationFrame(rafRef.current);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      observer.disconnect();
+    };
   }, [degreesPerSecond, radius]);
 
   const handlePointerDown = (event) => {
-    event.currentTarget.setPointerCapture?.(event.pointerId);
-    dragRef.current = { active: true, x: event.clientX };
+    if (event.button !== undefined && event.button !== 0) return;
+    try {
+      event.currentTarget.setPointerCapture?.(event.pointerId);
+    } catch (e) {}
+    dragRef.current = {
+      active: true,
+      lastX: event.clientX,
+      lastTime: performance.now(),
+    };
     velocityRef.current = 0;
   };
 
@@ -70,16 +97,29 @@ export default function Testimonial() {
     const drag = dragRef.current;
     if (!drag.active) return;
 
-    const distance = event.clientX - drag.x;
-    drag.x = event.clientX;
+    const now = performance.now();
+    const distance = event.clientX - drag.lastX;
+    const dt = Math.max((now - drag.lastTime) / 1000, 0.001);
+
+    drag.lastX = event.clientX;
+    drag.lastTime = now;
+
+    // Cập nhật góc quay theo độ nhạy mượt mà
     const rotationDelta = distance * DRAG_SENSITIVITY;
     rotationRef.current += rotationDelta;
-    velocityRef.current = rotationDelta * 3;
+
+    // Tính toán vận tốc quán tính khi nhả chuột
+    const instantVelocity = rotationDelta / dt;
+    velocityRef.current = velocityRef.current * 0.3 + instantVelocity * 0.7;
   };
 
   const handlePointerUp = (event) => {
-    event.currentTarget.releasePointerCapture?.(event.pointerId);
+    try {
+      event.currentTarget.releasePointerCapture?.(event.pointerId);
+    } catch (e) {}
     dragRef.current.active = false;
+    // Giới hạn vận tốc quán tính tối đa để không quay quá nhanh
+    velocityRef.current = Math.max(-120, Math.min(120, velocityRef.current));
   };
 
   return (
@@ -118,23 +158,31 @@ export default function Testimonial() {
               >
                 <div
                   className="round-testimonial-card"
-                  style={{ backgroundImage: `linear-gradient(180deg, rgba(23,58,52,0.06), rgba(23,58,52,0.94)), url(${review.avatar})` }}
+                  draggable={false}
                 >
-                  <div className="round-testimonial-card-content">
+                  <div className="round-testimonial-header">
                     <img
                       src={review.avatar}
                       alt={review.name}
-                      width={48}
-                      height={48}
+                      className="round-testimonial-avatar"
+                      width={44}
+                      height={44}
                       loading="lazy"
                       decoding="async"
+                      draggable={false}
                     />
                     <span className="round-testimonial-stars" aria-label={`${review.rating} out of 5 stars`}>
                       {"★".repeat(review.rating)}
                     </span>
-                    <p>“{review.text}”</p>
-                    <strong>{review.name}</strong>
-                    <small>{review.timestamp}</small>
+                  </div>
+
+                  <div className="round-testimonial-body">
+                    <p className="round-testimonial-quote">“{review.text}”</p>
+                  </div>
+
+                  <div className="round-testimonial-footer">
+                    <strong className="round-testimonial-name">{review.name}</strong>
+                    <small className="round-testimonial-salon">{review.timestamp}</small>
                   </div>
                 </div>
               </article>

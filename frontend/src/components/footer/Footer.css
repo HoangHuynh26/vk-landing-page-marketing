@@ -1,14 +1,35 @@
+/* =========================================================================
+   FOOTER REVEAL EFFECT (Curtain/Unveil effect)
+   - Fixed at bottom of viewport under main content (z-index: 1 < 2)
+   - Spacer with matching dark green background (#0d3532) prevents white gap
+   ========================================================================= */
 .site-footer {
-  padding: 72px 0 22px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 68px 0 22px;
   color: white;
   background: #0d3532;
+  box-sizing: border-box;
+}
+
+/* Spacer that reserves space in document flow with identical dark background */
+.footer-reveal-spacer {
+  width: 100%;
+  height: var(--footer-height, 420px);
+  background: #0d3532;
+  position: relative;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.8fr 1.1fr 1fr;
-  gap: 44px;
-  padding-bottom: 58px;
+  grid-template-columns: 1.25fr 1fr 1.25fr 1fr;
+  gap: 36px;
+  padding-bottom: 52px;
 }
 
 .footer-brand p {
@@ -33,6 +54,7 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .site-footer nav {
@@ -45,6 +67,7 @@
   font-size: 14px;
   transition: color 0.2s ease, transform 0.2s ease;
   display: inline-block;
+  white-space: nowrap;
 }
 
 .site-footer nav a:hover {
@@ -176,7 +199,12 @@
 
 @media (max-width: 760px) {
   .site-footer {
-    padding-top: 56px;
+    position: relative;
+    padding-top: 48px;
+    padding-bottom: 96px;
+  }
+  .footer-reveal-spacer {
+    display: none;
   }
   .footer-grid {
     grid-template-columns: 1fr;

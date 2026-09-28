@@ -25,7 +25,13 @@
 }
 
 .hero-overlay {
-  background: transparent;
+  background: linear-gradient(
+    180deg,
+    rgba(247, 243, 236, 0.75) 0%,
+    rgba(247, 243, 236, 0.25) 80px,
+    transparent 140px
+  );
+  pointer-events: none;
 }
 
 .hero-content {

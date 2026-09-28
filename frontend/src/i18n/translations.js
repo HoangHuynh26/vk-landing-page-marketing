@@ -14,6 +14,7 @@ export const translations = {
       close: "Đóng menu",
       homeLabel: "VK Digital Hub trang chủ",
       cta: "NHẬN BẢN ĐÁNH GIÁ MARKETING MIỄN PHÍ",
+      ctaNav: "Nhận đánh giá miễn phí",
       ctaMobile: "Nhận bản đánh giá miễn phí",
       mobileCall: "Gọi ngay",
       freeBadge: "FREE",
@@ -63,6 +64,7 @@ export const translations = {
       eyebrow: "VẤN ĐỀ THẬT, GIẢI PHÁP THỰC TẾ",
       title: "Bạn không cần làm nhiều hơn.",
       emphasis: "Bạn cần đúng cách hơn.",
+      solutionHeading: "Giải pháp của chúng tôi",
       cards: [
         {
           title: "Quảng cáo không hiệu quả",
@@ -129,26 +131,38 @@ export const translations = {
         "perth-fashion-nails": {
           title: "Fashion Nails Morley (Perth, WA)",
           subTitle: "Tối ưu hóa chuyển đổi đặt lịch và xếp hạng Google Maps địa phương",
+          category: "Tiệm Nail & Làm đẹp",
+          highlight: "Tỷ lệ quay lại 42%",
+          unit: "lịch hẹn/tuần",
           before: "8 lịch hẹn online/tuần, tiệm phụ thuộc vào khách vãng lai và tỷ lệ hủy hẹn tới 25%.",
           after: "38 lịch hẹn/tuần, kín lịch từ thứ Sáu đến Chủ Nhật, tỷ lệ khách quen quay lại đạt 42%.",
           testimonial: "Từ khi tối ưu trang đặt lịch và Google Maps cùng VK Digital Hub, tiệm tôi luôn kín lịch cuối tuần. Khách hàng khen trang web đặt chỗ rất chuyên nghiệp và dễ dùng.",
           author: "Chị Tracy Nguyễn – Chủ tiệm Fashion Nails Morley (WA)",
+          tags: ["SEO Google Maps địa phương", "Hệ thống đặt lịch trực tuyến", "Perth WA"],
         },
         "melbourne-luxe-nails": {
           title: "Luxe Nail Lounge (Melbourne, VIC)",
           subTitle: "Hệ thống tự động chăm sóc và nhắc lịch cho khách hàng thân thiết",
+          category: "Lounge Nail & Nối mi cao cấp",
+          highlight: "Tăng 65% doanh thu khách cũ",
+          unit: "khách VIP/tháng",
           before: "12 khách VIP quay lại/tháng, không có hệ thống lưu trữ thông tin và chăm sóc sau làm móng.",
           after: "48 khách VIP quay lại/tháng, doanh thu từ khách cũ tăng trưởng hơn 65% sau 2 tháng.",
           testimonial: "Hệ thống chăm sóc khách tự động giúp tiệm giữ chân khách quen cực kỳ hiệu quả mà không tốn công nhắn tin thủ công từng người mỗi ngày.",
           author: "Anh Kevin Vũ – Quản lý Luxe Nail Lounge Chadstone (VIC)",
+          tags: ["Quy trình CRM tự động", "Chương trình khách VIP", "Melbourne VIC"],
         },
         "brisbane-sunnybank": {
           title: "Sunnybank Nail & Spa (Brisbane, QLD)",
           subTitle: "Chiến dịch quảng cáo nhắm mục tiêu khu vực bán kính 5km",
+          category: "Studio Nail Art & Nối mi",
+          highlight: "120+ khách mới/tháng",
+          unit: "chi phí/khách mới",
           before: "Tốn $14/tin nhắn trên mạng xã hội, tin nhắn hỏi giá nhiều nhưng không chốt được lịch hẹn.",
           after: "Hạ chi phí xuống $3.2/lịch hẹn thực tế, mang về hơn 120 khách mới mỗi tháng.",
           testimonial: "Đội ngũ VK Hub tối ưu quảng cáo rất sát với nhu cầu thực của khách khu vực Sunnybank. Tin nhắn đổ về là khách có nhu cầu đặt hẹn làm đẹp thật sự.",
           author: "Chị Mai Huỳnh – Co-founder Sunnybank Nail & Spa (QLD)",
+          tags: ["Quảng cáo Meta định vị 5km", "Phễu đặt lịch khép kín", "Brisbane QLD"],
         },
       },
     },
@@ -281,28 +295,28 @@ export const translations = {
         {
           question: "Tôi không rành về công nghệ, tôi có dùng được không?",
           answer:
-            "✅ Hoàn toàn có. Chúng tôi thiết kế mọi thứ đơn giản, bạn chỉ cần tập trung vào việc làm nails và chăm sóc khách hàng. Chúng tôi lo phần kỹ thuật.",
+            "Hoàn toàn có. Chúng tôi thiết kế mọi thứ đơn giản, bạn chỉ cần tập trung vào việc làm nails và chăm sóc khách hàng. Chúng tôi lo phần kỹ thuật.",
         },
         {
           question: "Chi phí bao nhiêu và có cam kết gì về hiệu quả không?",
           answer:
-            "✅ Chúng tôi có các gói linh hoạt. Điểm mạnh là cam kết hoàn tiền 100% nếu sau 60 ngày bạn không thấy tăng ít nhất 50% lượng khách mới.",
+            "Chúng tôi có các gói linh hoạt. Điểm mạnh là cam kết hoàn tiền 100% nếu sau 60 ngày bạn không thấy tăng ít nhất 50% lượng khách mới.",
         },
         {
           question: "So với việc tôi tự chạy quảng cáo thì khác gì?",
           answer:
-            "✅ Bạn tự làm mất rất nhiều thời gian, dễ đốt tiền vì thiếu kinh nghiệm. Chúng tôi làm chiến lược tổng thể, tối ưu từng đồng, giúp bạn tiết kiệm thời gian và tiền bạc.",
+            "Bạn tự làm mất rất nhiều thời gian, dễ đốt tiền vì thiếu kinh nghiệm. Chúng tôi làm chiến lược tổng thể, tối ưu từng đồng, giúp bạn tiết kiệm thời gian và tiền bạc.",
         },
         {
           question:
             "Tôi ở Tây Úc (Perth, Mandurah…) – các bạn có hỗ trợ được không?",
           answer:
-            "✅ Có, chúng tôi hỗ trợ online toàn nước Úc, đặc biệt am hiểu thị trường Tây Úc. Mọi cuộc họp đều qua Zoom/Google Meet và hỗ trợ 24/7.",
+            "Có, chúng tôi hỗ trợ online toàn nước Úc, đặc biệt am hiểu thị trường Tây Úc. Mọi cuộc họp đều qua Zoom/Google Meet và hỗ trợ 24/7.",
         },
         {
           question: "Sau khi áp dụng, tôi được hỗ trợ gì?",
           answer:
-            "✅ Bạn có Account Manager riêng, luôn sẵn sàng giải đáp thắc mắc và điều chỉnh chiến dịch kịp thời. Chúng tôi đồng hành dài hạn với bạn.",
+            "Bạn có Account Manager riêng, luôn sẵn sàng giải đáp thắc mắc và điều chỉnh chiến dịch kịp thời. Chúng tôi đồng hành dài hạn với bạn.",
         },
       ],
     },
@@ -429,7 +443,7 @@ export const translations = {
       scenarios: [
         {
           id: "contact_direct",
-          label: "📞 Hotline & Email liên hệ trực tiếp",
+          label: "Hotline & Email liên hệ trực tiếp",
           question: "Cho tôi số điện thoại và email liên hệ trực tiếp",
           answer: "Dạ anh/chị có thể kết nối ngay với chuyên viên tư vấn của VK Digital Hub qua Hotline hoặc Email dưới đây để được hỗ trợ nhanh nhất:",
           followUps: [
@@ -439,7 +453,7 @@ export const translations = {
         },
         {
           id: "free",
-          label: "🎯 Tôi muốn nhận bản đánh giá miễn phí",
+          label: "Tôi muốn nhận bản đánh giá miễn phí",
           question: "Tôi muốn nhận bản đánh giá miễn phí",
           answer: "Anh/chị chỉ cần điền thông tin trong form. Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất và hoàn toàn không yêu cầu cam kết.",
           followUps: [
@@ -449,7 +463,7 @@ export const translations = {
         },
         {
           id: "guarantee",
-          label: "🛡️ Cam kết 60 ngày như thế nào?",
+          label: "Cam kết 60 ngày như thế nào?",
           question: "Chính sách cam kết 60 ngày hoạt động ra sao?",
           answer: "Nếu sau 60 ngày tiệm không đạt số lượng lịch hẹn mới đã thỏa thuận, chúng tôi hoàn lại 100% chi phí dịch vụ.",
           followUps: [
@@ -459,7 +473,7 @@ export const translations = {
         },
         {
           id: "pricing",
-          label: "💰 Chi phí dịch vụ bao nhiêu?",
+          label: "Chi phí dịch vụ bao nhiêu?",
           question: "Chi phí dịch vụ marketing là bao nhiêu?",
           answer: "Chi phí được thiết kế linh hoạt tùy theo quy mô và mục tiêu tăng trưởng của từng tiệm. Hãy điền form để nhận báo giá chi tiết và phù hợp nhất.",
           followUps: [
@@ -486,6 +500,7 @@ export const translations = {
       close: "Close menu",
       homeLabel: "VK Digital Hub home",
       cta: "GET YOUR FREE MARKETING ASSESSMENT",
+      ctaNav: "Get Free Assessment",
       ctaMobile: "Get Free Assessment",
       mobileCall: "Call now",
       freeBadge: "FREE",
@@ -535,6 +550,7 @@ export const translations = {
       eyebrow: "REAL PROBLEMS, PRACTICAL SOLUTIONS",
       title: "You do not need to do more.",
       emphasis: "You need a better way.",
+      solutionHeading: "Our Solutions",
       cards: [
         {
           title: "Ineffective advertising",
@@ -597,26 +613,38 @@ export const translations = {
         "perth-fashion-nails": {
           title: "Fashion Nails Morley (Perth, WA)",
           subTitle: "Local SEO & booking conversion rate optimization",
+          category: "Nail & Beauty Studio",
+          highlight: "42% Return Rate",
+          unit: "bookings/wk",
           before: "8 online bookings/week, heavily reliant on walk-ins with a 25% no-show rate.",
           after: "38 bookings/week, fully booked on weekends, with a 42% repeat client rate.",
           testimonial: "Since optimizing our booking flow and Google Maps with VK Digital Hub, our salon is consistently fully booked on weekends. Clients love how easy it is to schedule.",
           author: "Tracy Nguyen – Owner, Fashion Nails Morley (WA)",
+          tags: ["Google Maps Local SEO", "Online Booking System", "Perth WA"],
         },
         "melbourne-luxe-nails": {
           title: "Luxe Nail Lounge (Melbourne, VIC)",
           subTitle: "Automated VIP retention and re-engagement system",
+          category: "Luxe Nail & Lash Bar",
+          highlight: "+65% Repeat Revenue",
+          unit: "VIP clients/mo",
           before: "12 repeat VIP clients/month with no system to follow up or re-engage past visitors.",
           after: "48 repeat VIP clients/month, boosting repeat client revenue by over 65%.",
           testimonial: "The automated re-engagement system keeps our regulars coming back on schedule without requiring hours of manual messaging.",
           author: "Kevin Vu – Manager, Luxe Nail Lounge Chadstone (VIC)",
+          tags: ["Automated CRM Flow", "VIP Loyalty Program", "Melbourne VIC"],
         },
         "brisbane-sunnybank": {
           title: "Sunnybank Nail & Spa (Brisbane, QLD)",
           subTitle: "Hyperlocal targeted social booking campaigns within 5km",
+          category: "Nail Art & Eyelash Studio",
+          highlight: "120+ New Bookings/Mo",
+          unit: "cost per lead",
           before: "$14 per enquiry on social ads with lots of price shoppers but few confirmed appointments.",
           after: "Reduced to $3.20 per confirmed booking, generating 120+ new customers monthly.",
           testimonial: "VK Hub understands our local Australian market intimately. The enquiries coming in are genuine appointments from clients ready to book.",
           author: "Mai Huynh – Co-founder, Sunnybank Nail & Spa (QLD)",
+          tags: ["Meta Hyperlocal Ads", "Full Booking Pipeline", "Brisbane QLD"],
         },
       },
     },
@@ -749,28 +777,28 @@ export const translations = {
         {
           question: "I am not tech-savvy. Can I still use this?",
           answer:
-            "✅ Absolutely. We keep everything simple so you can focus on doing nails and caring for clients. We handle the technical side.",
+            "Absolutely. We keep everything simple so you can focus on doing nails and caring for clients. We handle the technical side.",
         },
         {
           question: "How much does it cost, and is there a results guarantee?",
           answer:
-            "✅ We offer flexible packages. Our promise is a 100% refund if, after 60 days, you do not see at least a 50% increase in new clients.",
+            "We offer flexible packages. Our promise is a 100% refund if, after 60 days, you do not see at least a 50% increase in new clients.",
         },
         {
           question: "How is this different from running ads myself?",
           answer:
-            "✅ Doing it yourself takes time and can waste budget without the right experience. We build the overall strategy and optimize every dollar, saving you time and money.",
+            "Doing it yourself takes time and can waste budget without the right experience. We build the overall strategy and optimize every dollar, saving you time and money.",
         },
         {
           question:
             "I am in Western Australia (Perth, Mandurah...). Can you support me?",
           answer:
-            "✅ Yes. We support salons online across Australia and understand Western Australian markets especially well. Meetings are through Zoom/Google Meet with 24/7 support.",
+            "Yes. We support salons online across Australia and understand Western Australian markets especially well. Meetings are through Zoom/Google Meet with 24/7 support.",
         },
         {
           question: "What support do I receive after getting started?",
           answer:
-            "✅ You receive a dedicated Account Manager who answers questions and adjusts campaigns promptly. We are here for the long term.",
+            "You receive a dedicated Account Manager who answers questions and adjusts campaigns promptly. We are here for the long term.",
         },
       ],
     },
@@ -896,7 +924,7 @@ export const translations = {
       scenarios: [
         {
           id: "contact_direct",
-          label: "📞 Direct Hotline & Support Email",
+          label: "Direct Hotline & Support Email",
           question: "Please give me direct phone and email contact",
           answer: "You can reach our senior consultants directly via our Hotline or Email below for immediate assistance:",
           followUps: [
@@ -906,7 +934,7 @@ export const translations = {
         },
         {
           id: "free",
-          label: "🎯 I want a free marketing assessment",
+          label: "I want a free marketing assessment",
           question: "I want to claim a free marketing assessment",
           answer: "Simply fill out our brief form. Our senior strategist will review your salon and contact you with zero obligation.",
           followUps: [
@@ -916,7 +944,7 @@ export const translations = {
         },
         {
           id: "guarantee",
-          label: "🛡️ How does the 60-day guarantee work?",
+          label: "How does the 60-day guarantee work?",
           question: "What is your 60-day refund policy?",
           answer: "If your salon doesn't hit our agreed booking target within 60 days of launch, we refund 100% of our service fees.",
           followUps: [
@@ -926,7 +954,7 @@ export const translations = {
         },
         {
           id: "pricing",
-          label: "💰 How much are your services?",
+          label: "How much are your services?",
           question: "What are your marketing service prices?",
           answer: "Our fees are flexible based on your salon size and target growth rate. Request a free audit to get a transparent proposal.",
           followUps: [

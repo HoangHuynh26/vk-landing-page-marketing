@@ -1,0 +1,41 @@
+/* =========================================================================
+   SILKY SMOOTH LAZY LOAD REVEAL SYSTEM
+   - Zero layout shifts (CLS = 0)
+   - Zero scroll stutter or frame dropping
+   - Hardware accelerated (translate3d + opacity)
+   ========================================================================= */
+
+.lazy-reveal-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.lazy-reveal-inner {
+  width: 100%;
+  will-change: opacity, transform;
+}
+
+.lazy-reveal-inner.is-hidden {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lazy-reveal-inner.is-revealed {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lazy-reveal-inner.is-hidden,
+  .lazy-reveal-inner.is-revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

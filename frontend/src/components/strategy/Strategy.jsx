@@ -30,10 +30,13 @@ export default function Strategy() {
       <div className="page-shell strategy-layout">
         <div className="strategy-story-column">
           <div className="strategy-copy">
-            <p style={{fontSize: "20px", }} className="eyebrow yellow-eyebrow">{t("strategy.eyebrow")}</p>
+            <p className="eyebrow yellow-eyebrow">{t("strategy.eyebrow")}</p>
             <h2 id="strategy-title">
               {t("strategy.title")} <em>{t("strategy.emphasis")}</em>
             </h2>
+            {t("strategy.caption") && (
+              <p className="strategy-subhead">{t("strategy.caption")}</p>
+            )}
           </div>
           <div className="steps-list">
             {steps.map((step, index) => (
@@ -66,7 +69,6 @@ export default function Strategy() {
         </div>
         <div className="strategy-visual-column">
           <div className="strategy-visual-panel" aria-live="polite">
-            <div className="strategy-visual-label">{t("strategy.visualLabel") || "Your growth, in motion"}</div>
             {steps.map((step, index) => (
               <img
                 className={activeStep === index ? "is-active" : ""}

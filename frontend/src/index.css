@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
 :root {
   --primary: #0f766e;
@@ -9,38 +9,33 @@
   --surface: #fffdf9;
   --dark: #17221f;
   --muted: #66736e;
-  --font-primary: "Inter", "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --footer-height: 420px;
+  --font-vi: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-en: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Mặc định ưu tiên Be Vietnam Pro để tuyệt đối không lỗi font tiếng Việt */
+  --font-primary: "Be Vietnam Pro", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Tiếng Việt: Ưu tiên Be Vietnam Pro */
+html[lang="vi"],
+body[data-language="vi"],
+:root[data-language="vi"] {
+  --font-primary: var(--font-vi);
+  font-family: var(--font-vi);
+}
+
+/* English: Sử dụng Inter */
+html[lang="en"],
+body[data-language="en"],
+:root[data-language="en"] {
+  --font-primary: var(--font-en);
+  font-family: var(--font-en);
 }
 
 * {
   box-sizing: border-box;
 }
 
-.lazy-section-placeholder {
-  min-height: 240px;
-}
-.trustbar-section .lazy-section-placeholder {
-  min-height: 80px;
-}
-.statistics-section .lazy-section-placeholder {
-  min-height: 160px;
-}
-.case-study-section .lazy-section-placeholder {
-  min-height: 120px;
-}
-
-/* Lazy load reveal: two-phase transition (pre-reveal → revealed) */
-.lazy-pre-reveal {
-  opacity: 0;
-  transform: translateY(18px);
-}
-.lazy-revealed {
-  opacity: 1;
-  transform: translateY(0);
-  transition:
-    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-}
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
@@ -52,11 +47,14 @@ body {
   color: var(--dark);
   font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Consistent font metrics across languages without layout shifting */
-body {
-  font-family: var(--font-primary);
+/* Đảm bảo toàn bộ thẻ và form element thừa hưởng font đồng nhất */
+h1, h2, h3, h4, h5, h6,
+p, span, a, li, dt, dd,
+button, input, select, textarea {
+  font-family: inherit;
 }
 a {
   color: inherit;

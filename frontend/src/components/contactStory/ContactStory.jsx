@@ -43,9 +43,6 @@ export default function ContactStory() {
         <h2 className="contact-story-title">
           {t("contactStory.title")}
         </h2>
-        <p className="contact-story-sub">
-          {t("contactStory.subtitle")}
-        </p>
       </div>
 
       {/* iOS Chat Mockup */}
@@ -79,7 +76,7 @@ export default function ContactStory() {
           {messages.map((msg, index) => {
             const isMe = msg.sender === "me";
             const delayStyle = {
-              animationDelay: `${0.25 + index * 0.35}s`,
+              animationDelay: `${0.15 + index * 0.35}s`,
             };
 
             return (
@@ -118,9 +115,6 @@ export default function ContactStory() {
           style={{ animationDelay: "1.9s" }}
         >
           <div className="contact-ios-action-header">
-            <span className="contact-ios-action-badge">
-              {t("contactStory.actionBadge")}
-            </span>
             <p className="contact-ios-action-prompt">
               {t("contactStory.actionPrompt")}
             </p>

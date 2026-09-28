@@ -24,6 +24,194 @@ function renderFormattedText(text) {
   });
 }
 
+function IconPhone({ size = 14, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+
+function IconTarget({ size = 14, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+      <line x1="12" y1="2" x2="12" y2="4" />
+      <line x1="12" y1="20" x2="12" y2="22" />
+      <line x1="2" y1="12" x2="4" y2="12" />
+      <line x1="20" y1="12" x2="22" y2="12" />
+    </svg>
+  );
+}
+
+function IconShieldCheck({ size = 14, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  );
+}
+
+function IconTag({ size = 14, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+      <line x1="7" y1="7" x2="7.01" y2="7" />
+    </svg>
+  );
+}
+
+function IconMail({ size = 14, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  );
+}
+
+function IconClipboardCheck({ size = 18, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+      <path d="m9 14 2 2 4-4" />
+    </svg>
+  );
+}
+
+function IconHelpCircle({ size = 14, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+      <line x1="12" y1="17" x2="12.01" y2="17" />
+    </svg>
+  );
+}
+
+function IconChevronRight({ size = 13, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="m9 18 6-6-6-6" />
+    </svg>
+  );
+}
+
+function cleanLabel(text) {
+  if (!text || typeof text !== "string") return text;
+  return text.replace(/^[\p{Emoji}\p{Extended_Pictographic}\uFE0F\u200D\s]+/gu, "").trim();
+}
+
+function getScenarioIcon(id) {
+  switch (id) {
+    case "contact_direct":
+      return <IconPhone size={14} />;
+    case "free":
+      return <IconTarget size={14} />;
+    case "guarantee":
+      return <IconShieldCheck size={14} />;
+    case "pricing":
+      return <IconTag size={14} />;
+    case "form":
+      return <IconClipboardCheck size={14} />;
+    case "other":
+    default:
+      return <IconHelpCircle size={14} />;
+  }
+}
+
 export default function Chatbot() {
   const { language, t } = useLanguage();
   const rawPrompts = t("chatbot.prompts");
@@ -240,12 +428,15 @@ export default function Chatbot() {
         <section className="chat-panel" aria-label={t("chatbot.launcher")}>
           <header>
             <div className="chat-header-brand">
-              <img
-                src={`${process.env.PUBLIC_URL}/robot.png`}
-                alt=""
-                className="chat-header-avatar"
-                aria-hidden="true"
-              />
+              <div className="chat-header-avatar-wrap">
+                <img
+                  src={`${process.env.PUBLIC_URL}/robot.png`}
+                  alt=""
+                  className="chat-header-avatar"
+                  aria-hidden="true"
+                />
+                <span className="chat-header-status-dot" aria-hidden="true" />
+              </div>
               <div>
                 <strong>VK Digital Hub</strong>
                 <small>{t("chatbot.support")}</small>
@@ -259,15 +450,6 @@ export default function Chatbot() {
               −
             </button>
           </header>
-          <div className="chat-quick-contact-bar">
-            <a href="tel:+61431679731" className="chat-quick-contact-link">
-              <span aria-hidden="true">📞</span> +61 431 679 731
-            </a>
-            <span className="chat-quick-contact-sep">·</span>
-            <a href="mailto:admin@vkdigitalhub.com.au" className="chat-quick-contact-link">
-              <span aria-hidden="true">✉️</span> Email
-            </a>
-          </div>
           <div className="chat-messages" aria-live="polite">
             <p className="bot-message">{renderFormattedText(t("chatbot.welcome"))}</p>
             {messages.map((message, index) => (
@@ -286,7 +468,7 @@ export default function Chatbot() {
                       aria-label="Call +61 431 679 731"
                     >
                       <span className="chat-contact-icon" aria-hidden="true">
-                        📞
+                        <IconPhone size={15} />
                       </span>
                       <div className="chat-contact-meta">
                         <span className="chat-contact-label">
@@ -307,7 +489,7 @@ export default function Chatbot() {
                       aria-label="Email admin@vkdigitalhub.com.au"
                     >
                       <span className="chat-contact-icon" aria-hidden="true">
-                        ✉️
+                        <IconMail size={15} />
                       </span>
                       <div className="chat-contact-meta">
                         <span className="chat-contact-label">
@@ -337,11 +519,16 @@ export default function Chatbot() {
                     key={scenario.id}
                     onClick={() => handleScenario(scenario.id)}
                   >
-                    <span className="cqr-border cqr-top" aria-hidden="true" />
-                    <span className="cqr-border cqr-right" aria-hidden="true" />
-                    <span className="cqr-border cqr-bottom" aria-hidden="true" />
-                    <span className="cqr-border cqr-left" aria-hidden="true" />
-                    <span className="chat-quick-reply-text">{scenario.label}</span>
+                    <span
+                      className={`chat-quick-reply-icon-badge cqr-icon-${scenario.id}`}
+                      aria-hidden="true"
+                    >
+                      {getScenarioIcon(scenario.id)}
+                    </span>
+                    <span className="chat-quick-reply-text">
+                      {cleanLabel(scenario.label)}
+                    </span>
+                    <IconChevronRight size={13} className="chat-quick-reply-arrow" />
                   </button>
                 ))}
               </div>
@@ -368,11 +555,11 @@ export default function Chatbot() {
                       </span>
                       <div className="chat-form-box-body">
                         <span className="chat-form-box-icon" aria-hidden="true">
-                          📋
+                          <IconClipboardCheck size={18} />
                         </span>
                         <div className="chat-form-box-info">
                           <strong className="chat-form-box-title">
-                            {followUp.label}
+                            {cleanLabel(followUp.label)}
                           </strong>
                           <span className="chat-form-box-desc">
                             {t("chatbot.formSub") ||
@@ -399,11 +586,16 @@ export default function Chatbot() {
                       key={followUp.id}
                       onClick={() => handleFollowUp(followUp.id)}
                     >
-                      <span className="cqr-border cqr-top" aria-hidden="true" />
-                      <span className="cqr-border cqr-right" aria-hidden="true" />
-                      <span className="cqr-border cqr-bottom" aria-hidden="true" />
-                      <span className="cqr-border cqr-left" aria-hidden="true" />
-                      <span className="chat-quick-reply-text">{followUp.label}</span>
+                      <span
+                        className={`chat-quick-reply-icon-badge cqr-icon-${followUp.id}`}
+                        aria-hidden="true"
+                      >
+                        {getScenarioIcon(followUp.id)}
+                      </span>
+                      <span className="chat-quick-reply-text">
+                        {cleanLabel(followUp.label)}
+                      </span>
+                      <IconChevronRight size={13} className="chat-quick-reply-arrow" />
                     </button>
                   ),
                 )}

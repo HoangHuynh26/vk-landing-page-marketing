@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useLanguage } from "../../i18n/LanguageContext";
 import "./PainSolution.css";
 
@@ -8,14 +7,39 @@ const cardImages = [
   "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=85&fm=webp",
 ];
 
+const cardMeta = [
+  {
+    tagVi: "CHIẾN DỊCH QUẢNG CÁO TẬP TRUNG",
+    tagEn: "HYPERLOCAL TARGETED ADS",
+    badgeVi: "Google & Meta Ads · Tối ưu chuyển đổi",
+    badgeEn: "Google & Meta Ads · High Conversion",
+    color: "#0f766e",
+    accentLight: "rgba(15, 118, 110, 0.08)",
+    borderAccent: "rgba(15, 118, 110, 0.22)",
+  },
+  {
+    tagVi: "THƯƠNG HIỆU & GIỮ CHÂN KHÁCH VIP",
+    tagEn: "BRAND IDENTITY & VIP RETENTION",
+    badgeVi: "Định vị 5 sao · Khách tự giới thiệu",
+    badgeEn: "5-Star Reputation · VIP Referrals",
+    color: "#c9974e",
+    accentLight: "rgba(201, 151, 78, 0.09)",
+    borderAccent: "rgba(201, 151, 78, 0.25)",
+  },
+  {
+    tagVi: "HỆ THỐNG VẬN HÀNH TỰ ĐỘNG",
+    tagEn: "AUTOMATED CRM & APPOINTMENTS",
+    badgeVi: "Giải phóng 5–7 giờ/tuần · Chốt lịch 24/7",
+    badgeEn: "Save 5–7h/week · 24/7 Booking Bot",
+    color: "#d97757",
+    accentLight: "rgba(217, 119, 87, 0.09)",
+    borderAccent: "rgba(217, 119, 87, 0.24)",
+  },
+];
+
 const cardIcons = [
   // 1: Megaphone / Ads & Marketing Performance
-  <svg
-    key="megaphone"
-    viewBox="0 0 28 28"
-    fill="none"
-    className="pain-svg pain-svg--ads"
-  >
+  <svg key="megaphone" viewBox="0 0 28 28" fill="none" className="pain-svg pain-svg--ads">
     <defs>
       <linearGradient id="pain-grad-ads" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
         <stop offset="0%" stopColor="currentColor" stopOpacity="0.4" />
@@ -54,12 +78,7 @@ const cardIcons = [
   </svg>,
 
   // 2: Salon Branding / Luxury Sparkles & Diamond Presence
-  <svg
-    key="sparkles"
-    viewBox="0 0 28 28"
-    fill="none"
-    className="pain-svg pain-svg--salon"
-  >
+  <svg key="sparkles" viewBox="0 0 28 28" fill="none" className="pain-svg pain-svg--salon">
     <defs>
       <linearGradient id="pain-grad-salon" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
         <stop offset="0%" stopColor="currentColor" stopOpacity="0.45" />
@@ -87,33 +106,15 @@ const cardIcons = [
   </svg>,
 
   // 3: Marketing Automation / Smart Chronometer & Lightning Speed
-  <svg
-    key="clock"
-    viewBox="0 0 28 28"
-    fill="none"
-    className="pain-svg pain-svg--time"
-  >
+  <svg key="clock" viewBox="0 0 28 28" fill="none" className="pain-svg pain-svg--time">
     <defs>
       <linearGradient id="pain-grad-time" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
         <stop offset="0%" stopColor="currentColor" stopOpacity="0.4" />
         <stop offset="100%" stopColor="currentColor" stopOpacity="0.08" />
       </linearGradient>
     </defs>
-    <circle
-      cx="13"
-      cy="14.5"
-      r="10.5"
-      fill="url(#pain-grad-time)"
-      stroke="currentColor"
-      strokeWidth="1.8"
-    />
-    <path
-      d="M13 8.5V14.5L17 16.5"
-      stroke="currentColor"
-      strokeWidth="2.1"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+    <circle cx="13" cy="14.5" r="10.5" fill="url(#pain-grad-time)" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M13 8.5V14.5L17 16.5" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" />
     <path
       d="M22 2L16 9.5H21L18 15.5L25 7.5H20L22 2Z"
       fill="currentColor"
@@ -127,11 +128,7 @@ const cardIcons = [
 ];
 
 const onlineIcon = (
-  <svg
-    viewBox="0 0 20 20"
-    fill="none"
-    className="pain-solution-badge-svg"
-  >
+  <svg viewBox="0 0 20 20" fill="none" className="pain-solution-badge-svg">
     <circle cx="10" cy="10" r="7.5" stroke="currentColor" strokeWidth="1.6" />
     <path
       d="M10 2.5C12 5.5 13.2 7.7 13.2 10C13.2 12.3 12 14.5 10 17.5C8 14.5 6.8 12.3 6.8 10C6.8 7.7 8 5.5 10 2.5Z"
@@ -144,11 +141,7 @@ const onlineIcon = (
 );
 
 const offlineIcon = (
-  <svg
-    viewBox="0 0 20 20"
-    fill="none"
-    className="pain-solution-badge-svg"
-  >
+  <svg viewBox="0 0 20 20" fill="none" className="pain-solution-badge-svg">
     <path
       d="M3 7.5L4.5 3.5H15.5L17 7.5V16C17 16.55 16.55 17 16 17H4C3.45 17 3 16.55 3 16V7.5Z"
       stroke="currentColor"
@@ -164,117 +157,136 @@ const offlineIcon = (
   </svg>
 );
 
-function PainCardContent({ card, t }) {
-  return (
-    <>
-      <div className="pain-heading">
-        <h3>{card.title}</h3>
-      </div>
-      <div className="pain-details">
-        <p className="pain-text">{card.pain}</p>
-        <div className="pain-solution-block">
-          <div className="pain-solution-title pain-solution-title--online">
-            <span className="pain-solution-icon" aria-hidden="true">
-              {onlineIcon}
-            </span>
-            <b>{t("nav.online")}</b>
-          </div>
-          <p>{card.online}</p>
-        </div>
-        <div className="pain-solution-block">
-          <div className="pain-solution-title pain-solution-title--offline">
-            <span className="pain-solution-icon" aria-hidden="true">
-              {offlineIcon}
-            </span>
-            <b>{t("nav.offline")}</b>
-          </div>
-          <p>{card.offline}</p>
-        </div>
-      </div>
-    </>
-  );
-}
-
-function PainCard({ card, index, image, isExpanded, onToggle, t }) {
-  return (
-    <button
-      type="button"
-      className={`pain-item pain-item--${index}${isExpanded ? " is-expanded" : ""}`}
-      aria-expanded={isExpanded}
-      aria-controls={`pain-content-${index}`}
-      aria-label={`${card.title}. ${isExpanded ? "Collapse" : "Expand"}`}
-      onClick={onToggle}
-    >
-      <div className="pain-cover" aria-hidden="true">
-        <img src={image} alt="" loading="lazy" />
-      </div>
-      <div id={`pain-content-${index}`} className="pain-card-content">
-        <div className="pain-card-header-row">
-          <div className="pain-header-left">
-            <span className="pain-number">0{index + 1}</span>
-            <div className={`pain-card-icon-wrap pain-card-icon-wrap--${index}`}>
-              <div className="pain-card-icon-glow" aria-hidden="true" />
-              <span className={`pain-card-icon pain-card-icon--${index}`} aria-hidden="true">
-                {cardIcons[index]}
-              </span>
-            </div>
-          </div>
-          <span className="pain-toggle-badge" aria-hidden="true">
-            <svg
-              className="pain-toggle-svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-            >
-              <line x1="12" y1="5" x2="12" y2="19" className="pain-toggle-vertical" />
-              <line x1="5" y1="12" x2="19" y2="12" />
-            </svg>
-          </span>
-        </div>
-        <PainCardContent card={card} t={t} />
-      </div>
-    </button>
-  );
-}
-
 export default function PainSolution() {
-  const { t } = useLanguage();
-  const cards = t("pain.cards");
-  const [activeIndex, setActiveIndex] = useState(null);
+  const { t, language } = useLanguage();
+  const cards = t("pain.cards") || [];
+  const isEn = language === "en";
 
   return (
     <section className="pain-solution page-shell" aria-labelledby="pain-title">
-      {t("pain.eyebrow") && (
-        <p
-          style={{ fontSize: "20px", fontFamily: "SF Pro", color: "#0f766e" }}
-          className="eyebrow dark-eyebrow"
-        >
-          {t("pain.eyebrow")}
-        </p>
-      )}
-      <h2 id="pain-title">
-        {t("pain.title")}
-        <br />
-        <em>{t("pain.emphasis")}</em>
-      </h2>
-      <div className="pain-grid">
-        {cards.map((card, index) => (
-          <PainCard
-            key={card.title}
-            card={card}
-            index={index}
-            image={cardImages[index]}
-            isExpanded={activeIndex === index}
-            onToggle={() =>
-              setActiveIndex((current) =>
-                current === index ? null : index
-              )
-            }
-            t={t}
-          />
-        ))}
+      <div className="pain-section-header">
+        {t("pain.eyebrow") && (
+          <p className="eyebrow dark-eyebrow pain-eyebrow">
+            {t("pain.eyebrow")}
+          </p>
+        )}
+        <h2 id="pain-title">
+          {t("pain.title")}
+          <br />
+          <em>{t("pain.emphasis")}</em>
+        </h2>
+      </div>
+
+      {/* Stacking Cards on Scroll Container */}
+      <div className="pain-stack-container">
+        {cards.map((card, index) => {
+          const meta = cardMeta[index] || cardMeta[0];
+          const tag = isEn ? meta.tagEn : meta.tagVi;
+
+          return (
+            <article
+              key={`${card.title}-${index}`}
+              className={`pain-stack-card pain-stack-card--${index}`}
+              style={{
+                "--card-index": index,
+                "--card-color": meta.color,
+                "--card-light": meta.accentLight,
+                "--card-border": meta.borderAccent,
+              }}
+            >
+              {/* Colorful Top Accent Line */}
+              <div className="pain-stack-accent-bar" style={{ background: meta.color }} />
+
+              <div className="pain-stack-card-inner">
+                {/* Left: Content & Solutions */}
+                <div className="pain-stack-content-col">
+                  {/* Category & Icon Header */}
+                  <div className="pain-stack-header-row">
+                    <div className="pain-stack-tag-wrap">
+                      <span className="pain-stack-num" style={{ color: meta.color }}>
+                        0{index + 1}
+                      </span>
+                      <span
+                        className="pain-stack-tag"
+                        style={{
+                          color: meta.color,
+                          background: meta.accentLight,
+                          borderColor: meta.borderAccent,
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    </div>
+
+                    <div className={`pain-card-icon-wrap pain-card-icon-wrap--${index}`}>
+                      <div className="pain-card-icon-glow" aria-hidden="true" />
+                      <span className={`pain-card-icon pain-card-icon--${index}`} aria-hidden="true">
+                        {cardIcons[index]}
+                      </span>
+                    </div>
+                  </div>
+
+                  <h3 className="pain-stack-card-title">{card.title}</h3>
+
+                  {/* Pain Point Quote Box */}
+                  <div className="pain-stack-pain-box">
+                    <div className="pain-stack-pain-header">
+                      <svg viewBox="0 0 20 20" width="15" height="15" fill="currentColor" aria-hidden="true">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                      </svg>
+                      <span>{isEn ? "THE REAL CHALLENGE" : "VẤN ĐỀ THỰC TẾ"}</span>
+                    </div>
+                    <p className="pain-stack-pain-text">“{card.pain}”</p>
+                  </div>
+
+                  {/* Our Solution Heading */}
+                  <div className="pain-stack-solution-header">
+                    <span className="pain-stack-solution-badge" style={{ color: meta.color }}>
+                      <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor" aria-hidden="true">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>{t("pain.solutionHeading") || (isEn ? "Our Solutions" : "Giải pháp của chúng tôi")}</span>
+                    </span>
+                  </div>
+
+                  {/* Dual Solutions Grid */}
+                  <div className="pain-stack-solutions-grid">
+                    {/* Online Solution */}
+                    <div className="pain-stack-solution-card online">
+                      <div className="solution-badge-pill online">
+                        <span className="solution-badge-icon" aria-hidden="true">{onlineIcon}</span>
+                        <strong>{t("nav.online") || "Online"}</strong>
+                      </div>
+                      <p className="solution-desc-text">{card.online}</p>
+                    </div>
+
+                    {/* Offline Solution */}
+                    <div className="pain-stack-solution-card offline">
+                      <div className="solution-badge-pill offline">
+                        <span className="solution-badge-icon" aria-hidden="true">{offlineIcon}</span>
+                        <strong>{t("nav.offline") || "Offline"}</strong>
+                      </div>
+                      <p className="solution-desc-text">{card.offline}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Rich Visual Graphic */}
+                <div className="pain-stack-visual-col">
+                  <div className="pain-stack-image-frame">
+                    <img
+                      src={cardImages[index]}
+                      alt={card.title}
+                      loading="lazy"
+                      className="pain-stack-img"
+                    />
+                    <div className="pain-stack-img-overlay" />
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

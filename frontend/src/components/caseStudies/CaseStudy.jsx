@@ -1,29 +1,60 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "../../i18n/LanguageContext";
 import { caseStudies as defaultStudies } from "./caseStudyData";
 import "./CaseStudy.css";
 
 export default function CaseStudy({ studies = defaultStudies }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedId, setSelectedId] = useState(studies[0]?.id || "perth-fashion-nails");
+  const [isPaused, setIsPaused] = useState(false);
 
-  const activeStudy = studies.find((s) => s.id === selectedId) || studies[0];
-  const translated = t(`caseStudy.studies.${activeStudy.id}`) || {};
+  // Giới hạn hiển thị và chạy tối đa 3 tab đầu tiên
+  const maxTabs = 3;
+  const displayStudies = studies?.slice(0, maxTabs) || [];
+
+  // Tự động chuyển tab sau mỗi 10 giây (1 -> 2 -> 3 -> 1)
+  useEffect(() => {
+    if (!displayStudies || displayStudies.length <= 1 || isPaused) return;
+
+    const timer = setInterval(() => {
+      setSelectedId((currentId) => {
+        const currentIndex = displayStudies.findIndex((s) => s.id === currentId);
+        // Nếu không tìm thấy hoặc đang ở cuối (tab 3, index 2) -> quay về index 0
+        const nextIndex = (currentIndex + 1) % displayStudies.length;
+        return displayStudies[nextIndex]?.id || displayStudies[0]?.id;
+      });
+    }, 10000);
+
+    return () => clearInterval(timer);
+  }, [displayStudies.length, isPaused]); // Đã loại bỏ selectedId để timer không bị re-create mỗi lần đổi tab
+
+  const activeStudy = displayStudies.find((s) => s.id === selectedId) || displayStudies[0];
+  const translated = t(`caseStudy.studies.${activeStudy?.id}`) || {};
+  const isEn = language === "en";
+
+  const unit = translated.unit || (isEn ? (activeStudy?.unitEn || activeStudy?.unit) : activeStudy?.unit);
+  const category = translated.category || (isEn ? (activeStudy?.categoryEn || activeStudy?.category) : activeStudy?.category);
+  const tags = translated.tags || (isEn ? (activeStudy?.tagsEn || activeStudy?.tags) : (activeStudy?.tags || activeStudy?.tagsEn));
+
+  if (!activeStudy) return null;
 
   return (
     <section
-      className="case-study-showcase"
+      className={`case-study-showcase ${isPaused ? "is-paused" : ""}`}
       aria-label={t("caseStudy.eyebrow") || "Case Studies"}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
     >
       <div className="case-study-header">
-        <span className="case-study-eyebrow">{t("caseStudy.eyebrow")}</span>
         <h2 className="case-study-title">{t("caseStudy.title")}</h2>
         <p className="case-study-subtitle">{t("caseStudy.subtitle")}</p>
       </div>
 
-      {/* Salon tabs */}
+      {/* Salon tabs - Giới hạn 3 tab */}
       <div className="case-study-tabs" role="tablist" aria-label="Select case study">
-        {studies.map((item) => {
+        {displayStudies.map((item) => {
           const isSelected = item.id === selectedId;
           return (
             <button
@@ -37,13 +68,14 @@ export default function CaseStudy({ studies = defaultStudies }) {
               <span className="case-tab-city">{item.city}</span>
               <strong className="case-tab-name">{item.name}</strong>
               <span className="case-tab-badge">{item.growth}</span>
+              {isSelected && <span className="case-tab-progress-bar" aria-hidden="true" />}
             </button>
           );
         })}
       </div>
 
       {/* Active Case Study Feature Card */}
-      <div className="case-study-featured-card">
+      <div className="case-study-featured-card" key={activeStudy.id}>
         <div className="case-featured-image-col">
           <img
             src={activeStudy.image}
@@ -52,15 +84,11 @@ export default function CaseStudy({ studies = defaultStudies }) {
             loading="lazy"
             decoding="async"
           />
-          <div className="case-featured-overlay">
-            <span className="case-featured-city-tag">{activeStudy.city}</span>
-            <span className="case-featured-growth-tag">{activeStudy.highlight}</span>
-          </div>
         </div>
 
         <div className="case-featured-content-col">
           <div className="case-featured-meta">
-            <span className="case-featured-category">{activeStudy.category}</span>
+            <span className="case-featured-category">{category}</span>
             <h3 className="case-featured-heading">{translated.title || activeStudy.name}</h3>
             <p className="case-featured-sub">{translated.subTitle}</p>
           </div>
@@ -71,7 +99,7 @@ export default function CaseStudy({ studies = defaultStudies }) {
               <span className="case-metric-tag">{t("caseStudy.beforeLabel")}</span>
               <div className="case-metric-num-wrap">
                 <span className="case-metric-num">{activeStudy.beforeValue}</span>
-                <span className="case-metric-unit">{activeStudy.unit}</span>
+                <span className="case-metric-unit">{unit}</span>
               </div>
               <p className="case-metric-detail">{translated.before}</p>
             </div>
@@ -84,7 +112,7 @@ export default function CaseStudy({ studies = defaultStudies }) {
               <span className="case-metric-tag case-tag-gold">{t("caseStudy.afterLabel")}</span>
               <div className="case-metric-num-wrap">
                 <span className="case-metric-num case-num-primary">{activeStudy.afterValue}</span>
-                <span className="case-metric-unit">{activeStudy.unit}</span>
+                <span className="case-metric-unit">{unit}</span>
               </div>
               <p className="case-metric-detail">{translated.after}</p>
             </div>
@@ -101,7 +129,7 @@ export default function CaseStudy({ studies = defaultStudies }) {
 
           {/* Real tags */}
           <div className="case-tags-list">
-            {activeStudy.tags?.map((tag) => (
+            {tags?.map((tag) => (
               <span key={tag} className="case-tag-pill">
                 ✓ {tag}
               </span>

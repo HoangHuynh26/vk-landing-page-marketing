@@ -4,13 +4,12 @@ import PainSolution from "../../components/painSolution/PainSolution";
 import Statistics from "../../components/statistic/Statistics";
 import Testimonial from "../../components/testimonial/Testimonial";
 import Strategy from "../../components/strategy/Strategy";
+import CaseStudy from "../../components/caseStudies/CaseStudy";
+import LeadCTA from "../../components/CTA/LeadCTA";
 import { caseStudies } from "../../components/caseStudies/caseStudyData";
 import LazyLoad from "../../components/common/LazyLoad";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Home.css";
-
-const CaseStudy = lazy(() => import("../../components/caseStudies/CaseStudy"));
-const LeadCTA = lazy(() => import("../../components/CTA/LeadCTA"));
 
 export function getShouldOpenForm(hash) {
   return hash === "#lead-form" || hash === "#faq";
@@ -68,14 +67,12 @@ export default function Home() {
         <PainSolution />
       </LazyLoad>
 
-      <section id="strategy">
+      <LazyLoad className="strategy-wrapper" id="strategy">
         <Strategy />
-      </section>
+      </LazyLoad>
 
-      <LazyLoad className="case-study-section page-shell" id="case-studies">
-        <Suspense fallback={null}>
-          <CaseStudy studies={caseStudies} />
-        </Suspense>
+      <LazyLoad className="case-study-section" id="case-studies">
+        <CaseStudy studies={caseStudies} />
       </LazyLoad>
 
       <LazyLoad className="testimonial-section" id="testimonials">
@@ -83,9 +80,7 @@ export default function Home() {
       </LazyLoad>
 
       <LazyLoad className="home-lead-cta-lazy" force={shouldOpenForm}>
-        <Suspense fallback={null}>
-          <LeadCTA />
-        </Suspense>
+        <LeadCTA />
       </LazyLoad>
     </main>
   );

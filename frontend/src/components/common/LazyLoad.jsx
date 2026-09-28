@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import "./LazyLoad.css";
 
 export default function LazyLoad({
   children,
@@ -7,44 +8,49 @@ export default function LazyLoad({
   id,
 }) {
   const containerRef = useRef(null);
-  const [shouldRender, setShouldRender] = useState(force);
+  const [isRevealed, setIsRevealed] = useState(force);
 
   useEffect(() => {
-    if (force || shouldRender) return;
+    if (force || isRevealed) return;
 
     const container = containerRef.current;
     if (!container) return;
 
     if (!("IntersectionObserver" in window)) {
-      setShouldRender(true);
+      setIsRevealed(true);
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setShouldRender(true);
+          setIsRevealed(true);
           observer.disconnect();
         }
       },
-      { rootMargin: "600px 0px" },
+      {
+        rootMargin: "250px 0px 50px 0px",
+        threshold: 0.02,
+      },
     );
 
     observer.observe(container);
     return () => observer.disconnect();
-  }, [force, shouldRender]);
+  }, [force, isRevealed]);
 
   return (
     <div
       ref={containerRef}
-      className={className}
+      className={`${className} lazy-reveal-wrapper`}
       id={id}
     >
-      {force || shouldRender ? (
-        children
-      ) : (
-        <div className="lazy-section-placeholder" aria-hidden="true" />
-      )}
+      <div
+        className={`lazy-reveal-inner ${
+          isRevealed ? "is-revealed" : "is-hidden"
+        }`}
+      >
+        {children}
+      </div>
     </div>
   );
 }

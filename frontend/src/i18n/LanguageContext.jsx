@@ -14,6 +14,7 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     document.body.dataset.language = language;
+    document.documentElement.dataset.language = language;
     document.documentElement.lang = language;
   }, [language]);
 

@@ -1,3 +1,4 @@
+import { useEffect, useLayoutEffect, useRef } from "react";
 import "./Footer.css";
 import { useLanguage } from "../../i18n/LanguageContext";
 
@@ -7,6 +8,7 @@ const links = [
   ["nav.caseStudies", "#case-studies"],
   ["nav.testimonials", "#testimonials"],
   ["nav.faq", "#faq"],
+  ["nav.contact", "#contact"],
 ];
 
 const socialLinks = [
@@ -22,9 +24,49 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const footerRef = useRef(null);
+
+  const syncHeight = () => {
+    const el = footerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const h = rect.height || el.offsetHeight;
+    if (h > 0) {
+      document.documentElement.style.setProperty("--footer-height", `${Math.ceil(h)}px`);
+    }
+  };
+
+  useLayoutEffect(() => {
+    syncHeight();
+    const id = requestAnimationFrame(syncHeight);
+    return () => cancelAnimationFrame(id);
+  }, [language, t]);
+
+  useEffect(() => {
+    const el = footerRef.current;
+    if (!el) return;
+
+    syncHeight();
+
+    const ro = new ResizeObserver(() => {
+      syncHeight();
+    });
+    ro.observe(el);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(syncHeight);
+    }
+
+    window.addEventListener("resize", syncHeight);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", syncHeight);
+    };
+  }, []);
+
   return (
-    <footer className="site-footer">
+    <footer ref={footerRef} className="site-footer" id="footer">
       <div className="page-shell footer-grid">
         <div className="footer-brand">
           <a className="brand" href="#top" aria-label={t("nav.homeLabel")}>
