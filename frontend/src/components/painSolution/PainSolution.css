@@ -62,21 +62,17 @@
   background: #ffffff;
   border-radius: 24px;
   border: 1px solid rgba(23, 34, 31, 0.08);
-  box-shadow:
-    0 20px 48px -12px rgba(23, 34, 31, 0.10),
-    0 4px 14px rgba(23, 34, 31, 0.03);
+  box-shadow: none;
   overflow: hidden;
   box-sizing: border-box;
   max-width: 960px;
   width: 100%;
   margin: 0 auto;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .pain-stack-card:hover {
-  box-shadow:
-    0 28px 60px -12px rgba(23, 34, 31, 0.15),
-    0 6px 18px rgba(23, 34, 31, 0.04);
+  box-shadow: none;
 }
 
 /* ── Top Accent Line ── */
@@ -284,8 +280,8 @@
   border-radius: 14px;
   background: #ffffff;
   border: 1px solid rgba(23, 34, 31, 0.07);
-  box-shadow: 0 2px 8px rgba(23, 34, 31, 0.03);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: none;
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .pain-stack-solution-card.online {
@@ -300,7 +296,7 @@
 
 .pain-stack-solution-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(23, 34, 31, 0.06);
+  box-shadow: none;
 }
 
 .solution-badge-pill {

@@ -126,7 +126,9 @@ export default function ContactStory() {
               className="contact-ios-cta-btn"
               onClick={openForm}
             >
-              <span className="contact-ios-cta-icon" aria-hidden="true">📋</span>
+              <span className="contact-ios-cta-icon" aria-hidden="true">
+                <img src="/report.png" alt="" width="20" height="20" loading="lazy" />
+              </span>
               <span className="contact-ios-cta-label">
                 {t("contactStory.ctaBtn")}
               </span>
@@ -136,14 +138,30 @@ export default function ContactStory() {
 
           {/* Direct phone & email row */}
           <div className="contact-ios-direct-links">
-            <a href="tel:+61431679731" className="contact-direct-chip">
-              <span className="direct-chip-icon" aria-hidden="true">📞</span>
-              <span>{t("contactStory.hotlineLabel")}: <strong>+61 431 679 731</strong></span>
+            <a
+              href="tel:+61431679731"
+              className="contact-direct-chip"
+              aria-label={`${t("contactStory.hotlineLabel")}: +61 431 679 731`}
+            >
+              <span className="direct-chip-icon" aria-hidden="true">
+                <img src="/receiver.png" alt="" width="18" height="18" loading="lazy" />
+              </span>
+              <span className="direct-chip-text">
+                {t("contactStory.hotlineLabel")}: <strong>+61 431 679 731</strong>
+              </span>
             </a>
             <span className="contact-direct-divider">·</span>
-            <a href="mailto:admin@vkdigitalhub.com.au" className="contact-direct-chip">
-              <span className="direct-chip-icon" aria-hidden="true">✉️</span>
-              <span>{t("contactStory.emailLabel")}: <strong>admin@vkdigitalhub.com.au</strong></span>
+            <a
+              href="mailto:admin@vkdigitalhub.com.au"
+              className="contact-direct-chip"
+              aria-label={`${t("contactStory.emailLabel")}: admin@vkdigitalhub.com.au`}
+            >
+              <span className="direct-chip-icon" aria-hidden="true">
+                <img src="/gmail.png" alt="" width="18" height="18" loading="lazy" />
+              </span>
+              <span className="direct-chip-text">
+                {t("contactStory.emailLabel")}: <strong>admin@vkdigitalhub.com.au</strong>
+              </span>
             </a>
           </div>
         </div>

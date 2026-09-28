@@ -72,17 +72,7 @@
   letter-spacing: 0.02em;
   cursor: pointer;
   box-shadow: 0 10px 24px rgba(15, 118, 110, 0.28);
-  transform: translate3d(var(--tx, 0px), var(--ty, 0px), 0);
-  will-change: transform;
   transition:
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    background 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.lead-form-submit.is-magnetic {
-  transition:
-    transform 0.1s cubic-bezier(0.25, 1, 0.5, 1),
     background 0.2s ease,
     box-shadow 0.2s ease;
 }

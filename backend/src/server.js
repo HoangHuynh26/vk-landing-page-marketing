@@ -4,12 +4,26 @@ const leadRouter = require("./router/leadRouter");
 
 const app = express();
 const port = Number(process.env.PORT) || 5000;
-const allowedOrigin = process.env.FRONTEND_ORIGIN || "http://localhost:3000";
-f50ad871b32ae27d0f15834f9c2efb236b5d6627
+const configuredOrigin = process.env.FRONTEND_ORIGIN || "http://localhost:3000";
+const allowedOrigins = [
+  ...configuredOrigin.split(",").map((s) => s.trim()),
+  "http://localhost:3001",
+  "http://127.0.0.1:3000",
+];
 const requestLog = new Map();
 
 app.disable("x-powered-by");
-app.use(cors({ origin: allowedOrigin }));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps, curl, or Postman)
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(null, false);
+    },
+  }),
+);
 app.use(express.json({ limit: "10kb" }));
 
 app.use("/api/leads", (req, res, next) => {

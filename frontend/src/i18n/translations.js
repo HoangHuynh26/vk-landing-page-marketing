@@ -75,19 +75,19 @@ export const translations = {
             'Mini event offline kết hợp quảng cáo địa phương: "Ngày hội làm đẹp – Nhận voucher 50% khi đăng ký tại quầy." Phát voucher tại chợ, trung tâm thương mại ở Perth, Joondalup, Mandurah.',
         },
         {
-          title: "Tiệm đẹp nhưng ít người biết",
-          pain: "Bạn muốn xây thương hiệu nhưng không biết bắt đầu từ đâu, khách mới đến rồi đi không quay lại.",
-          online:
-            "Nội dung hấp dẫn trên Instagram/TikTok + Email/SMS marketing tự động nhắc lịch, gửi ưu đãi sinh nhật, khuyến mãi theo mùa.",
-          offline: "\"Nail Art Challenge\" offline + livestream: Tặng voucher free cho 3 người thắng. Voucher sinh nhật (tặng 1 dịch vụ miễn phí). Chương trình giới thiệu bạn bè: Cả 2 được tặng voucher $20. Gói quà tặng lễ (Mother's Day, Christmas): Gift card + hoa/socola. Happy Hour giờ thấp điểm: Giảm 20% để kéo khách vào giờ vắng.",
-        },
-        {
           title: "Không có thời gian làm marketing",
           pain: "Bạn mất hàng giờ trả lời tin nhắn, tư vấn lịch hẹn nhưng khách vẫn không chốt.",
           online:
             "Hệ thống tin nhắn tự động + quy trình chốt lịch hẹn thông minh, giải phóng 5–7 giờ/tuần.",
           offline:
             'Voucher giấy khi đặt lịch online: "Giảm 10% lần sau" kèm QR code. Thẻ thành viên ưu đãi cho khách quen.',
+        },
+        {
+          title: "Tiệm đẹp nhưng ít người biết",
+          pain: "Bạn muốn xây thương hiệu nhưng không biết bắt đầu từ đâu, khách mới đến rồi đi không quay lại.",
+          online:
+            "Nội dung hấp dẫn trên Instagram/TikTok + Email/SMS marketing tự động nhắc lịch, gửi ưu đãi sinh nhật, khuyến mãi theo mùa.",
+          offline: "\"Nail Art Challenge\" offline + livestream: Tặng voucher free cho 3 người thắng. Voucher sinh nhật (tặng 1 dịch vụ miễn phí). Chương trình giới thiệu bạn bè: Cả 2 được tặng voucher $20. Gói quà tặng lễ (Mother's Day, Christmas): Gift card + hoa/socola. Happy Hour giờ thấp điểm: Giảm 20% để kéo khách vào giờ vắng.",
         },
       ],
     },
@@ -295,28 +295,53 @@ export const translations = {
         {
           question: "Tôi không rành về công nghệ, tôi có dùng được không?",
           answer:
-            "Hoàn toàn có. Chúng tôi thiết kế mọi thứ đơn giản, bạn chỉ cần tập trung vào việc làm nails và chăm sóc khách hàng. Chúng tôi lo phần kỹ thuật.",
+            "Hoàn toàn có thể. Chúng tôi thiết kế toàn bộ hệ thống theo tiêu chí 'không chạm kỹ thuật' dành riêng cho các chủ tiệm nail và làm đẹp. Bạn chỉ cần tập trung vào chuyên môn làm móng và chăm sóc khách hàng. Toàn bộ quy trình cài đặt, kết nối phễu và tối ưu hóa hệ thống đều do đội ngũ kỹ thuật của VK Digital Hub đảm nhiệm từ A đến Z. Ngoài ra, bạn sẽ được hướng dẫn trực tiếp 1-1 bằng tiếng Việt kèm tài liệu video ngắn gọn—mỗi ngày bạn chỉ cần mở điện thoại kiểm tra thông báo lịch hẹn mới và đón khách.",
         },
         {
-          question: "Chi phí bao nhiêu và có cam kết gì về hiệu quả không?",
+          question: "Chi phí dịch vụ là bao nhiêu và có cam kết gì về hiệu quả không?",
           answer:
-            "Chúng tôi có các gói linh hoạt. Điểm mạnh là cam kết hoàn tiền 100% nếu sau 60 ngày bạn không thấy tăng ít nhất 50% lượng khách mới.",
+            "Chúng tôi cung cấp các gói dịch vụ linh hoạt, minh bạch và hoàn toàn không có chi phí ẩn phát sinh. Đặc biệt, chúng tôi khẳng định chất lượng bằng cam kết bằng văn bản: Hoàn tiền 100% nếu sau 60 ngày triển khai mà salon của bạn không tăng thêm ít nhất 30 đến 50 lịch hẹn khách mới chất lượng cao. Từng đồng ngân sách tiếp thị đều được theo dõi chặt chẽ và báo cáo minh bạch nhằm tối đa hóa tỷ suất sinh lời (ROI) cho tiệm của bạn.",
         },
         {
-          question: "So với việc tôi tự chạy quảng cáo thì khác gì?",
+          question: "Giải pháp này khác gì so với việc tôi tự chạy quảng cáo trên Facebook/Google?",
           answer:
-            "Bạn tự làm mất rất nhiều thời gian, dễ đốt tiền vì thiếu kinh nghiệm. Chúng tôi làm chiến lược tổng thể, tối ưu từng đồng, giúp bạn tiết kiệm thời gian và tiền bạc.",
+            "Khi tự chạy quảng cáo, hầu hết chủ tiệm tốn rất nhiều thời gian, dễ bị khóa tài khoản quảng cáo hoặc đốt tiền vào tệp khách vãng lai, ham giá rẻ mà không bao giờ quay lại. VK Digital Hub xây dựng cho bạn một cỗ máy thu hút khách hàng toàn diện: từ tối ưu SEO Google Maps (Google Business Profile) để đứng top tìm kiếm quanh vùng, thiết kế nội dung video/hình ảnh chuẩn thị hiếu bản địa Úc, cho đến hệ thống phễu lọc khách chịu chi và kịch bản remarketing giữ chân khách cũ tái sử dụng dịch vụ đều đặn.",
         },
         {
           question:
-            "Tôi ở Tây Úc (Perth, Mandurah…) – các bạn có hỗ trợ được không?",
+            "Tiệm của tôi ở bang Tây Úc (Perth, Mandurah…) hoặc các bang khác thì các bạn có hỗ trợ được không?",
           answer:
-            "Có, chúng tôi hỗ trợ online toàn nước Úc, đặc biệt am hiểu thị trường Tây Úc. Mọi cuộc họp đều qua Zoom/Google Meet và hỗ trợ 24/7.",
+            "Có, chúng tôi phục vụ các salon trên toàn nước Úc (bao gồm Perth, Sydney, Melbourne, Brisbane, Adelaide...) và đặc biệt sở hữu sự am hiểu sâu sắc về thói quen tiêu dùng bản địa tại bang Tây Úc (WA). Mọi buổi tư vấn và báo cáo chiến lược đều được tổ chức thuận tiện qua Zoom/Google Meet. Bên cạnh đó, bạn luôn có kênh hỗ trợ riêng qua Zalo, điện thoại và email hoạt động 24/7 theo đúng múi giờ làm việc của tiệm bạn.",
         },
         {
-          question: "Sau khi áp dụng, tôi được hỗ trợ gì?",
+          question: "Sau khi hệ thống đi vào hoạt động, tôi sẽ nhận được sự hỗ trợ ra sao?",
           answer:
-            "Bạn có Account Manager riêng, luôn sẵn sàng giải đáp thắc mắc và điều chỉnh chiến dịch kịp thời. Chúng tôi đồng hành dài hạn với bạn.",
+            "Mỗi salon sẽ được đồng hành bởi một chuyên viên Account Manager chuyên trách cùng đội ngũ kỹ thuật giám sát chỉ số hàng tuần. Chúng tôi gửi báo cáo hiệu quả định kỳ rõ ràng, liên tục thử nghiệm các mẫu thông điệp và chương trình ưu đãi mới theo mùa lễ hội (Christmas, Tết, Mother's Day...), đồng thời chủ động tư vấn chiến lược upsell các gói dịch vụ cao cấp nhằm tối ưu doanh thu bền vững cho bạn.",
+        },
+        {
+          question: "Mất bao lâu để hệ thống bắt đầu mang lại lượng khách hàng mới cho tiệm?",
+          answer:
+            "Thông thường, ngay sau khi hoàn tất quy trình thiết lập và kích hoạt chiến dịch (chỉ từ 3 đến 5 ngày làm việc), tiệm của bạn đã có thể bắt đầu ghi nhận những lượt tương tác và đặt lịch hẹn đầu tiên. Trong khoảng 2 đến 4 tuần tiếp theo, các thuật toán máy học và dữ liệu hành vi khách hàng địa phương sẽ được tối ưu sâu, giúp lượng đặt hẹn tăng trưởng ổn định và chi phí tìm kiếm mỗi khách hàng giảm dần theo thời gian.",
+        },
+        {
+          question: "Tiệm tôi đã có sẵn Website và Fanpage Facebook/Instagram, VK Digital Hub có tích hợp được không?",
+          answer:
+            "Hoàn toàn được. Bạn không cần phải xây dựng lại từ đầu hay từ bỏ các trang mạng xã hội hiện tại. Các kỹ sư của chúng tôi sẽ đánh giá tổng thể hiện trạng Fanpage, tài khoản Instagram, Google Maps và website sẵn có của bạn; sau đó cài đặt mã đo lường chuyển đổi, tối ưu giao diện đặt hẹn trên điện thoại và đồng bộ hệ thống vào hạ tầng sẵn có mà không gây gián đoạn bất kỳ hoạt động kinh doanh thường nhật nào.",
+        },
+        {
+          question: "Khách hàng đặt lịch hẹn có chắc chắn đến không, làm sao để hạn chế tình trạng khách 'bỏ bom' (no-show)?",
+          answer:
+            "Vấn đề 'no-show' là trăn trở lớn nhất của nhiều chủ tiệm, và chúng tôi xử lý triệt để bằng hệ thống xác nhận và nhắc hẹn tự động đa kênh (SMS & Email Automation). Khách hàng sẽ nhận được tin nhắn nhắc lịch kèm đường dẫn xác nhận trước 24 giờ và trước 2 giờ kèm điều khoản giữ chỗ rõ ràng. Quy trình này giúp hạ tỷ lệ vắng mặt xuống dưới 5%, đồng thời cho phép khách linh hoạt dời lịch sớm nếu có việc bận thay vì hủy ngang không báo trước.",
+        },
+        {
+          question: "Dữ liệu danh sách khách hàng và thông tin doanh nghiệp của tiệm tôi có được bảo mật không?",
+          answer:
+            "100% dữ liệu khách hàng (bao gồm họ tên, số điện thoại, email, lịch sử đặt hẹn và doanh thu) hoàn toàn thuộc quyền sở hữu riêng biệt của tiệm bạn. Chúng tôi tuân thủ nghiêm ngặt theo các tiêu chuẩn của Đạo luật Quyền riêng tư Úc (Australian Privacy Act). Toàn bộ dữ liệu được mã hóa đa tầng trên máy chủ bảo mật cao, tuyệt đối không tiết lộ cho bên thứ ba và bạn có toàn quyền trích xuất hoặc xóa bỏ bất cứ lúc nào.",
+        },
+        {
+          question: "Làm thế nào để tôi bắt đầu và quy trình hợp tác diễn ra như thế nào?",
+          answer:
+            "Quy trình bắt đầu rất đơn giản và hoàn toàn miễn phí. Bạn chỉ cần điền biểu mẫu 'Nhận bản đánh giá marketing miễn phí' trên trang web hoặc liên hệ trực tiếp qua số hotline của chúng tôi. Trong vòng 24 giờ làm việc, đội ngũ chuyên gia sẽ gửi bạn bản phân tích chi tiết về đối thủ cùng 5 cơ hội tăng trưởng tức thì quanh khu vực tiệm, sau đó cùng bạn trao đổi giải pháp phù hợp nhất trước khi quyết định ký kết hợp tác.",
         },
       ],
     },
@@ -560,16 +585,16 @@ export const translations = {
             "A small-scale offline event combined with local promotion: \"Beauty Day – Get a 50% off voucher by signing up at the booth.\" Vouchers will be distributed at markets and shopping centers in Perth, Joondalup, and Mandurah.",
         },
         {
-          title: "A beautiful salon with low awareness",
-          pain: "You want to build a brand but don't know where to start, and new customers come and go without returning.",
-          online: "Engaging Instagram/TikTok content + automated email/SMS marketing for appointment reminders, birthday offers, and seasonal promotions.",
-          offline: "\"Nail Art Challenge\" (in-person & livestream): Free service vouchers for the 3 winners. Birthday voucher (one complimentary service). Refer-a-friend program: Both parties receive a $20 voucher. Holiday gift packages (Mother's Day, Christmas): Gift card plus flowers or chocolates. Off-peak Happy Hour: 20% discount to attract customers during quiet periods.",
-        },
-        {
           title: "No time for marketing",
           pain: "You spend hours replying to messages and discussing appointments, yet customers still don't commit.",
           online: "Automated messaging system + smart appointment scheduling process, freeing up 5–7 hours per week.",
           offline: "Paper voucher for online bookings: \"10% off your next visit\" with a QR code. Membership card offering perks for regular customers.",
+        },
+        {
+          title: "A beautiful salon with low awareness",
+          pain: "You want to build a brand but don't know where to start, and new customers come and go without returning.",
+          online: "Engaging Instagram/TikTok content + automated email/SMS marketing for appointment reminders, birthday offers, and seasonal promotions.",
+          offline: "\"Nail Art Challenge\" (in-person & livestream): Free service vouchers for the 3 winners. Birthday voucher (one complimentary service). Refer-a-friend program: Both parties receive a $20 voucher. Holiday gift packages (Mother's Day, Christmas): Gift card plus flowers or chocolates. Off-peak Happy Hour: 20% discount to attract customers during quiet periods.",
         },
       ],
     },
@@ -777,28 +802,53 @@ export const translations = {
         {
           question: "I am not tech-savvy. Can I still use this?",
           answer:
-            "Absolutely. We keep everything simple so you can focus on doing nails and caring for clients. We handle the technical side.",
+            "Absolutely. We designed our entire system to be completely 'hands-off' for salon owners. You only need to focus on what you do best: delivering beautiful nails and outstanding customer care. Our dedicated technical specialists handle all setup, funnel architecture, and campaign optimizations from A to Z. You will also receive personalized 1-on-1 onboarding in English or Vietnamese with bite-sized video guides—all you need to do is open your phone, review incoming confirmed appointments, and welcome your clients.",
         },
         {
-          question: "How much does it cost, and is there a results guarantee?",
+          question: "How much does the service cost, and is there a performance guarantee?",
           answer:
-            "We offer flexible packages. Our promise is a 100% refund if, after 60 days, you do not see at least a 50% increase in new clients.",
+            "We offer transparent, flexible packages tailored specifically to your salon's stage and scale, with absolutely zero hidden charges. More importantly, we back our service with an unconditional written commitment: a 100% full money-back guarantee if, after 60 days, your salon does not gain at least 30 to 50 confirmed, high-value new client bookings. Every single dollar of your marketing investment is tracked down to the cent, ensuring complete clarity and a maximum return on investment.",
         },
         {
-          question: "How is this different from running ads myself?",
+          question: "How is this different from running Facebook or Google ads myself?",
           answer:
-            "Doing it yourself takes time and can waste budget without the right experience. We build the overall strategy and optimize every dollar, saving you time and money.",
+            "DIY advertising usually consumes hours of your precious personal time and often leads to restricted ad accounts or wasted budget on low-ticket deal hunters who never return. VK Digital Hub constructs a comprehensive local client acquisition engine for you: from local Google Maps SEO (Google Business Profile) domination to attract high-intent local searches, to high-converting localized creative assets and smart retention workflows that turn first-time visitors into high-paying, loyal regulars.",
         },
         {
           question:
-            "I am in Western Australia (Perth, Mandurah...). Can you support me?",
+            "My salon is based in Western Australia (Perth, Mandurah...) or interstate—can you support us?",
           answer:
-            "Yes. We support salons online across Australia and understand Western Australian markets especially well. Meetings are through Zoom/Google Meet with 24/7 support.",
+            "Yes, absolutely. We partner with beauty and nail salons across all of Australia (including Perth, Sydney, Melbourne, Brisbane, and Adelaide), with specialized localized expertise in Western Australian (WA) consumer behaviors and competitive landscapes. Consultations and regular strategy check-ins are conducted effortlessly via Zoom or Google Meet. Furthermore, you receive dedicated phone, email, and instant messaging support 24/7 perfectly synchronized with your operating hours.",
         },
         {
-          question: "What support do I receive after getting started?",
+          question: "What ongoing support and reporting will I receive after launch?",
           answer:
-            "You receive a dedicated Account Manager who answers questions and adjusts campaigns promptly. We are here for the long term.",
+            "Every partner salon is assigned a dedicated Account Manager alongside a technical team monitoring campaign metrics every single week. You will receive transparent, easy-to-read monthly performance reports, regular A/B testing of seasonal offers (such as Christmas, Mother's Day, and holiday specials), and proactive coaching on premium service upselling and client retention tactics to ensure compounding revenue growth over time.",
+        },
+        {
+          question: "How quickly can we expect to see new bookings coming through the system?",
+          answer:
+            "Typically, within just 3 to 5 business days after your custom setup is finalized and the campaigns go live, your salon will begin receiving its first direct inquiries and bookings. Over the subsequent 2 to 4 weeks, machine learning algorithms and local market search signals continuously refine targeting toward your ideal local clientele, systematically increasing booking volume while driving down your client acquisition cost.",
+        },
+        {
+          question: "We already have an active website and social media profiles—can you integrate with them?",
+          answer:
+            "Definitely. You never have to start from scratch or abandon your current digital presence. Our technical team conducts an in-depth audit of your existing Facebook/Instagram pages, Google Business Profile, and website. We then install conversion tracking, optimize your mobile booking experience, and integrate automated appointment capture funnels directly into your current setup without disrupting day-to-day salon workflow.",
+        },
+        {
+          question: "Are booked appointments reliable, and how do you prevent no-shows?",
+          answer:
+            "No-shows and last-minute cancellations are a major issue for salon profitability, and we solve this at the root through multi-channel automated confirmations and smart reminders via SMS and email. Clients receive courteous reminder notifications 24 hours and 2 hours prior to their appointment, complete with clear reservation guidelines. This reliable flow cuts no-show rates below 5% and empowers clients to reschedule in advance rather than simply not turning up.",
+        },
+        {
+          question: "Is my customer database and salon business data kept secure and confidential?",
+          answer:
+            "100% of your customer records, phone numbers, booking logs, and revenue metrics remain your sole, exclusive intellectual property. We rigorously adhere to the Australian Privacy Act guidelines and modern data protection protocols. Your data is encrypted and hosted on secure enterprise-grade cloud servers, is never disclosed to any external third party, and can be exported by you at any moment upon request.",
+        },
+        {
+          question: "How do I get started, and what is the onboarding roadmap?",
+          answer:
+            "Getting started is effortless, risk-free, and takes less than a minute. Simply submit the 'Free Marketing Assessment' form on our website or call our hotline directly. Within 24 business hours, our strategy team will produce a comprehensive local competitor and market analysis highlighting 5 immediate growth opportunities around your salon, followed by a 1-on-1 consultation to walk you through the optimal strategy before deciding to proceed.",
         },
       ],
     },

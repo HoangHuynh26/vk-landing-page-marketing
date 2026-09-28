@@ -286,23 +286,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 14px 28px;
+  gap: 12px;
+  padding: 12px 28px;
   border-radius: 999px;
-  border: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: #ffffff;
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.02em;
   cursor: pointer;
   box-shadow: 0 10px 24px rgba(15, 118, 110, 0.28);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
 }
 
 .contact-ios-cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(15, 118, 110, 0.38);
+  box-shadow: 0 14px 32px rgba(15, 118, 110, 0.38);
   background: linear-gradient(135deg, #13857d 0%, #0d524e 100%);
 }
 
@@ -311,10 +312,39 @@
 }
 
 .contact-ios-cta-icon {
-  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 4px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+}
+
+.contact-ios-cta-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.contact-ios-cta-btn:hover .contact-ios-cta-icon {
+  transform: scale(1.1) rotate(-6deg);
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.contact-ios-cta-label {
+  display: inline-block;
+  line-height: 1.2;
 }
 
 .contact-ios-cta-arrow {
+  font-size: 14px;
   transition: transform 0.2s ease;
 }
 
@@ -329,33 +359,79 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
-  font-size: 13px;
+  font-size: 13.5px;
 }
 
 .contact-direct-chip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 9px;
   color: var(--dark);
   text-decoration: none;
-  padding: 5px 12px;
-  border-radius: 8px;
-  background: rgba(23, 34, 31, 0.04);
-  transition: all 0.2s ease;
+  padding: 7px 14px;
+  border-radius: 12px;
+  background: rgba(23, 34, 31, 0.035);
+  border: 1px solid rgba(23, 34, 31, 0.08);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
 .contact-direct-chip:hover {
-  background: rgba(15, 118, 110, 0.1);
+  background: rgba(15, 118, 110, 0.08);
+  border-color: rgba(15, 118, 110, 0.25);
   color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.1);
+}
+
+.contact-direct-chip:active {
+  transform: scale(0.98);
+}
+
+.direct-chip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: #ffffff;
+  border: 1px solid rgba(23, 34, 31, 0.07);
+  box-shadow: 0 1px 3px rgba(23, 34, 31, 0.07);
+  padding: 3.5px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.direct-chip-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.contact-direct-chip:hover .direct-chip-icon {
+  transform: scale(1.08);
+  box-shadow: 0 2px 6px rgba(15, 118, 110, 0.18);
+}
+
+.direct-chip-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1.35;
 }
 
 .contact-direct-chip strong {
   color: var(--primary-dark);
+  font-weight: 700;
 }
 
 .contact-direct-divider {
   color: var(--muted);
-  opacity: 0.5;
+  opacity: 0.45;
+  user-select: none;
 }
 
 @media (max-width: 680px) {
@@ -371,16 +447,81 @@
     font-size: 13.5px;
     padding: 11px 14px;
   }
+  .contact-ios-action-box {
+    padding: 20px 14px;
+    gap: 14px;
+  }
   .contact-ios-cta-btn {
     width: 100%;
-    padding: 14px 16px;
-    font-size: 13.5px;
+    padding: 13px 18px;
+    font-size: 14px;
+    gap: 10px;
+  }
+  .contact-ios-cta-icon {
+    width: 24px;
+    height: 24px;
+    padding: 3.5px;
   }
   .contact-ios-direct-links {
     flex-direction: column;
-    gap: 8px;
+    width: 100%;
+    gap: 9px;
   }
   .contact-direct-divider {
     display: none;
+  }
+  .contact-direct-chip {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 14px;
+    font-size: 13px;
+    border-radius: 11px;
+    min-height: 44px;
+  }
+  .direct-chip-icon {
+    width: 22px;
+    height: 22px;
+    padding: 3px;
+  }
+  .direct-chip-text {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-story-title {
+    font-size: 22px;
+  }
+  .contact-ios-action-prompt {
+    font-size: 13.5px;
+  }
+  .contact-ios-cta-btn {
+    font-size: 13px;
+    padding: 12px 14px;
+    gap: 8px;
+  }
+  .contact-ios-cta-icon {
+    width: 22px;
+    height: 22px;
+    padding: 3px;
+  }
+  .contact-direct-chip {
+    padding: 9px 10px;
+    font-size: 12px;
+    gap: 7px;
+  }
+  .direct-chip-icon {
+    width: 20px;
+    height: 20px;
+    padding: 2.5px;
+  }
+  .direct-chip-text {
+    font-size: 11.5px;
+    word-break: break-word;
+  }
+  .direct-chip-text strong {
+    word-break: break-all;
   }
 }

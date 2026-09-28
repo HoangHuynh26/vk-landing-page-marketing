@@ -3,8 +3,8 @@ import "./PainSolution.css";
 
 const cardImages = [
   "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=85&fm=webp",
-  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=85&fm=webp",
   "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=85&fm=webp",
+  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=85&fm=webp",
 ];
 
 const cardMeta = [
@@ -18,19 +18,19 @@ const cardMeta = [
     borderAccent: "rgba(15, 118, 110, 0.22)",
   },
   {
-    tagVi: "THƯƠNG HIỆU & GIỮ CHÂN KHÁCH VIP",
-    tagEn: "BRAND IDENTITY & VIP RETENTION",
-    badgeVi: "Định vị 5 sao · Khách tự giới thiệu",
-    badgeEn: "5-Star Reputation · VIP Referrals",
+    tagVi: "HỆ THỐNG VẬN HÀNH TỰ ĐỘNG",
+    tagEn: "AUTOMATED CRM & APPOINTMENTS",
+    badgeVi: "Giải phóng 5–7 giờ/tuần · Chốt lịch 24/7",
+    badgeEn: "Save 5–7h/week · 24/7 Booking Bot",
     color: "#c9974e",
     accentLight: "rgba(201, 151, 78, 0.09)",
     borderAccent: "rgba(201, 151, 78, 0.25)",
   },
   {
-    tagVi: "HỆ THỐNG VẬN HÀNH TỰ ĐỘNG",
-    tagEn: "AUTOMATED CRM & APPOINTMENTS",
-    badgeVi: "Giải phóng 5–7 giờ/tuần · Chốt lịch 24/7",
-    badgeEn: "Save 5–7h/week · 24/7 Booking Bot",
+    tagVi: "THƯƠNG HIỆU & GIỮ CHÂN KHÁCH VIP",
+    tagEn: "BRAND IDENTITY & VIP RETENTION",
+    badgeVi: "Định vị 5 sao · Khách tự giới thiệu",
+    badgeEn: "5-Star Reputation · VIP Referrals",
     color: "#d97757",
     accentLight: "rgba(217, 119, 87, 0.09)",
     borderAccent: "rgba(217, 119, 87, 0.24)",
@@ -77,7 +77,28 @@ const cardIcons = [
     <circle cx="18" cy="5" r="1.4" fill="currentColor" />
   </svg>,
 
-  // 2: Salon Branding / Luxury Sparkles & Diamond Presence
+  // 2: Marketing Automation / Smart Chronometer & Lightning Speed
+  <svg key="clock" viewBox="0 0 28 28" fill="none" className="pain-svg pain-svg--time">
+    <defs>
+      <linearGradient id="pain-grad-time" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.4" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.08" />
+      </linearGradient>
+    </defs>
+    <circle cx="13" cy="14.5" r="10.5" fill="url(#pain-grad-time)" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M13 8.5V14.5L17 16.5" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M22 2L16 9.5H21L18 15.5L25 7.5H20L22 2Z"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0.6"
+      strokeLinejoin="round"
+      className="pain-bolt"
+    />
+    <circle cx="13" cy="14.5" r="1.4" fill="currentColor" />
+  </svg>,
+
+  // 3: Salon Branding / Luxury Sparkles & Diamond Presence
   <svg key="sparkles" viewBox="0 0 28 28" fill="none" className="pain-svg pain-svg--salon">
     <defs>
       <linearGradient id="pain-grad-salon" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
@@ -103,27 +124,6 @@ const cardIcons = [
       fill="currentColor"
       className="pain-star-micro"
     />
-  </svg>,
-
-  // 3: Marketing Automation / Smart Chronometer & Lightning Speed
-  <svg key="clock" viewBox="0 0 28 28" fill="none" className="pain-svg pain-svg--time">
-    <defs>
-      <linearGradient id="pain-grad-time" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="currentColor" stopOpacity="0.4" />
-        <stop offset="100%" stopColor="currentColor" stopOpacity="0.08" />
-      </linearGradient>
-    </defs>
-    <circle cx="13" cy="14.5" r="10.5" fill="url(#pain-grad-time)" stroke="currentColor" strokeWidth="1.8" />
-    <path d="M13 8.5V14.5L17 16.5" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" />
-    <path
-      d="M22 2L16 9.5H21L18 15.5L25 7.5H20L22 2Z"
-      fill="currentColor"
-      stroke="currentColor"
-      strokeWidth="0.6"
-      strokeLinejoin="round"
-      className="pain-bolt"
-    />
-    <circle cx="13" cy="14.5" r="1.4" fill="currentColor" />
   </svg>,
 ];
 
